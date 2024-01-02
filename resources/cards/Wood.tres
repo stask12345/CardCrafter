@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://cwk188iu2qhb6"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_1bhpt"]
+
+[resource]
+script = ExtResource("1_1bhpt")
+cardName = "Wood"
+value = 3
+origin = 0
+handOrder = 2
+fuelPower = 10

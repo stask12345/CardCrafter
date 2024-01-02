@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://d0o63qnx7uiay"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_7draq"]
+
+[resource]
+script = ExtResource("1_7draq")
+cardName = "Coal"
+value = 5
+origin = 1
+handOrder = 5
+fuelPower = 20

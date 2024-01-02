@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://dvvu3iess8gql"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_8uhgc"]
+
+[resource]
+script = ExtResource("1_8uhgc")
+cardName = "Vine"
+value = 3
+orgin = 0
+handOrder = 3

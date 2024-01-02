@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="package" load_steps=6 format=3 uid="uid://c6bpcpnn3h1pt"]
+
+[ext_resource type="Script" path="res://scripts/package.gd" id="1_jukj6"]
+[ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Stick.tres" id="1_o5378"]
+[ext_resource type="Resource" uid="uid://cwk188iu2qhb6" path="res://resources/cards/Wood.tres" id="2_mlhyu"]
+[ext_resource type="Resource" uid="uid://dvvu3iess8gql" path="res://resources/cards/Vine.tres" id="3_jojao"]
+[ext_resource type="Resource" uid="uid://cgw7sfhxij3rj" path="res://resources/cards/Rock.tres" id="4_m4woh"]
+
+[resource]
+script = ExtResource("1_jukj6")
+packageName = "Forest"
+cardCollection = Array[Resource("res://scripts/card.gd")]([ExtResource("1_o5378"), ExtResource("2_mlhyu"), ExtResource("3_jojao"), ExtResource("4_m4woh")])
+cardCollectionRare = Array[Resource("res://scripts/card.gd")]([])
+costMoney = 0
+costResources = Array[Resource("res://scripts/card.gd")]([])
+costResourcesQuantity = Array[int]([])
