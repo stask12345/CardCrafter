@@ -1,0 +1,11 @@
+
+
+
+
+[Zachowanie request fieldów]
+1. Gdy karta jest dodana do request fielda, w lokacji jest wywoływana funkcja cardAdded()
+2. Gdy karta jest usunięta z request fielda, w lokacji jest wywoływana funkcja cardDeleted()
+3. Gdy field jest używany w celach magazynu z którego pobiera się karty, to powinnien mieć atrybut magazineSlot
+4. Karta wysyłana z magazynu, musi mieć atrybut goingToFinishGoal
+5. Karta z takim atrybutem, uruchomi cardArrivedAtGoal w request fieldzie.
+6. Request field uruchamia daną funkcję w parentArea.
