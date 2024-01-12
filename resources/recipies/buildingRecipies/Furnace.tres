@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=8 format=3 uid="uid://0wqnb7a5xfrp"]
+
+[ext_resource type="Resource" uid="uid://8nu3fi0k2514" path="res://resources/cards/Forest/FirePlace.tres" id="1_5ywna"]
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_ha10s"]
+[ext_resource type="PackedScene" uid="uid://b1rc0qkfr8gbi" path="res://objects/Furnace.tscn" id="1_p8pko"]
+[ext_resource type="Texture2D" uid="uid://bj7hu2xake43s" path="res://graphics/tengrai_image_1704477496_5350497.webp" id="1_xassk"]
+[ext_resource type="Resource" uid="uid://cwk188iu2qhb6" path="res://resources/cards/Forest/Wood.tres" id="2_mcy37"]
+[ext_resource type="Resource" uid="uid://cgw7sfhxij3rj" path="res://resources/cards/Forest/Rock.tres" id="3_vrjcj"]
+[ext_resource type="Resource" uid="uid://ddbkctpm3c3mv" path="res://resources/cards/Forest/Vase.tres" id="5_swa8q"]
+
+[resource]
+script = ExtResource("1_ha10s")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("1_5ywna"), ExtResource("2_mcy37"), ExtResource("3_vrjcj"), ExtResource("5_swa8q")])
+quantity = Array[int]([2, 3, 3, 1])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+recipyName = "Funace"
+recipyCustomImage = ExtResource("1_xassk")
+customOutputObject = ExtResource("1_p8pko")

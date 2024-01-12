@@ -1,23 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkctt6itl54wc"]
+[gd_scene load_steps=3 format=3 uid="uid://bkctt6itl54wc"]
 
 [ext_resource type="Script" path="res://scripts/requestingSlot.gd" id="1_bdp2q"]
+[ext_resource type="Texture2D" uid="uid://ck21u2l4mwgux" path="res://graphics/Bez nazwy.webp" id="2_l7m5m"]
 
-[node name="requestingSlot" type="Control" node_paths=PackedStringArray("parentArea") groups=["requesting"]]
+[node name="requestingSlot" type="Control" groups=["requesting"]]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 267.0
-offset_top = 365.0
-offset_right = 273.0
-offset_bottom = 371.0
+offset_right = 6.0
+offset_bottom = 6.0
 script = ExtResource("1_bdp2q")
-parentArea = NodePath("")
 cardLimit = 3
 ordering = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="TouchScreenButton" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = -101.0
-offset_top = -108.0
-offset_right = 108.0
-offset_bottom = 104.0
+position = Vector2(-70, -70)
+scale = Vector2(0.141602, 0.140625)
+texture_normal = ExtResource("2_l7m5m")

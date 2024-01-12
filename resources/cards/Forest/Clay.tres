@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://ccc45lyqd8jfl"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_vip2c"]
+
+[resource]
+script = ExtResource("1_vip2c")
+cardName = "Clay"
+value = 0
+origin = 0
+handOrder = 6
+fuelPower = 0
+fuelNeededInProduction = 0

@@ -5,12 +5,18 @@ class_name cardSlot
 @onready var cardHolder = get_node("/root/MainScene/CardHolder")
 var doubleClicked = false
 @onready var system = get_node("/root/MainScene")
+@export var placeholderCard : bool = false
 
 func _ready():
 	$Background/Item.texture = cardData.image
 	$Name.text = cardData.cardName
-	$Quantity.text = str(quantity)
-	$Button.connect("pressed",select)
+	
+	if $Name.text.length() > 7:
+		$Name.scale = Vector2(0.8,0.8)
+	
+	if !placeholderCard:
+		$Quantity.text = str(quantity)
+		$Button.connect("pressed",select)
 
 func increaseQuantity():
 	quantity += 1

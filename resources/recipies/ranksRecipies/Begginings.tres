@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=5 format=3 uid="uid://dr84tecxp46pv"]
+
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_ooths"]
+[ext_resource type="Resource" uid="uid://dy5k16puojpf2" path="res://resources/cards/Forest/Line.tres" id="1_tbbxk"]
+[ext_resource type="Resource" uid="uid://d3cw63j2o0sef" path="res://resources/cards/Forest/SharpenedStone.tres" id="2_8rf1g"]
+[ext_resource type="Resource" uid="uid://ceyva7lcopc5x" path="res://resources/cards/Forest/Fire.tres" id="3_exqwl"]
+
+[resource]
+script = ExtResource("1_ooths")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("1_tbbxk"), ExtResource("2_8rf1g"), ExtResource("3_exqwl")])
+quantity = Array[int]([1, 1, 1])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+recipyName = ""

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://c43v11wbcn3yo"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_if3wk"]
+[ext_resource type="Texture2D" uid="uid://bg77pvxurl0k" path="res://graphics/tengrai_image_1703589364_4173577.webp" id="1_qmsvh"]
+
+[resource]
+script = ExtResource("1_if3wk")
+cardName = "Stick"
+value = 1
+image = ExtResource("1_qmsvh")
+origin = 0
+handOrder = 0
+fuelPower = 5
+fuelNeededInProduction = 0

@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1rc0qkfr8gbi"]
+
+[ext_resource type="Script" path="res://scripts/Furnace.gd" id="1_fxc7p"]
+[ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/RequestingSlot.tscn" id="2_gmsdd"]
+[ext_resource type="Resource" uid="uid://b7i6wa55shalj" path="res://resources/cards/IronOre.tres" id="3_60lfh"]
+[ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Forest/Stick.tres" id="4_e2e7x"]
+[ext_resource type="Resource" uid="uid://cwk188iu2qhb6" path="res://resources/cards/Forest/Wood.tres" id="5_6bvwd"]
+[ext_resource type="Resource" uid="uid://d0o63qnx7uiay" path="res://resources/cards/Coal.tres" id="6_hi8j1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5d5qu"]
+font_size = 22
+font_color = Color(0.976471, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4tjki"]
+font_size = 22
+font_color = Color(0.976471, 1, 1, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Furnace" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fxc7p")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 108.0
+offset_right = 469.0
+offset_bottom = 693.0
+color = Color(0.431373, 0.631373, 1, 0.443137)
+
+[node name="requestingSlot" parent="." instance=ExtResource("2_gmsdd")]
+offset_left = 262.0
+offset_top = 254.0
+offset_right = 268.0
+offset_bottom = 260.0
+cardLimit = 4
+ordering = 0
+whiteList = Array[Resource("res://scripts/card.gd")]([ExtResource("3_60lfh")])
+magazineStack = true
+
+[node name="requestingSlot2" parent="." instance=ExtResource("2_gmsdd")]
+offset_left = 258.0
+offset_top = 661.0
+offset_right = 264.0
+offset_bottom = 667.0
+cardLimit = 2
+ordering = 0
+whiteList = Array[Resource("res://scripts/card.gd")]([ExtResource("4_e2e7x"), ExtResource("5_6bvwd"), ExtResource("6_hi8j1")])
+eatingFuel = true
+
+[node name="FuelPower" type="Label" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 380.0
+offset_right = 420.0
+offset_bottom = 411.0
+text = "0"
+label_settings = SubResource("LabelSettings_5d5qu")
+
+[node name="BurningIndicator" type="Label" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 381.0
+offset_right = 158.0
+offset_bottom = 412.0
+text = "0"
+label_settings = SubResource("LabelSettings_4tjki")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1

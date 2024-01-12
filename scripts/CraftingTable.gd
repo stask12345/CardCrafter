@@ -12,7 +12,7 @@ func craft():
 	for r in availableRecipes:
 		if r.checkValidity(currentResources):
 			var intCard = r.returnOutputCard()
-			intCard.global_position = Vector2(260,575)
+			intCard.global_position = Vector2(260,550)
 			add_child(intCard)
 			intCard.toPick = true
 			rSlot.deleteAllCards()

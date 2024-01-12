@@ -8,6 +8,7 @@ enum cardOrdering {stack, exclusive}
 @export var whiteList : Array[card]
 @export var singularType : bool = false
 @export_group("special")
+@export var eatingCards : bool = false
 @export var eatingFuel : bool = false
 @export var magazineStack : bool = false #cards in magazine stacks, are being flown to other location from area parent
 
@@ -41,10 +42,11 @@ func addCard(c : interactiveCard):
 	add_child(c)
 	c.global_position = pos
 	
-	if !eatingFuel:
+	if !eatingCards:
+		c.addingToLocation = true
 		orderCards()
 	else:
-		c.goingToFuel = true
+		c.goingToFinishGoal = true
 		c.flyToPoint(global_position)
 
 
@@ -84,9 +86,24 @@ func deleteAllCards():
 			ch.queue_free()
 
 func cardArrivedAtGoal(c): #For furnace and magazine card piles. Fires when IC arrives at goal, e.g. furnace
-	if eatingFuel: #furnace
-		parentArea.addFuel(c.cardData.fuelPower)
+	if eatingCards: #furnace
+		parentArea.cardArrived(c)
 		c.queue_free()
+	else:
+		if eatingFuel:
+			parentArea.addFuel(c.cardData.fuelPower)
+			c.queue_free()
 	if magazineStack:
 		parentArea.cardArrived(c)
 		c.queue_free()
+
+func getHoldedCard():
+	var cards = []
+	for c in get_children():
+		if c is interactiveCard:
+			cards.append(c.cardData)
+	
+	if cards.size() == 1:
+		return cards[0]
+	else:
+		return cards

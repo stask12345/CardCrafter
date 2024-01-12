@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://bybrq4ywr5k2j"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_2gcd5"]
+
+[resource]
+script = ExtResource("1_2gcd5")
+cardName = "Rock Tool"
+value = 0
+origin = 0
+handOrder = 12
+fuelPower = 0
+fuelNeededInProduction = 0

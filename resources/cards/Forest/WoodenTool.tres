@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://dn6e1sal5cpwx"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_kq4xn"]
+
+[resource]
+script = ExtResource("1_kq4xn")
+cardName = "Wooden Part"
+value = 0
+origin = 0
+handOrder = 11
+fuelPower = 0
+fuelNeededInProduction = 0

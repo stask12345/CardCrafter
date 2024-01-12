@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://d0o63qnx7uiay"]
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://d0o63qnx7uiay"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_7draq"]
+[ext_resource type="Texture2D" uid="uid://be0isc3p0feyh" path="res://graphics/tengrai_image_1704480945_4765902.webp" id="1_ilksi"]
 
 [resource]
 script = ExtResource("1_7draq")
 cardName = "Coal"
 value = 5
+image = ExtResource("1_ilksi")
 origin = 1
 handOrder = 5
 fuelPower = 20
+fuelNeededInProduction = 0
