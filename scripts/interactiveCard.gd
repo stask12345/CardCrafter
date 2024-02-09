@@ -8,7 +8,8 @@ var goingToFinishGoal = false #if true, card after flyToPoint, will raise burnCa
 var flying = false
 
 func _ready():
-	$Background/Item.texture = cardData.image
+	if cardData.image:
+		$Center/Item.texture = cardData.image
 	$Name.text = cardData.cardName
 	$Button.connect("pressed",cardClicked)
 
@@ -24,10 +25,15 @@ func openPackageAnimation(centerPoint):
 	t.tween_callback(flyToHand)
 
 func flyToHand(fast = false):
+	print("hand")
 	flying = true
-	var t = create_tween()
-	t.set_trans(Tween.TRANS_QUINT)
-	t.set_ease(Tween.EASE_IN)
+	#var t = get_tree().create_tween()
+	#t.set_trans(Tween.TRANS_QUINT)
+	#t.set_ease(Tween.EASE_IN)
+	
+	flyTween = get_tree().create_tween()
+	flyTween.set_trans(Tween.TRANS_QUINT)
+	flyTween.set_ease(Tween.EASE_IN)
 	
 	var goalPoint = Vector2(global_position.x,810)
 	
@@ -35,28 +41,30 @@ func flyToHand(fast = false):
 	if !fast:
 		time = 0.7
 	else:
-		t.set_trans(Tween.TRANS_CUBIC)
+		flyTween.set_trans(Tween.TRANS_CUBIC)
 		time = 0.4
-	t.tween_property(self,"global_position",goalPoint, time)
-	t.parallel().tween_property(self,"scale",Vector2(0.6,0.6),time)
-	t.parallel().tween_property(self,"modulate",Color(1,1,1,0.5), time)
-	t.tween_callback(addCardToHand)
+	flyTween.tween_property(self,"global_position",goalPoint, time)
+	flyTween.parallel().tween_property(self,"scale",Vector2(0.6,0.5),time)
+	flyTween.parallel().tween_property(self,"modulate",Color(1,1,1,0.3), time)
+	flyTween.tween_callback(addCardToHand)
 
 var addingToLocation = false
+var flyTween : Tween = null
 func flyToPoint(goalPoint):
-	var t = get_tree().create_tween()
-	t.set_trans(Tween.TRANS_CUBIC)
-	t.set_ease(Tween.EASE_OUT)
+	print("fly")
+	flyTween = get_tree().create_tween()
+	flyTween.set_trans(Tween.TRANS_CUBIC)
+	flyTween.set_ease(Tween.EASE_OUT)
 	
-	t.tween_property(self,"global_position",goalPoint, 0.7)
-	t.tween_callback(func(): flying = false)
+	flyTween.tween_property(self,"global_position",goalPoint, 0.7)
+	flyTween.tween_callback(func(): flying = false)
 	if goingToFinishGoal:
-		t.tween_callback(func(): get_parent().cardArrivedAtGoal(self))
-	if addingToLocation:
+		flyTween.tween_callback(func(): get_parent().cardArrivedAtGoal(self))
+	if addingToLocation and get_parent():
 		flying = true
 		addingToLocation = false
-		t.tween_callback(func(): 
-			get_parent().parentArea.cardAdded())
+		flyTween.tween_callback(func(): 
+			get_parent().parentArea.cardAdded(self.cardData))
 
 func addCardToHand():
 	system.addCard(cardData)
@@ -80,3 +88,32 @@ func returnFromRequesting():
 		global_position = pos
 		reqParent.cardDeleted()
 		flyToHand(true)
+
+func cardDestroyerAnimation():
+	var t = get_tree().create_tween()
+	#t.set_trans(Tween.TRANS_CUBIC)
+	#t.set_ease(Tween.EASE_OUT)
+	
+	t.tween_property(self,"global_position:y", global_position.y + 150, 2.2)
+	t.tween_callback(endCardDestroyerAnimaction)
+	cardDestroyerAnimationRotation(1)
+
+func cardDestroyerAnimationRotation(direction):
+	var t = get_tree().create_tween()
+	t.set_trans(Tween.TRANS_CUBIC)
+	#t.set_ease(Tween.EASE_OUT)
+	
+	t.tween_property(self,"rotation_degrees", 0 + (5*direction), 0.3)
+	t.tween_callback(func(): cardDestroyerAnimationRotation(direction * -1))
+
+func endCardDestroyerAnimaction():
+	get_parent().parentArea.endAnimation(cardData)
+	queue_free()
+
+#func newCardAnimation():
+	#modulate.a = 0.3
+	#var t = get_tree().create_tween()
+	#t.set_trans(Tween.TRANS_QUINT)
+	#t.set_ease(Tween.EASE_IN)
+	#
+	#t.tween_property(self,"modulate:a",1,0.5)

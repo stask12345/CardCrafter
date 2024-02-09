@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://die6qr4iuv072"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_ej74y"]
+[ext_resource type="Texture2D" uid="uid://b5sno4vc4rrmo" path="res://graphics/cards/leaf2.png" id="1_f7aon"]
+
+[resource]
+script = ExtResource("1_ej74y")
+cardName = "Leaf"
+value = 1
+image = ExtResource("1_f7aon")
+origin = 0
+handOrder = 2
+fuelPower = 0
+fuelNeededInProduction = 0
+processingPowerNeeded = 0

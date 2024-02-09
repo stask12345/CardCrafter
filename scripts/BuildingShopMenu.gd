@@ -12,7 +12,7 @@ func _ready():
 func updateBuildingShopList():
 	var rank = system.rank
 	
-	if rank >= 2:
+	if rank >= 1:
 		if !builded.has(buildingRecipies[0]) and !onBuildingList.has(buildingRecipies[0]):
 			addNewListItem(buildingRecipies[0])
 			onBuildingList.append(buildingRecipies[0])

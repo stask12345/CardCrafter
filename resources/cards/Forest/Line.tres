@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://dy5k16puojpf2"]
 
-[ext_resource type="Texture2D" uid="uid://31jdt1k4op6m" path="res://graphics/tengrai_image_1704476869_38046.webp" id="1_f6xi1"]
+[ext_resource type="Texture2D" uid="uid://31jdt1k4op6m" path="res://graphics/cards/tengrai_image_1704476869_38046.webp" id="1_f6xi1"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="2_hi7kj"]
 
 [resource]
@@ -9,6 +9,6 @@ cardName = "Line"
 value = 5
 image = ExtResource("1_f6xi1")
 origin = 0
-handOrder = 5
+handOrder = 6
 fuelPower = 0
 fuelNeededInProduction = 0

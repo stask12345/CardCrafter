@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=3 format=3 uid="uid://bby6fjofehky0"]
+
+[ext_resource type="Resource" uid="uid://cgw7sfhxij3rj" path="res://resources/cards/Forest/package/Rock.tres" id="1_5106b"]
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_j7u6o"]
+
+[resource]
+script = ExtResource("1_j7u6o")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("1_5106b")])
+quantity = Array[int]([2])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+recipyName = ""

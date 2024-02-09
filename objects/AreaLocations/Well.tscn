@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3q5y2vr6ap4g"]
+
+[ext_resource type="Script" path="res://scripts/Well.gd" id="1_tqahe"]
+[ext_resource type="Script" path="res://scripts/WellHandle.gd" id="2_4j04r"]
+[ext_resource type="Texture2D" uid="uid://b2qxnwpn80y4o" path="res://icon.svg" id="3_vt3r0"]
+[ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/Utility/RequestingSlot.tscn" id="4_1t5pq"]
+[ext_resource type="Resource" uid="uid://ddbkctpm3c3mv" path="res://resources/cards/Forest/Vase.tres" id="5_r5tkl"]
+
+[node name="Well" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tqahe")
+
+[node name="WellHandle" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 441.0
+offset_top = 551.0
+offset_right = 481.0
+offset_bottom = 591.0
+script = ExtResource("2_4j04r")
+
+[node name="Icon" type="Sprite2D" parent="WellHandle"]
+position = Vector2(-1, -1)
+texture = ExtResource("3_vt3r0")
+
+[node name="Button" type="Button" parent="WellHandle/Icon"]
+offset_left = -63.0
+offset_top = -63.0
+offset_right = 63.0
+offset_bottom = 63.0
+
+[node name="Marker2D" type="Marker2D" parent="WellHandle"]
+
+[node name="requestingSlot" parent="." node_paths=PackedStringArray("parentArea") instance=ExtResource("4_1t5pq")]
+offset_left = 261.0
+offset_top = 452.0
+offset_right = 267.0
+offset_bottom = 458.0
+parentArea = NodePath("")
+cardLimit = 1
+ordering = 0
+whiteList = Array[Resource("res://scripts/card.gd")]([ExtResource("5_r5tkl")])
+eatingCards = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 505.0
+offset_right = 93.0
+offset_bottom = 528.0
+text = "1
+"
+
+[node name="LocationIndicator" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 262.0
+offset_top = 428.0
+offset_right = 302.0
+offset_bottom = 468.0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=5 format=3 uid="uid://bhldirtoqpph"]
+
+[ext_resource type="Resource" uid="uid://l8j6c4eyj8hs" path="res://resources/cards/Mine/IronPlate.tres" id="1_a7kr4"]
+[ext_resource type="Texture2D" uid="uid://cuw6epgxudr8m" path="res://graphics/tengrai_image_1704476869_6849911.webp" id="1_ae51y"]
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_kuutl"]
+[ext_resource type="Resource" uid="uid://dqpymncvd4b7o" path="res://resources/cards/Mine/IronBar.tres" id="2_uqrwn"]
+
+[resource]
+script = ExtResource("1_kuutl")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("2_uqrwn")])
+quantity = Array[int]([1])
+outputResource = Array[Resource("res://scripts/card.gd")]([ExtResource("1_a7kr4")])
+recipyName = "Iron Plate"
+recipyCustomImage = ExtResource("1_ae51y")

@@ -10,4 +10,5 @@ enum orginType {forest, mine, exploration}
 @export_group("Special")
 @export var fuelPower : int
 @export var fuelNeededInProduction : int
-@export var meltingOutputCard : card
+@export var processingPowerNeeded : int
+@export var outputCard : card

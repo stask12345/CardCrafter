@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_44dko")
 cardName = "Fire"
-value = 0
+value = 5
 origin = 0
 handOrder = 8
 fuelPower = 0
 fuelNeededInProduction = 0
+processingPowerNeeded = 0

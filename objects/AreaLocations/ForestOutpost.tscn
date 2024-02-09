@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://c1r703j6c1k26"]
+
+[ext_resource type="Script" path="res://scripts/ForestOutpost.gd" id="1_ims7c"]
+[ext_resource type="Resource" uid="uid://ccc45lyqd8jfl" path="res://resources/cards/Forest/package/Clay.tres" id="2_pia13"]
+[ext_resource type="Resource" uid="uid://die6qr4iuv072" path="res://resources/cards/Forest/package/Leaf.tres" id="3_0nqfs"]
+[ext_resource type="Resource" uid="uid://cgw7sfhxij3rj" path="res://resources/cards/Forest/package/Rock.tres" id="4_hvk6b"]
+[ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Forest/package/Stick.tres" id="5_7j4sy"]
+[ext_resource type="Resource" uid="uid://dvvu3iess8gql" path="res://resources/cards/Forest/package/Vine.tres" id="6_peiw2"]
+[ext_resource type="Resource" uid="uid://cwk188iu2qhb6" path="res://resources/cards/Forest/package/Wood.tres" id="7_0aa1t"]
+[ext_resource type="Resource" uid="uid://bg52agc4lip08" path="res://resources/recipies/buildingRecipies/Lumberjack.tres" id="8_gucx1"]
+[ext_resource type="Resource" uid="uid://bby6fjofehky0" path="res://resources/recipies/buildingRecipies/MineOutpost.tres" id="9_oc216"]
+[ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/Utility/RequestingSlot.tscn" id="10_uoilg"]
+
+[node name="ForestOutpost" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ims7c")
+outpostCards = Array[Resource("res://scripts/card.gd")]([ExtResource("2_pia13"), ExtResource("3_0nqfs"), ExtResource("4_hvk6b"), ExtResource("5_7j4sy"), ExtResource("6_peiw2"), ExtResource("7_0aa1t")])
+lumberjackRecipy = ExtResource("8_gucx1")
+mineRecipy = ExtResource("9_oc216")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="outpostOutput" parent="." node_paths=PackedStringArray("parentArea") instance=ExtResource("10_uoilg")]
+offset_left = 266.0
+offset_top = 455.0
+offset_right = 272.0
+offset_bottom = 461.0
+parentArea = NodePath("")
+cardLimit = 6
+ordering = 0
+collectableOutputPile = true
+
+[node name="ButtonBuildLumber" type="Button" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 629.0
+offset_right = 104.0
+offset_bottom = 687.0
+text = "+"
+
+[node name="ButtonBuildMine" type="Button" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 634.0
+offset_right = 482.0
+offset_bottom = 682.0
+text = "+
+"
+
+[node name="Lumberjack" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimerLumberjack" type="Timer" parent="Lumberjack"]
+wait_time = 3.0
+
+[node name="requestingSlot" parent="Lumberjack" node_paths=PackedStringArray("parentArea") instance=ExtResource("10_uoilg")]
+offset_left = 76.0
+offset_top = 645.0
+offset_right = 82.0
+offset_bottom = 651.0
+parentArea = NodePath("")
+cardLimit = 5
+ordering = 0
+collectableOutputPile = true
+
+[node name="Mine" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 407.0
+offset_top = 648.0
+offset_right = 447.0
+offset_bottom = 688.0
+
+[node name="TimerMine" type="Timer" parent="Mine"]
+wait_time = 3.0
+
+[node name="requestingSlot" parent="Mine" node_paths=PackedStringArray("parentArea") instance=ExtResource("10_uoilg")]
+offset_top = -3.0
+offset_bottom = 3.0
+parentArea = NodePath("")
+cardLimit = 5
+ordering = 0
+collectableOutputPile = true

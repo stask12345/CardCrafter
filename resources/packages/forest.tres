@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="package" load_steps=8 format=3 uid="uid://c6bpcpnn3h1pt"]
 
 [ext_resource type="Script" path="res://scripts/package.gd" id="1_jukj6"]
-[ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Forest/Stick.tres" id="1_o5378"]
-[ext_resource type="Resource" uid="uid://cwk188iu2qhb6" path="res://resources/cards/Forest/Wood.tres" id="2_mlhyu"]
-[ext_resource type="Resource" uid="uid://dvvu3iess8gql" path="res://resources/cards/Forest/Vine.tres" id="3_jojao"]
-[ext_resource type="Resource" uid="uid://cgw7sfhxij3rj" path="res://resources/cards/Forest/Rock.tres" id="4_m4woh"]
-[ext_resource type="Resource" uid="uid://die6qr4iuv072" path="res://resources/cards/Forest/Leaf.tres" id="5_ekumd"]
-[ext_resource type="Resource" uid="uid://ccc45lyqd8jfl" path="res://resources/cards/Forest/Clay.tres" id="6_axva2"]
+[ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Forest/package/Stick.tres" id="1_o5378"]
+[ext_resource type="Resource" uid="uid://cwk188iu2qhb6" path="res://resources/cards/Forest/package/Wood.tres" id="2_mlhyu"]
+[ext_resource type="Resource" uid="uid://dvvu3iess8gql" path="res://resources/cards/Forest/package/Vine.tres" id="3_jojao"]
+[ext_resource type="Resource" uid="uid://cgw7sfhxij3rj" path="res://resources/cards/Forest/package/Rock.tres" id="4_m4woh"]
+[ext_resource type="Resource" uid="uid://die6qr4iuv072" path="res://resources/cards/Forest/package/Leaf.tres" id="5_ekumd"]
+[ext_resource type="Resource" uid="uid://ccc45lyqd8jfl" path="res://resources/cards/Forest/package/Clay.tres" id="6_axva2"]
 
 [resource]
 script = ExtResource("1_jukj6")

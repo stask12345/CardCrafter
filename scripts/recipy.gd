@@ -10,19 +10,27 @@ class_name recipy
 @export var customOutputObject : PackedScene
 
 func checkValidity(listOfResources):
-	var neededResources = []
-	for i in resources.size():
-		for o in quantity[i]:
-			neededResources.append(resources[i])
+	var currentQuantity = []
+	currentQuantity.append_array(quantity)
+	
+	var numberOfNeededResources = 0
+	for q in quantity:
+		numberOfNeededResources += q
+	if listOfResources.size() != numberOfNeededResources:
+		return false
 	
 	for r in listOfResources:
-		if !neededResources.has(r):
+		if !resources.has(r):
 			return false
+		var index = resources.find(r)
+		if currentQuantity[index] <= 0:
+			return false
+		else:
+			currentQuantity[index] -= 1
 	
-	if listOfResources.size() == neededResources.size():
-		return true
-	else:
-		return false
+	print("current", currentQuantity)
+	print("q",quantity)
+	return true
 
 func checkIfRecipiesEqual(rec : recipy):
 	if resources.size() != rec.resources.size():
@@ -34,7 +42,7 @@ func checkIfRecipiesEqual(rec : recipy):
 	
 	return true
 
-var interactiveCardInstance = preload("res://objects/InteractiveCard.tscn")
+var interactiveCardInstance = preload("res://objects/Utility/InteractiveCard.tscn")
 func returnOutputCard(): #TO DO? currently returns only 1 card
 	var ic = interactiveCardInstance.instantiate()
 	ic.cardData = outputResource[0]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://l8j6c4eyj8hs"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_4n462"]
+
+[resource]
+script = ExtResource("1_4n462")
+cardName = "Iron plate"
+value = 15
+origin = 1
+handOrder = 1
+fuelPower = 0
+fuelNeededInProduction = 0
+processingPowerNeeded = 10

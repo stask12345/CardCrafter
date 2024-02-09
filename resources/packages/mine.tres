@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="package" load_steps=6 format=3 uid="uid://ktealwm205ni"]
 
-[ext_resource type="Resource" uid="uid://b7i6wa55shalj" path="res://resources/cards/IronOre.tres" id="1_86m81"]
-[ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Forest/Stick.tres" id="1_tji2d"]
-[ext_resource type="Resource" uid="uid://d0o63qnx7uiay" path="res://resources/cards/Coal.tres" id="2_405wc"]
-[ext_resource type="Resource" uid="uid://dvvu3iess8gql" path="res://resources/cards/Forest/Vine.tres" id="3_bi5bj"]
+[ext_resource type="Resource" uid="uid://b7i6wa55shalj" path="res://resources/cards/Mine/package/IronOre.tres" id="1_86m81"]
+[ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Forest/package/Stick.tres" id="1_tji2d"]
+[ext_resource type="Resource" uid="uid://d0o63qnx7uiay" path="res://resources/cards/Mine/package/Coal.tres" id="2_405wc"]
+[ext_resource type="Resource" uid="uid://dvvu3iess8gql" path="res://resources/cards/Forest/package/Vine.tres" id="3_bi5bj"]
 [ext_resource type="Script" path="res://scripts/package.gd" id="5_o30h5"]
 
 [resource]
 script = ExtResource("5_o30h5")
 packageName = "Mine"
-cardCollection = Array[Resource("res://scripts/card.gd")]([ExtResource("1_86m81"), ExtResource("2_405wc")])
+cardCollection = Array[Resource("res://scripts/card.gd")]([ExtResource("1_86m81"), ExtResource("1_86m81"), ExtResource("2_405wc")])
 cardCollectionRare = Array[Resource("res://scripts/card.gd")]([])
 costMoney = 50
 costResources = Array[Resource("res://scripts/card.gd")]([ExtResource("1_tji2d"), ExtResource("3_bi5bj")])

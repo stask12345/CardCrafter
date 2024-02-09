@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://cgw7sfhxij3rj"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_ghmdc"]
+[ext_resource type="Texture2D" uid="uid://b7tir4b3nei2y" path="res://graphics/cards/tengrai_image_1703589773_349566.webp" id="1_yddb0"]
+
+[resource]
+script = ExtResource("1_ghmdc")
+cardName = "Rock"
+value = 3
+image = ExtResource("1_yddb0")
+origin = 0
+handOrder = 4
+fuelPower = 0
+fuelNeededInProduction = 0

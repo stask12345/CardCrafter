@@ -1,0 +1,345 @@
+[gd_scene load_steps=23 format=3 uid="uid://b1rc0qkfr8gbi"]
+
+[ext_resource type="Script" path="res://scripts/Furnace.gd" id="1_fxc7p"]
+[ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/Utility/RequestingSlot.tscn" id="2_gmsdd"]
+[ext_resource type="Resource" uid="uid://b7i6wa55shalj" path="res://resources/cards/Mine/package/IronOre.tres" id="3_pxj60"]
+[ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Forest/package/Stick.tres" id="4_e2e7x"]
+[ext_resource type="Resource" uid="uid://cwk188iu2qhb6" path="res://resources/cards/Forest/package/Wood.tres" id="5_6bvwd"]
+[ext_resource type="Resource" uid="uid://d0o63qnx7uiay" path="res://resources/cards/Mine/package/Coal.tres" id="6_ntdnm"]
+[ext_resource type="Texture2D" uid="uid://bl5ki0o623kf5" path="res://graphics/areaElements/furnace.png" id="7_y8ykb"]
+[ext_resource type="Texture2D" uid="uid://bog70ovwerths" path="res://graphics/areaElements/furnaceSmelter.png" id="8_nqqy2"]
+[ext_resource type="Texture2D" uid="uid://cdjty1xdd4uut" path="res://graphics/areaElements/furnaceFireplace.png" id="9_sgxvl"]
+[ext_resource type="Texture2D" uid="uid://b8jnw477t730g" path="res://graphics/areaElements/furnaceFireplaceElement.png" id="10_41dqv"]
+[ext_resource type="Texture2D" uid="uid://dsqjlf553dg5u" path="res://graphics/areaElements/backgroundFurnace.png" id="11_as58i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5d5qu"]
+font_size = 22
+font_color = Color(0.976471, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4tjki"]
+font_size = 22
+font_color = Color(0.976471, 1, 1, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_jd15u"]
+resource_name = "close"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-61, 75), Vector2(-61, -30), Vector2(-61, -46.693)]
+}
+
+[sub_resource type="Animation" id="Animation_2bnjk"]
+resource_name = "open"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-60.9598, -46.6926), Vector2(-60.96, 50), Vector2(-60.96, 75)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pb3yc"]
+_data = {
+"close": SubResource("Animation_jd15u"),
+"open": SubResource("Animation_2bnjk")
+}
+
+[sub_resource type="Animation" id="Animation_6x8wf"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightWing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(80, 224.384), Vector2(0, 224.384)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftWing:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-205, 223.087), Vector2(-125, 223.087)]
+}
+
+[sub_resource type="Animation" id="Animation_kykt3"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightWing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 224.384), Vector2(80, 224.384)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftWing:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-125, 223.087), Vector2(-205, 223.087)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btgqj"]
+_data = {
+"close": SubResource("Animation_6x8wf"),
+"open": SubResource("Animation_kykt3")
+}
+
+[sub_resource type="Animation" id="Animation_lileq"]
+resource_name = "melting"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FurnaceFireplace/RightWing/FurnaceFireplaceElement:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.886275, 0.827451, 0, 1), Color(0.713726, 0.545098, 0, 1), Color(0.933333, 0.890196, 0.580392, 1), Color(0.886275, 0.827451, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FurnaceFireplace/LeftWing/FurnaceFireplaceElement:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.85098, 0.85098, 0, 1), Color(0.709804, 0.576471, 0, 1), Color(0.929412, 0.929412, 0.509804, 1), Color(0.85098, 0.85098, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_erwnv"]
+resource_name = "meltingOff"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FurnaceFireplace/RightWing/FurnaceFireplaceElement:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.27451, 0.278431, 0.282353, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FurnaceFireplace/LeftWing/FurnaceFireplaceElement:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.27451, 0.278431, 0.282353, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1nrg"]
+_data = {
+"melting": SubResource("Animation_lileq"),
+"meltingOff": SubResource("Animation_erwnv")
+}
+
+[node name="Furnace" type="Control"]
+z_index = -1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fxc7p")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 71.0
+offset_top = 108.0
+offset_right = 469.0
+offset_bottom = 693.0
+color = Color(0.431373, 0.631373, 1, 0.443137)
+
+[node name="requestingSlot" parent="." node_paths=PackedStringArray("parentArea") instance=ExtResource("2_gmsdd")]
+offset_left = 242.0
+offset_top = 185.0
+offset_right = 248.0
+offset_bottom = 191.0
+parentArea = NodePath("..")
+cardLimit = 4
+ordering = 0
+whiteList = Array[Resource("res://scripts/card.gd")]([ExtResource("3_pxj60")])
+singularType = true
+magazineStack = true
+
+[node name="requestingSlot2" parent="." node_paths=PackedStringArray("parentArea") instance=ExtResource("2_gmsdd")]
+offset_left = 229.0
+offset_top = 562.0
+offset_right = 235.0
+offset_bottom = 568.0
+parentArea = NodePath("..")
+cardLimit = 2
+ordering = 0
+whiteList = Array[Resource("res://scripts/card.gd")]([ExtResource("4_e2e7x"), ExtResource("5_6bvwd"), ExtResource("6_ntdnm")])
+eatingFuel = true
+
+[node name="FuelPower" type="Label" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 380.0
+offset_right = 420.0
+offset_bottom = 411.0
+text = "0"
+label_settings = SubResource("LabelSettings_5d5qu")
+
+[node name="BurningIndicator" type="Label" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 381.0
+offset_right = 158.0
+offset_bottom = 412.0
+text = "0"
+label_settings = SubResource("LabelSettings_4tjki")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Furnace" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(294, 382)
+scale = Vector2(0.771, 0.771)
+texture = ExtResource("7_y8ykb")
+
+[node name="FurnaceSmelter" type="Sprite2D" parent="Furnace"]
+z_index = -2
+position = Vector2(-61, 75)
+scale = Vector2(1.07933, 1.07933)
+texture = ExtResource("8_nqqy2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Furnace/FurnaceSmelter"]
+libraries = {
+"": SubResource("AnimationLibrary_pb3yc")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Furnace/FurnaceSmelter"]
+z_index = -3
+offset_left = -125.077
+offset_top = -187.152
+offset_right = 144.923
+offset_bottom = -33.1524
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="FurnaceFireplace" type="Control" parent="Furnace"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect2" type="ColorRect" parent="Furnace/FurnaceFireplace"]
+z_index = -4
+layout_mode = 0
+offset_left = -199.741
+offset_top = 147.86
+offset_right = 70.2594
+offset_bottom = 301.86
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="RightWing" type="Sprite2D" parent="Furnace/FurnaceFireplace"]
+z_index = -2
+position = Vector2(80, 224.384)
+texture = ExtResource("9_sgxvl")
+
+[node name="FurnaceFireplaceElement" type="Sprite2D" parent="Furnace/FurnaceFireplace/RightWing"]
+modulate = Color(0.27451, 0.278431, 0.282353, 1)
+position = Vector2(13.75, -1.25)
+texture = ExtResource("10_41dqv")
+
+[node name="LeftWing" type="Sprite2D" parent="Furnace/FurnaceFireplace"]
+z_index = -2
+position = Vector2(-205, 223.087)
+scale = Vector2(-1, -1)
+texture = ExtResource("9_sgxvl")
+
+[node name="FurnaceFireplaceElement" type="Sprite2D" parent="Furnace/FurnaceFireplace/LeftWing"]
+modulate = Color(0.27451, 0.278431, 0.282353, 1)
+position = Vector2(13.75, -1.25)
+texture = ExtResource("10_41dqv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Furnace/FurnaceFireplace"]
+libraries = {
+"": SubResource("AnimationLibrary_btgqj")
+}
+autoplay = "close"
+
+[node name="AnimationPlayerMelting" type="AnimationPlayer" parent="Furnace/FurnaceFireplace"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_y1nrg")
+}
+autoplay = "meltingOff"
+
+[node name="LocationIndicator1" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 237.0
+offset_top = 324.0
+offset_right = 277.0
+offset_bottom = 364.0
+
+[node name="requestingSlot3" parent="." node_paths=PackedStringArray("parentArea") instance=ExtResource("2_gmsdd")]
+offset_left = 441.0
+offset_top = 324.0
+offset_right = 447.0
+offset_bottom = 330.0
+parentArea = NodePath("..")
+cardLimit = 4
+ordering = 0
+collectableOutputPile = true
+
+[node name="BackgroundFurnace" type="Sprite2D" parent="."]
+self_modulate = Color(0.709804, 0.709804, 0.709804, 1)
+z_index = -11
+position = Vector2(253, 382)
+texture = ExtResource("11_as58i")

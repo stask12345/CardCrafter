@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://co3a6tq277wts"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_b72gp"]
+
+[resource]
+script = ExtResource("1_b72gp")
+cardName = "Cogwell"
+value = 20
+origin = 1
+handOrder = 2
+fuelPower = 0
+fuelNeededInProduction = 0
+processingPowerNeeded = 15

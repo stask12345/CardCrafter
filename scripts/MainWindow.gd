@@ -55,7 +55,7 @@ func afterAreaChanged(previousArea):
 func updateNumberOfNavCircles():
 	while navigation.get_child_count() < get_child_count()-1:
 		var newCircle = navigation.get_child(0).duplicate()
-		newCircle.frame = 0
+		newCircle.get_child(0).frame = 0
 		navigation.add_child(newCircle)
 
 func changeNavVisibility(v):

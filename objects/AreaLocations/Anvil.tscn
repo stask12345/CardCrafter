@@ -1,0 +1,200 @@
+[gd_scene load_steps=14 format=3 uid="uid://efofnn262gdu"]
+
+[ext_resource type="Script" path="res://scripts/Anvil.gd" id="1_5vdqd"]
+[ext_resource type="Script" path="res://scripts/AnvilMenu.gd" id="2_2yy4m"]
+[ext_resource type="Resource" uid="uid://bhldirtoqpph" path="res://resources/recipies/anvil/IronPlate.tres" id="3_pomvi"]
+[ext_resource type="Resource" uid="uid://bqj8rord32e8l" path="res://resources/recipies/anvil/Blade.tres" id="4_5i0aq"]
+[ext_resource type="Resource" uid="uid://dc1wny17a56wo" path="res://resources/recipies/anvil/Cogweel.tres" id="5_76hed"]
+[ext_resource type="Texture2D" uid="uid://31jdt1k4op6m" path="res://graphics/cards/tengrai_image_1704476869_38046.webp" id="6_av285"]
+[ext_resource type="Script" path="res://scripts/ListOfNeededItem.gd" id="7_quprs"]
+[ext_resource type="Texture2D" uid="uid://bg77pvxurl0k" path="res://graphics/cards/tengrai_image_1703589364_4173577.webp" id="8_y2qu1"]
+[ext_resource type="Texture2D" uid="uid://c7lg4x5vu3oqw" path="res://graphics/cards/tengrai_image_1704402244_1364539.webp" id="9_lewmi"]
+[ext_resource type="Texture2D" uid="uid://bbdvfyddr5c4k" path="res://graphics/cards/tengrai_image_1704478297_7218404.webp" id="10_yob67"]
+[ext_resource type="Texture2D" uid="uid://bj7hu2xake43s" path="res://graphics/cards/tengrai_image_1704477496_5350497.webp" id="11_qxw0v"]
+[ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/Utility/RequestingSlot.tscn" id="12_a5i0f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_whmfx"]
+font_size = 25
+
+[node name="Anvil" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5vdqd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 75.0
+offset_right = 476.0
+offset_bottom = 729.0
+color = Color(1, 0.196078, 1, 0.490196)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 458.0
+offset_right = 326.0
+offset_bottom = 489.0
+text = "Choose recipy
+"
+
+[node name="AnvilMenu" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_2yy4m")
+availableRecipies = Array[Resource("res://scripts/recipy.gd")]([ExtResource("3_pomvi"), ExtResource("4_5i0aq"), ExtResource("5_76hed")])
+
+[node name="PanelContainer" type="PanelContainer" parent="AnvilMenu"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 398.0
+offset_right = 225.0
+offset_bottom = 498.0
+
+[node name="MarginContainer" type="MarginContainer" parent="AnvilMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="GridContainer" type="GridContainer" parent="AnvilMenu/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 100
+columns = 3
+
+[node name="ListItem" type="Control" parent="AnvilMenu/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="image" type="Sprite2D" parent="AnvilMenu/PanelContainer/MarginContainer/GridContainer/ListItem"]
+position = Vector2(50, 50)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_av285")
+
+[node name="Button" type="Button" parent="AnvilMenu/PanelContainer/MarginContainer/GridContainer/ListItem"]
+self_modulate = Color(1, 0.282353, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 104.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitButton" type="Button" parent="AnvilMenu"]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 355.0
+offset_right = 375.0
+offset_bottom = 386.0
+text = "Exit"
+
+[node name="ListOfNeededItems" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_quprs")
+
+[node name="CenterContainer" type="CenterContainer" parent="ListOfNeededItems"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 591.0
+offset_right = 398.0
+offset_bottom = 631.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ListOfNeededItems/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="FirstResource" type="Label" parent="ListOfNeededItems/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "x 3"
+
+[node name="Image" type="Sprite2D" parent="ListOfNeededItems/CenterContainer/HBoxContainer/FirstResource"]
+position = Vector2(-14, 13)
+scale = Vector2(0.03125, 0.0322266)
+texture = ExtResource("8_y2qu1")
+
+[node name="SecondResource" type="Label" parent="ListOfNeededItems/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "x 2"
+
+[node name="Image" type="Sprite2D" parent="ListOfNeededItems/CenterContainer/HBoxContainer/SecondResource"]
+position = Vector2(-15, 13)
+scale = Vector2(0.03125, 0.0322266)
+texture = ExtResource("9_lewmi")
+
+[node name="ThirdResource" type="Label" parent="ListOfNeededItems/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "x 5
+"
+
+[node name="Image" type="Sprite2D" parent="ListOfNeededItems/CenterContainer/HBoxContainer/ThirdResource"]
+position = Vector2(-15, 13)
+scale = Vector2(0.03125, 0.0322266)
+texture = ExtResource("10_yob67")
+
+[node name="FourthResource" type="Label" parent="ListOfNeededItems/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "x 1
+"
+
+[node name="Image" type="Sprite2D" parent="ListOfNeededItems/CenterContainer/HBoxContainer/FourthResource"]
+position = Vector2(-15, 13)
+scale = Vector2(0.03125, 0.0322266)
+texture = ExtResource("11_qxw0v")
+
+[node name="requestingSlot" parent="ListOfNeededItems" node_paths=PackedStringArray("parentArea") instance=ExtResource("12_a5i0f")]
+layout_mode = 2
+offset_left = 257.0
+offset_top = 611.0
+offset_right = 257.0
+offset_bottom = 611.0
+parentArea = NodePath("")
+cardLimit = 1
+ordering = 0
+onlyWhiteListItems = true
+eatingCards = true
+
+[node name="Ironing" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonAnvil" type="Button" parent="Ironing"]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 399.0
+offset_right = 471.0
+offset_bottom = 522.0
+text = "Hit
+"
+
+[node name="Label" type="Label" parent="Ironing"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 457.0
+offset_right = 124.0
+offset_bottom = 492.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_whmfx")
+
+[node name="LocationIndicator1" type="Control" parent="Ironing"]
+anchors_preset = 0
+offset_left = 268.0
+offset_top = 415.0
+offset_right = 308.0
+offset_bottom = 455.0

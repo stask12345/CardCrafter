@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://bvn2teckjed1c"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_d0gda"]
+
+[resource]
+script = ExtResource("1_d0gda")
+cardName = "Blade"
+value = 20
+origin = 1
+handOrder = 3
+fuelPower = 0
+fuelNeededInProduction = 0
+processingPowerNeeded = 10

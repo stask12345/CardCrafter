@@ -1,6 +1,7 @@
-
-
-
+[Dodawanie pop-upu z decyzją]
+1. Dodaj system do noda.
+2. system.checkPlayerDecision(script do wzrotu(self),text zapytania)
+3. Stwórz funkcję playerDecision(bool answer)
 
 [Zachowanie request fieldów]
 1. Gdy karta jest dodana do request fielda, w lokacji jest wywoływana funkcja cardAdded()
@@ -9,3 +10,7 @@
 4. Karta wysyłana z magazynu, musi mieć atrybut goingToFinishGoal
 5. Karta z takim atrybutem, uruchomi cardArrivedAtGoal w request fieldzie.
 6. Request field uruchamia daną funkcję w parentArea.
+
+[Debug]
+Debug jest oznaczany komentarzami #TODELETE
+r - rank up 

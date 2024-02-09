@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://do1gaynys27gl"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_171e7"]
+
+[resource]
+script = ExtResource("1_171e7")
+cardName = "Vase (Water)"
+value = 30
+origin = 0
+handOrder = 8
+fuelPower = 0
+fuelNeededInProduction = 0
+processingPowerNeeded = 0

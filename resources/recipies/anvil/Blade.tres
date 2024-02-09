@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=5 format=3 uid="uid://bqj8rord32e8l"]
+
+[ext_resource type="Resource" uid="uid://bvn2teckjed1c" path="res://resources/cards/Mine/Blade.tres" id="1_1njqe"]
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_f1wge"]
+[ext_resource type="Texture2D" uid="uid://b8wtpq0p482ii" path="res://graphics/cards/leaf1.png" id="2_st4h3"]
+[ext_resource type="Resource" uid="uid://dqpymncvd4b7o" path="res://resources/cards/Mine/IronBar.tres" id="3_1ia8s"]
+
+[resource]
+script = ExtResource("1_f1wge")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("3_1ia8s")])
+quantity = Array[int]([2])
+outputResource = Array[Resource("res://scripts/card.gd")]([ExtResource("1_1njqe")])
+recipyName = "Cogwell"
+recipyCustomImage = ExtResource("2_st4h3")

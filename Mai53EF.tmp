@@ -1,0 +1,719 @@
+[gd_scene load_steps=51 format=3 uid="uid://dfk0ti8omq8tb"]
+
+[ext_resource type="Script" path="res://scripts/system.gd" id="1_touu2"]
+[ext_resource type="Script" path="res://scripts/cardHolder.gd" id="2_muers"]
+[ext_resource type="Texture2D" uid="uid://0tpgfbcaqftm" path="res://graphics/fonts/t4.jpg" id="3_62auy"]
+[ext_resource type="Script" path="res://scripts/MainWindow.gd" id="3_gfo1b"]
+[ext_resource type="Script" path="res://scripts/CardOpener.gd" id="3_myip1"]
+[ext_resource type="Script" path="res://scripts/packageObject.gd" id="3_roqlr"]
+[ext_resource type="Script" path="res://scripts/QuestRoom.gd" id="4_darfe"]
+[ext_resource type="Resource" uid="uid://c6bpcpnn3h1pt" path="res://resources/packages/forest.tres" id="4_ekve3"]
+[ext_resource type="Texture2D" uid="uid://denla81wjie6a" path="res://graphics/fonts/Complete test map.png" id="4_nbtna"]
+[ext_resource type="Texture2D" uid="uid://k0esj6g2r4eb" path="res://graphics/cardHolder.png" id="4_qrqxe"]
+[ext_resource type="Texture2D" uid="uid://cuftxkxxgv301" path="res://graphics/locationIndicator.png" id="4_vwpgx"]
+[ext_resource type="Resource" uid="uid://dr84tecxp46pv" path="res://resources/recipies/ranksRecipies/Begginings.tres" id="5_jbdmh"]
+[ext_resource type="Resource" uid="uid://cn6t6yq7xcp15" path="res://resources/recipies/ranksRecipies/StoneAge.tres" id="6_6lwy7"]
+[ext_resource type="Script" path="res://scripts/ShopMenuPackages.gd" id="7_gf1r6"]
+[ext_resource type="Texture2D" uid="uid://cbymumhxnomf7" path="res://graphics/coin.png" id="7_tljix"]
+[ext_resource type="Texture2D" uid="uid://dp7b2ox6y5hif" path="res://graphics/tengrai_image_1703875783_4724085.webp" id="8_fr6dl"]
+[ext_resource type="Resource" uid="uid://ktealwm205ni" path="res://resources/packages/mine.tres" id="8_yhhw2"]
+[ext_resource type="Texture2D" uid="uid://f3l2ovjgt1gv" path="res://graphics/arrowUI.png" id="10_siam1"]
+[ext_resource type="Script" path="res://scripts/CraftingTable.gd" id="13_b0emq"]
+[ext_resource type="Texture2D" uid="uid://cjx2yxgvtkobc" path="res://graphics/forestPackage.png" id="13_w0evf"]
+[ext_resource type="Resource" uid="uid://b1m7t5trt1nbn" path="res://resources/recipies/Rope.tres" id="14_4isum"]
+[ext_resource type="Texture2D" uid="uid://owsbfal4du1q" path="res://graphics/tengrai_image_1704398694_9789853.png" id="15_ca6cp"]
+[ext_resource type="Texture2D" uid="uid://bcwbwkva2xds0" path="res://graphics/packageMine.png" id="15_kod6w"]
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="15_ylj78"]
+[ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/RequestingSlot.tscn" id="15_yr37l"]
+[ext_resource type="FontFile" uid="uid://bhe5mj7qr75a3" path="res://graphics/fonts/MangabeyRegular-rgqVO.otf" id="16_3npbd"]
+[ext_resource type="Resource" uid="uid://die6qr4iuv072" path="res://resources/cards/Forest/package/Leaf.tres" id="16_xc8xs"]
+[ext_resource type="Texture2D" uid="uid://dcvjl2leubl53" path="res://graphics/tengrai_image_1704400445_7967248.webp" id="17_iqhrg"]
+[ext_resource type="Resource" uid="uid://dg6nkju0fb8on" path="res://resources/recipies/Fire.tres" id="17_kllyk"]
+[ext_resource type="Resource" uid="uid://cgw7sfhxij3rj" path="res://resources/cards/Forest/package/Rock.tres" id="17_vpu73"]
+[ext_resource type="Resource" uid="uid://dd7d1udsatrbv" path="res://resources/recipies/FirePlace.tres" id="18_32hiw"]
+[ext_resource type="Texture2D" uid="uid://byilptcckv41j" path="res://graphics/fonts/c.png" id="18_bh2ud"]
+[ext_resource type="Resource" uid="uid://jbgpc1m3mhti" path="res://resources/recipies/RockTool.tres" id="19_fvusr"]
+[ext_resource type="Resource" uid="uid://bjdwx5jgs3enq" path="res://resources/recipies/SharpedStone.tres" id="20_pqs0i"]
+[ext_resource type="Resource" uid="uid://bjyhkpcyyrg6u" path="res://resources/recipies/Stick.tres" id="21_ejji6"]
+[ext_resource type="Resource" uid="uid://pkss7lrdiik0" path="res://resources/recipies/Vase.tres" id="22_15glv"]
+[ext_resource type="Resource" uid="uid://j32ufh37f88x" path="res://resources/recipies/WoodenPart.tres" id="23_1r4x4"]
+[ext_resource type="Texture2D" uid="uid://cnr05c65k38te" path="res://graphics/stoneTable.png" id="26_n3pnp"]
+[ext_resource type="Script" path="res://scripts/Popup.gd" id="33_6448h"]
+[ext_resource type="Texture2D" uid="uid://dcuyln5ve6hnp" path="res://graphics/coin1.png" id="36_s7qbx"]
+[ext_resource type="Texture2D" uid="uid://citrsa571j43l" path="res://graphics/cardOpenerBackground.png" id="41_qkxsw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b7qmx"]
+font_size = 38
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_62l3a"]
+font_size = 31
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_rl4vm"]
+script = ExtResource("15_ylj78")
+resources = Array[Resource("res://scripts/card.gd")]([])
+quantity = Array[int]([])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+recipyName = ""
+
+[sub_resource type="Resource" id="Resource_bee8a"]
+script = ExtResource("15_ylj78")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("16_xc8xs"), ExtResource("17_vpu73")])
+quantity = Array[int]([2, 1])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+recipyName = ""
+
+[sub_resource type="LabelSettings" id="LabelSettings_mtgfc"]
+font = ExtResource("16_3npbd")
+font_size = 54
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_cm6se"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tunn4"]
+font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_5xwfb"]
+font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_6tr7l"]
+font = ExtResource("16_3npbd")
+font_size = 38
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainScene" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_touu2")
+
+[node name="BottomMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="BottomMenu"]
+z_index = 4
+layout_mode = 0
+offset_left = 6.0
+offset_top = -168.0
+offset_right = 68.0
+offset_bottom = -137.0
+text = "1"
+
+[node name="Button2" type="Button" parent="BottomMenu"]
+z_index = 4
+layout_mode = 0
+offset_left = 82.0
+offset_top = -168.0
+offset_right = 144.0
+offset_bottom = -137.0
+text = "2
+"
+
+[node name="ColorRect" type="ColorRect" parent="BottomMenu"]
+visible = false
+modulate = Color(0.454902, 0.407843, 0.403922, 1)
+clip_children = 2
+z_index = -3
+layout_mode = 0
+offset_top = -127.0
+offset_right = 542.0
+offset_bottom = 40.0
+color = Color(0.313726, 0.278431, 0.27451, 1)
+
+[node name="T1" type="Sprite2D" parent="BottomMenu/ColorRect"]
+position = Vector2(276.5, 221.75)
+scale = Vector2(1.13148, 0.654506)
+texture = ExtResource("3_62auy")
+
+[node name="Line2D" type="Line2D" parent="BottomMenu"]
+visible = false
+position = Vector2(0, -62.3502)
+scale = Vector2(1, 0.449998)
+points = PackedVector2Array(0, -147, 540, -147)
+default_color = Color(0.321569, 0.270588, 0.231373, 1)
+texture = ExtResource("3_62auy")
+texture_mode = 2
+
+[node name="Shadow" type="Sprite2D" parent="BottomMenu"]
+position = Vector2(272, -145.75)
+scale = Vector2(1, 0.1625)
+texture = ExtResource("4_nbtna")
+
+[node name="CardHolderBackground" type="Sprite2D" parent="BottomMenu"]
+self_modulate = Color(0.901961, 0.901961, 0.901961, 1)
+z_index = -2
+position = Vector2(272.625, -165)
+scale = Vector2(0.54525, 0.54525)
+texture = ExtResource("4_qrqxe")
+
+[node name="CardHolder" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -161.0
+offset_right = 539.0
+offset_bottom = 1.0
+grow_vertical = 0
+follow_focus = true
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+scroll_deadzone = 5
+script = ExtResource("2_muers")
+
+[node name="CardBox" type="HBoxContainer" parent="CardHolder"]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Control" parent="CardHolder/CardBox"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CardHolder/CardBox/Control"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -9
+layout_mode = 2
+offset_top = 8.0
+offset_right = 539.0
+offset_bottom = 162.0
+
+[node name="CardBox1" type="HBoxContainer" parent="CardHolder"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Control" type="Control" parent="CardHolder/CardBox1"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CardHolder/CardBox1/Control"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -9
+layout_mode = 0
+offset_top = 8.0
+offset_right = 539.0
+offset_bottom = 162.0
+
+[node name="MainWindow" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 538.0
+offset_bottom = 750.0
+script = ExtResource("3_gfo1b")
+howMuchEmptyLocations = Array[int]([0, 1])
+
+[node name="QuestRoom" type="Control" parent="MainWindow"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_darfe")
+rankRecipies = Array[ExtResource("15_ylj78")]([ExtResource("5_jbdmh"), ExtResource("6_6lwy7")])
+rankNames = Array[String](["Humble Beginnings", "Stone Age"])
+
+[node name="ColorRect" type="ColorRect" parent="MainWindow/QuestRoom"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 108.0
+offset_right = 469.0
+offset_bottom = 693.0
+color = Color(0.309804, 0.737255, 0.490196, 0.443137)
+
+[node name="Rank" type="Label" parent="MainWindow/QuestRoom"]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 154.0
+offset_right = 329.0
+offset_bottom = 207.0
+text = "Rank 1"
+label_settings = SubResource("LabelSettings_b7qmx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RankDescription" type="Label" parent="MainWindow/QuestRoom"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 205.0
+offset_right = 417.0
+offset_bottom = 249.0
+text = "Humble Beginnings"
+label_settings = SubResource("LabelSettings_62l3a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MainWindow/QuestRoom"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 274.0
+offset_right = 327.0
+offset_bottom = 316.0
+
+[node name="GridContainer" type="GridContainer" parent="MainWindow/QuestRoom/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 118
+theme_override_constants/v_separation = 150
+columns = 3
+
+[node name="RankUpButton" type="Button" parent="MainWindow/QuestRoom"]
+visible = false
+layout_mode = 0
+offset_left = 195.0
+offset_top = 520.0
+offset_right = 327.0
+offset_bottom = 582.0
+text = "Rank Up!"
+
+[node name="CardOpener" type="Control" parent="MainWindow"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_myip1")
+
+[node name="AddButton" type="Button" parent="MainWindow/CardOpener"]
+visible = false
+layout_mode = 0
+offset_left = 238.0
+offset_top = 371.0
+offset_right = 305.0
+offset_bottom = 439.0
+text = "+"
+
+[node name="Package" type="Control" parent="MainWindow/CardOpener"]
+anchors_preset = 0
+offset_left = 274.0
+offset_top = 415.0
+offset_right = 314.0
+offset_bottom = 455.0
+script = ExtResource("3_roqlr")
+currentPackage = ExtResource("4_ekve3")
+
+[node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/Package"]
+position = Vector2(-4.49996, 3.49998)
+scale = Vector2(0.319, 0.319)
+texture = ExtResource("13_w0evf")
+
+[node name="Button" type="Button" parent="MainWindow/CardOpener/Package"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -83.0
+offset_top = -125.0
+offset_right = 79.0
+offset_bottom = 129.0
+
+[node name="ShopMenu" type="Control" parent="MainWindow/CardOpener"]
+visible = false
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 40.0
+script = ExtResource("7_gf1r6")
+packageList = Array[Resource("res://scripts/package.gd")]([ExtResource("4_ekve3"), ExtResource("8_yhhw2")])
+costList = Array[ExtResource("15_ylj78")]([SubResource("Resource_rl4vm"), SubResource("Resource_bee8a")])
+
+[node name="PackageList" type="HBoxContainer" parent="MainWindow/CardOpener/ShopMenu"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 368.0
+offset_right = 523.0
+offset_bottom = 408.0
+theme_override_constants/separation = 225
+
+[node name="Control" type="Control" parent="MainWindow/CardOpener/ShopMenu/PackageList"]
+layout_mode = 2
+
+[node name="PackageImage" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/PackageList/Control"]
+scale = Vector2(0.278125, 0.278125)
+texture = ExtResource("13_w0evf")
+
+[node name="Control2" type="Control" parent="MainWindow/CardOpener/ShopMenu/PackageList"]
+modulate = Color(0.2, 0.2, 0.2, 1)
+layout_mode = 2
+
+[node name="PackageImage2" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/PackageList/Control2"]
+scale = Vector2(0.278125, 0.278125)
+texture = ExtResource("8_fr6dl")
+
+[node name="Background" type="ColorRect" parent="MainWindow/CardOpener/ShopMenu"]
+z_index = -9
+layout_mode = 0
+offset_left = -5.0
+offset_right = 543.0
+offset_bottom = 789.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="Buy" type="Button" parent="MainWindow/CardOpener/ShopMenu"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 503.0
+offset_right = 323.0
+offset_bottom = 543.0
+text = "BUY"
+
+[node name="Title" type="Label" parent="MainWindow/CardOpener/ShopMenu"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 194.0
+offset_right = 334.0
+offset_bottom = 243.0
+text = "Forest"
+label_settings = SubResource("LabelSettings_mtgfc")
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="MainWindow/CardOpener/ShopMenu"]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 108.0
+offset_right = 506.0
+offset_bottom = 155.0
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = SubResource("FontVariation_cm6se")
+theme_override_font_sizes/font_size = 26
+text = "Exit"
+
+[node name="FreeLabel" type="Label" parent="MainWindow/CardOpener/ShopMenu"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 554.0
+offset_right = 334.0
+offset_bottom = 586.0
+text = "FREE!"
+label_settings = SubResource("LabelSettings_tunn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostContainer" type="VBoxContainer" parent="MainWindow/CardOpener/ShopMenu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 35
+
+[node name="item1" type="Control" parent="MainWindow/CardOpener/ShopMenu/CostContainer"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item1"]
+layout_mode = 2
+offset_left = 241.0
+offset_top = 560.0
+offset_right = 319.0
+offset_bottom = 592.0
+text = "20 "
+label_settings = SubResource("LabelSettings_5xwfb")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item1"]
+position = Vector2(337, 577)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_tljix")
+
+[node name="item2" type="Control" parent="MainWindow/CardOpener/ShopMenu/CostContainer"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item2"]
+layout_mode = 2
+offset_left = 241.0
+offset_top = 560.0
+offset_right = 319.0
+offset_bottom = 592.0
+text = "20 "
+label_settings = SubResource("LabelSettings_5xwfb")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item2"]
+position = Vector2(337, 577)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_tljix")
+
+[node name="item3" type="Control" parent="MainWindow/CardOpener/ShopMenu/CostContainer"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item3"]
+layout_mode = 2
+offset_left = 241.0
+offset_top = 560.0
+offset_right = 319.0
+offset_bottom = 592.0
+text = "20 "
+label_settings = SubResource("LabelSettings_5xwfb")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item3"]
+position = Vector2(337, 577)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_tljix")
+
+[node name="item4" type="Control" parent="MainWindow/CardOpener/ShopMenu/CostContainer"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item4"]
+layout_mode = 2
+offset_left = 241.0
+offset_top = 560.0
+offset_right = 319.0
+offset_bottom = 592.0
+text = "20 "
+label_settings = SubResource("LabelSettings_5xwfb")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item4"]
+position = Vector2(337, 577)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_tljix")
+
+[node name="ArrowRight" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu"]
+texture_filter = 1
+position = Vector2(378, 348)
+texture = ExtResource("10_siam1")
+
+[node name="Button" type="Button" parent="MainWindow/CardOpener/ShopMenu/ArrowRight"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -23.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = 53.0
+
+[node name="ArrowLeft" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu"]
+texture_filter = 1
+position = Vector2(166, 343)
+scale = Vector2(-1, -1)
+texture = ExtResource("10_siam1")
+
+[node name="Button" type="Button" parent="MainWindow/CardOpener/ShopMenu/ArrowLeft"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -23.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = 53.0
+
+[node name="TengraiImage17044004457967248" type="Sprite2D" parent="MainWindow/CardOpener"]
+visible = false
+self_modulate = Color(0.92549, 0.92549, 0.92549, 1)
+z_index = -11
+position = Vector2(263.5, 454)
+scale = Vector2(0.743164, 0.9375)
+texture = ExtResource("18_bh2ud")
+
+[node name="CardOpenerBackground" type="Sprite2D" parent="MainWindow/CardOpener"]
+z_index = -10
+position = Vector2(245, 339)
+scale = Vector2(0.601333, 0.601333)
+texture = ExtResource("41_qkxsw")
+
+[node name="StoneTable" type="Sprite2D" parent="MainWindow/CardOpener"]
+visible = false
+z_index = -7
+position = Vector2(287, 433)
+scale = Vector2(0.703, 0.703)
+texture = ExtResource("26_n3pnp")
+
+[node name="CraftingTable" type="Control" parent="MainWindow"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_b0emq")
+availableRecipes = Array[ExtResource("15_ylj78")]([ExtResource("14_4isum"), ExtResource("17_kllyk"), ExtResource("18_32hiw"), ExtResource("19_fvusr"), ExtResource("20_pqs0i"), ExtResource("21_ejji6"), ExtResource("22_15glv"), ExtResource("23_1r4x4")])
+
+[node name="Coin" type="Sprite2D" parent="MainWindow/CraftingTable"]
+z_index = -4
+position = Vector2(271, 479)
+scale = Vector2(0.941406, 0.916821)
+texture = ExtResource("15_ca6cp")
+
+[node name="requestingSlot" parent="MainWindow/CraftingTable" node_paths=PackedStringArray("parentArea") instance=ExtResource("15_yr37l")]
+offset_left = 271.0
+offset_top = 404.0
+offset_right = 277.0
+offset_bottom = 410.0
+parentArea = NodePath("..")
+
+[node name="CraftButton" type="Button" parent="MainWindow/CraftingTable"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 639.0
+offset_right = 345.0
+offset_bottom = 700.0
+text = "Craft"
+
+[node name="TengraiImage17044004457967248" type="Sprite2D" parent="MainWindow/CraftingTable"]
+self_modulate = Color(0.92549, 0.92549, 0.92549, 1)
+z_index = -11
+position = Vector2(264.5, 480)
+scale = Vector2(0.745117, 0.9375)
+texture = ExtResource("17_iqhrg")
+
+[node name="NavArrows" type="Control" parent="MainWindow"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -385.0
+offset_right = 540.0
+offset_bottom = -333.0
+grow_vertical = 2
+
+[node name="ArrowRight" type="Sprite2D" parent="MainWindow/NavArrows"]
+texture_filter = 1
+position = Vector2(516, 431.5)
+texture = ExtResource("10_siam1")
+
+[node name="Button" type="Button" parent="MainWindow/NavArrows/ArrowRight"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -23.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = 53.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ArrowLeft" type="Sprite2D" parent="MainWindow/NavArrows"]
+texture_filter = 1
+position = Vector2(27, 426.5)
+scale = Vector2(-1, -1)
+texture = ExtResource("10_siam1")
+
+[node name="Button" type="Button" parent="MainWindow/NavArrows/ArrowLeft"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -23.0
+offset_top = -60.0
+offset_right = 35.0
+offset_bottom = 53.0
+
+[node name="Navigation" type="CenterContainer" parent="MainWindow/NavArrows"]
+layout_mode = 0
+offset_right = 538.0
+offset_bottom = 11.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainWindow/NavArrows/Navigation"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="1" type="Control" parent="MainWindow/NavArrows/Navigation/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="MainWindow/NavArrows/Navigation/HBoxContainer/1"]
+texture_filter = 1
+position = Vector2(0, 13)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vwpgx")
+hframes = 2
+
+[node name="2" type="Control" parent="MainWindow/NavArrows/Navigation/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="MainWindow/NavArrows/Navigation/HBoxContainer/2"]
+texture_filter = 1
+position = Vector2(0, 13)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vwpgx")
+hframes = 2
+frame = 1
+
+[node name="3" type="Control" parent="MainWindow/NavArrows/Navigation/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="MainWindow/NavArrows/Navigation/HBoxContainer/3"]
+texture_filter = 1
+position = Vector2(0, 13)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vwpgx")
+hframes = 2
+
+[node name="TopRight" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Gold" type="Label" parent="TopRight"]
+layout_mode = 0
+offset_left = -133.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = 49.0
+text = "77"
+label_settings = SubResource("LabelSettings_6tr7l")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Coin" type="Sprite2D" parent="TopRight"]
+position = Vector2(12.1484, 25.0302)
+scale = Vector2(0.0622969, 0.0619396)
+texture = ExtResource("36_s7qbx")
+
+[node name="UnselectButton" type="TouchScreenButton" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(1.3525, 1.25781)
+texture_normal = ExtResource("15_kod6w")
+metadata/_edit_lock_ = true
+
+[node name="Popup" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("33_6448h")
+
+[node name="Background" type="ColorRect" parent="Popup"]
+layout_mode = 0
+offset_right = 539.0
+offset_bottom = 960.0
+color = Color(0, 0, 0, 0.772549)
+
+[node name="Panel" type="ColorRect" parent="Popup"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 269.0
+offset_right = 439.0
+offset_bottom = 573.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Popup"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 297.0
+offset_right = 421.0
+offset_bottom = 431.0
+theme_override_font_sizes/normal_font_size = 34
+bbcode_enabled = true
+text = "Are you sure?"
+text_direction = 1
+
+[node name="YesButton" type="Button" parent="Popup"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 495.0
+offset_right = 428.0
+offset_bottom = 555.0
+text = "YES"
+
+[node name="NoButton" type="Button" parent="Popup"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 494.0
+offset_right = 240.0
+offset_bottom = 554.0
+text = "NO
+"
+
+[connection signal="pressed" from="BottomMenu/Button" to="CardHolder" method="changePlayerHand" binds= [0]]
+[connection signal="pressed" from="BottomMenu/Button2" to="CardHolder" method="changePlayerHand" binds= [1]]
