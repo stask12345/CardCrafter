@@ -21,3 +21,5 @@ Wcześniejsza rozdzielczość itemu 0.325
 Obecna rozdzielczość obrazu: 400 x 400
 
 [Pomysły]
+- kostki budowlane
+- cement
