@@ -1,4 +1,4 @@
-[Dodawanie pop-upu z decyzją]
+ok[Dodawanie pop-upu z decyzją]
 1. Dodaj system do noda.
 2. system.checkPlayerDecision(script do wzrotu(self),text zapytania)
 3. Stwórz funkcję playerDecision(bool answer)
@@ -21,3 +21,4 @@ Wcześniejsza rozdzielczość itemu 0.325
 Obecna rozdzielczość obrazu: 400 x 400
 
 [Pomysły]
+- Klei
