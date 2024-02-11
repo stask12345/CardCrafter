@@ -19,3 +19,5 @@ c - dodaje karte
 Wcześniejsza rozdzielczość itemu 0.325
 0.082
 Obecna rozdzielczość obrazu: 400 x 400
+
+[Pomysły]
