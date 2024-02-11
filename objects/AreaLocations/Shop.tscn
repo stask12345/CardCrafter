@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bq5qwedteu6g1"]
 
 [ext_resource type="Script" path="res://scripts/Shop.gd" id="1_lio1j"]
-[ext_resource type="Texture2D" uid="uid://bswmky6ppyyf3" path="res://graphics/areaElements/shop.png" id="2_8vhoq"]
+[ext_resource type="Texture2D" uid="uid://d045hkydlhb2k" path="res://graphics/areaElements/shop-transformed.png" id="2_s8a4c"]
 [ext_resource type="Texture2D" uid="uid://m0qxmnky5ipv" path="res://graphics/areaElements/cogwell.png" id="3_gxhab"]
 [ext_resource type="Texture2D" uid="uid://vkjdptpgjxfi" path="res://graphics/areaElements/cardDestroyedTeeth.png" id="4_qtp6p"]
 [ext_resource type="Texture2D" uid="uid://t4ogtrhe8us3" path="res://graphics/areaElements/cardDestroyer.png" id="5_4tjc2"]
@@ -80,7 +80,6 @@ _data = {
 }
 
 [node name="Shop" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -88,28 +87,29 @@ offset_bottom = 40.0
 script = ExtResource("1_lio1j")
 
 [node name="Shop" type="Sprite2D" parent="."]
-position = Vector2(269.5, 406)
-scale = Vector2(0.767143, 0.767143)
-texture = ExtResource("2_8vhoq")
-
-[node name="Cogwell" type="Sprite2D" parent="Shop"]
-z_index = -19
-position = Vector2(128.399, -114.711)
-scale = Vector2(1.30354, 1.30354)
-texture = ExtResource("3_gxhab")
+position = Vector2(270.5, 399.214)
+scale = Vector2(0.399286, 0.399286)
+texture = ExtResource("2_s8a4c")
 
 [node name="Cogwell2" type="Sprite2D" parent="Shop"]
 z_index = -8
-position = Vector2(-151.862, -22.1602)
-scale = Vector2(1.30354, 1.30354)
+position = Vector2(-300.731, -4.2049)
+scale = Vector2(2.55942, 2.55942)
+texture = ExtResource("3_gxhab")
+
+[node name="Cogwell" type="Sprite2D" parent="Shop"]
+z_index = -19
+position = Vector2(249.544, -185.923)
+scale = Vector2(2.55942, 2.55942)
 texture = ExtResource("3_gxhab")
 
 [node name="ColorRect" type="ColorRect" parent="Shop"]
 z_index = -19
-offset_left = -132.0
-offset_top = -197.0
-offset_right = 111.0
-offset_bottom = -113.0
+offset_left = -261.733
+offset_top = -347.492
+offset_right = -18.7331
+offset_bottom = -263.492
+scale = Vector2(1.97, 1.97)
 color = Color(0.054902, 0.0509804, 0.0470588, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Shop"]
@@ -121,10 +121,11 @@ libraries = {
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -153.0
-offset_top = -212.0
-offset_right = 128.0
-offset_bottom = -104.0
+offset_left = -152.0
+offset_top = -311.0
+offset_right = 122.0
+offset_bottom = -203.0
+scale = Vector2(1.97, 1.97)
 pivot_offset = Vector2(151.045, 62.0931)
 
 [node name="CardDestroyedTeeth2" type="Sprite2D" parent="Shop/Teeth"]
@@ -144,8 +145,11 @@ offset = Vector2(390.622, -66.6032)
 [node name="cardDestroyer" type="Control" parent="Shop"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -2.55939
+offset_top = 44.4241
+offset_right = 37.4406
+offset_bottom = 84.4241
+scale = Vector2(1.97, 1.97)
 
 [node name="CardDestroyerUp" type="Sprite2D" parent="Shop/cardDestroyer"]
 z_index = -18
@@ -186,3 +190,4 @@ offset_left = 253.0
 offset_top = 416.0
 offset_right = 293.0
 offset_bottom = 456.0
+scale = Vector2(0.767, 0.767)

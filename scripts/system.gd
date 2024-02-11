@@ -7,6 +7,7 @@ var MineCardList = []
 var knownRecipies : Array[recipy] = []
 @export var rank = 0
 @onready var cardHolder = get_node("CardHolder")
+@onready var mainWindow = get_node("MainWindow")
 @onready var popupUpgrade = get_node("PopupUpgrade")
 @onready var cardHolderTabs = get_node("BottomMenu/Tabs")
 @onready var moneySystem = get_node("TopRight")

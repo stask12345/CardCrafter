@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://d3cw63j2o0sef"]
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://d3cw63j2o0sef"]
 
+[ext_resource type="Texture2D" uid="uid://j4ataip03iu6" path="res://graphics/cards/sharpenedStone.png" id="1_jjjo0"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_rgjqa"]
 
 [resource]
 script = ExtResource("1_rgjqa")
 cardName = "Sharpened Stone"
 value = 0
+image = ExtResource("1_jjjo0")
 origin = 0
 handOrder = 7
 fuelPower = 0
 fuelNeededInProduction = 0
+processingPowerNeeded = 0

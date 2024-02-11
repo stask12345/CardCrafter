@@ -8,6 +8,7 @@ func _ready():
 	showCardsNeededForRankUp()
 	showRankLabel()
 	$RankUpButton.connect("pressed",rankUp)
+	await get_tree().create_timer(1).timeout
 
 @onready var cardPlaceholder = preload("res://objects/Utility/PlaceHolderCard.tscn")
 func showCardsNeededForRankUp():
@@ -64,3 +65,6 @@ func _input(event): #TODELETE
 			system.addCard(load("res://resources/cards/Forest/package/Wood.tres"))
 			system.addCard(load("res://resources/cards/Forest/package/Rock.tres"))
 			system.addCard(load("res://resources/cards/Forest/package/Leaf.tres"))
+			system.addCard(load("res://resources/cards/Forest/package/Vine.tres"))
+		if event.key_label == 68 and !event.pressed:
+			system.addCard(load("res://resources/cards/Forest/package/Stick.tres"))

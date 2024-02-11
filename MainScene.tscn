@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dfk0ti8omq8tb"]
+[gd_scene load_steps=81 format=3 uid="uid://dfk0ti8omq8tb"]
 
 [ext_resource type="Script" path="res://scripts/system.gd" id="1_touu2"]
 [ext_resource type="Script" path="res://scripts/cardHolder.gd" id="2_muers"]
@@ -51,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://7qeadsb17gqm" path="res://graphics/areaElements/recipyBook.png" id="42_g3gcg"]
 [ext_resource type="Script" path="res://scripts/AutomaticCrafter.gd" id="43_1ldmg"]
 [ext_resource type="Texture2D" uid="uid://b12b0iadapj14" path="res://graphics/animations/cloud1.png" id="43_q1uy5"]
+[ext_resource type="Texture2D" uid="uid://plgyggipuiht" path="res://graphics/areaElements/recipyBookFull.png" id="44_7k606"]
 [ext_resource type="Texture2D" uid="uid://c5r8faqn1dhjh" path="res://graphics/animations/cloud2.png" id="44_hnndv"]
 [ext_resource type="Script" path="res://scripts/PopupUpgrade.gd" id="49_7iwcp"]
 [ext_resource type="Script" path="res://scripts/ListOfCostItems.gd" id="50_r4shp"]
@@ -136,6 +137,121 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ulwf1"]
 _data = {
 "idle": SubResource("Animation_t1x7f")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_1a27n"]
+font = ExtResource("16_3npbd")
+font_size = 65
+font_color = Color(0.898039, 0.709804, 0.0784314, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.662745)
+shadow_offset = Vector2(2.29, 3.105)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x2ftt"]
+font = ExtResource("16_3npbd")
+font_size = 44
+font_color = Color(0.32549, 0.32549, 0.32549, 1)
+
+[sub_resource type="Animation" id="Animation_6je01"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.174533]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-100, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"exitRecipyBook"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Book:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.0392157)]
+}
+
+[sub_resource type="Animation" id="Animation_axktk"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Book:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-100, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Book:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0117647), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wpblx"]
+_data = {
+"close": SubResource("Animation_6je01"),
+"open": SubResource("Animation_axktk")
 }
 
 [sub_resource type="Animation" id="Animation_wfo4u"]
@@ -443,7 +559,7 @@ offset_bottom = 316.0
 
 [node name="GridContainer" type="GridContainer" parent="MainWindow/QuestRoom/CenterContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 118
+theme_override_constants/h_separation = 125
 theme_override_constants/v_separation = 150
 columns = 3
 
@@ -463,7 +579,6 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("41_qkxsw")
 
 [node name="CardOpener" type="Control" parent="MainWindow"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -753,6 +868,7 @@ scale_amount_max = 6.0
 color_ramp = SubResource("Gradient_56suq")
 
 [node name="CraftingTable" type="Control" parent="MainWindow"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -837,31 +953,86 @@ script = ExtResource("40_hv43b")
 
 [node name="ColorRect" type="ColorRect" parent="MainWindow/CraftingTable/RecipyBook"]
 layout_mode = 0
-offset_right = 537.0
+offset_top = -64.0
+offset_right = 649.0
 offset_bottom = 790.0
 color = Color(0, 0, 0, 0.478431)
 
+[node name="Book" type="Control" parent="MainWindow/CraftingTable/RecipyBook"]
+anchors_preset = 0
+offset_left = -100.0
+offset_right = -60.0
+offset_bottom = 40.0
+rotation = -0.174533
+pivot_offset = Vector2(0, 743)
+
+[node name="RecipyBookFull" type="Sprite2D" parent="MainWindow/CraftingTable/RecipyBook/Book"]
+position = Vector2(250, 394)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("44_7k606")
+
+[node name="LabelRecipy" type="Label" parent="MainWindow/CraftingTable/RecipyBook/Book"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 79.0
+offset_right = 309.0
+offset_bottom = 138.0
+text = "Recipies"
+label_settings = SubResource("LabelSettings_1a27n")
+
+[node name="LabelEmpty" type="Label" parent="MainWindow/CraftingTable/RecipyBook/Book"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 383.0
+offset_right = 395.0
+offset_bottom = 423.0
+text = "- You have no recipies - "
+label_settings = SubResource("LabelSettings_x2ftt")
+
+[node name="ExitButton" type="Button" parent="MainWindow/CraftingTable/RecipyBook/Book"]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 89.0
+offset_right = 439.0
+offset_bottom = 132.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0.32549, 0.32549, 0.32549, 1)
+theme_override_colors/font_pressed_color = Color(0.325441, 0.325441, 0.325441, 1)
+theme_override_colors/font_hover_color = Color(0.325441, 0.325441, 0.325441, 1)
+theme_override_colors/font_focus_color = Color(0.325441, 0.325441, 0.325441, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.325441, 0.325441, 0.325441, 1)
+theme_override_fonts/font = ExtResource("16_3npbd")
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Exit"
+flat = true
+alignment = 0
+
+[node name="BackArrow" type="Sprite2D" parent="MainWindow/CraftingTable/RecipyBook/Book/ExitButton"]
+position = Vector2(59, 19)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("26_dmp1p")
+
 [node name="ScrollContainer" type="ScrollContainer" parent="MainWindow/CraftingTable/RecipyBook"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 166.0
-offset_right = 452.0
-offset_bottom = 702.0
+offset_left = 48.0
+offset_top = 152.0
+offset_right = 408.0
+offset_bottom = 688.0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainWindow/CraftingTable/RecipyBook/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 85
+theme_override_constants/separation = 110
 
-[node name="ExitButton" type="Button" parent="MainWindow/CraftingTable/RecipyBook"]
-layout_mode = 0
-offset_left = 406.0
-offset_top = 116.0
-offset_right = 443.0
-offset_bottom = 147.0
-text = "Exit
-"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainWindow/CraftingTable/RecipyBook"]
+libraries = {
+"": SubResource("AnimationLibrary_wpblx")
+}
 
 [node name="Clouds" type="Control" parent="MainWindow/CraftingTable"]
 visible = false
@@ -910,6 +1081,7 @@ offset_top = -1.0
 offset_bottom = 39.0
 
 [node name="Shop" parent="MainWindow" instance=ExtResource("41_vyskf")]
+visible = false
 
 [node name="AutomaticCrafter" type="Control" parent="MainWindow"]
 visible = false

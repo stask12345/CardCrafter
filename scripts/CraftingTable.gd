@@ -49,6 +49,7 @@ func updateKnownRecipies(r : recipy):
 
 func openBook():
 	$RecipyBook.openRecipyBook()
+	system.mainWindow.changeNavVisibility(false)
 
 func showCraftButton(show):
 	var t = get_tree().create_tween()

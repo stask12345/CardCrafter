@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://e740yjg4gt8q"]
+
+[ext_resource type="Texture2D" uid="uid://c871lsj2q354n" path="res://graphics/cards/leaf.png" id="1_0uqd6"]
+[ext_resource type="FontFile" uid="uid://bhe5mj7qr75a3" path="res://graphics/fonts/MangabeyRegular-rgqVO.otf" id="2_3mddl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjfv1"]
+font = ExtResource("2_3mddl")
+font_size = 20
+font_color = Color(0.32549, 0.32549, 0.32549, 1)
+
+[node name="itemImage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30, 27)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_0uqd6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 49.0
+offset_right = 63.0
+offset_bottom = 85.0
+text = "Leaf"
+label_settings = SubResource("LabelSettings_bjfv1")
+horizontal_alignment = 1

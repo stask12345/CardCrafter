@@ -12,5 +12,10 @@
 6. Request field uruchamia daną funkcję w parentArea.
 
 [Debug]
+Rezolucja lokacji: 540 x 790 (*1,46)
 Debug jest oznaczany komentarzami #TODELETE
 r - rank up 
+c - dodaje karte
+Wcześniejsza rozdzielczość itemu 0.325
+0.082
+Obecna rozdzielczość obrazu: 400 x 400
