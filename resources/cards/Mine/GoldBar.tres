@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://biuvnduid0lw6"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_1jn2h"]
+[ext_resource type="Texture2D" uid="uid://63m7utun34gr" path="res://graphics/cards/goldenBar.png" id="1_vosaa"]
+
+[resource]
+script = ExtResource("1_1jn2h")
+cardName = "Golden Bar"
+value = 50
+image = ExtResource("1_vosaa")
+origin = 1
+handOrder = 11
+fuelPower = 0
+fuelNeededInProduction = 0
+processingPowerNeeded = 0

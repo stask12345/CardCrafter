@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bq5qwedteu6g1"]
+[gd_scene load_steps=26 format=3 uid="uid://bq5qwedteu6g1"]
 
 [ext_resource type="Script" path="res://scripts/Shop.gd" id="1_lio1j"]
 [ext_resource type="Texture2D" uid="uid://d045hkydlhb2k" path="res://graphics/areaElements/shop-transformed.png" id="2_s8a4c"]
@@ -8,6 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://ddkgyo0i6l4pd" path="res://graphics/areaElements/shopBackground.png" id="6_en6ut"]
 [ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/Utility/RequestingSlot.tscn" id="7_x7rsn"]
 [ext_resource type="Script" path="res://scripts/ShopRequestingSlot.gd" id="8_e5opu"]
+[ext_resource type="Texture2D" uid="uid://rd2ok1xsk521" path="res://graphics/UI/shopPackageRecipy.png" id="9_05gvk"]
+[ext_resource type="FontFile" uid="uid://bhe5mj7qr75a3" path="res://graphics/fonts/MangabeyRegular-rgqVO.otf" id="10_e4ey6"]
+[ext_resource type="Texture2D" uid="uid://cmm56dyfia0q4" path="res://graphics/coin1b.png" id="11_22jp2"]
+[ext_resource type="Texture2D" uid="uid://bghvh5ehbj1q" path="res://graphics/UI/shopPackageSystemUpgrade.png" id="12_mvl1t"]
+[ext_resource type="Texture2D" uid="uid://ro0p516opxq1" path="res://graphics/areaElements/blueprint.png" id="13_sw0dk"]
+[ext_resource type="Script" path="res://scripts/RecipyListItem.gd" id="14_rhfbd"]
+[ext_resource type="Texture2D" uid="uid://di42e6qi6csye" path="res://graphics/cards/clay.png" id="15_afr0s"]
 
 [sub_resource type="Animation" id="Animation_tg7ac"]
 resource_name = "idle"
@@ -79,12 +86,55 @@ _data = {
 "idle": SubResource("Animation_tg7ac")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_rg8ee"]
+font = ExtResource("10_e4ey6")
+font_size = 52
+outline_size = 4
+outline_color = Color(1, 1, 1, 0.341176)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2kaf"]
+font = ExtResource("10_e4ey6")
+font_size = 35
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lwl46"]
+font = ExtResource("10_e4ey6")
+font_size = 20
+outline_size = 4
+outline_color = Color(1, 1, 1, 0.341176)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2srdx"]
+font = ExtResource("10_e4ey6")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_uw8mj"]
+font = ExtResource("10_e4ey6")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_ecrur"]
+font = ExtResource("10_e4ey6")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_pnhbp"]
+font = ExtResource("10_e4ey6")
+font_size = 28
+font_color = Color(0.32549, 0.32549, 0.32549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1nkyn"]
+font = ExtResource("10_e4ey6")
+font_size = 45
+
 [node name="Shop" type="Control"]
+z_index = -11
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_lio1j")
+recipyCost = Array[float]([50.0, 100.0, 150.0])
+systemUpgradeCost = Array[float]([9900.0, 300.0, 500.0])
+systemUpgradeNames = Array[String](["asdf", "zxcv"])
 
 [node name="Shop" type="Sprite2D" parent="."]
 position = Vector2(270.5, 399.214)
@@ -191,3 +241,218 @@ offset_top = 416.0
 offset_right = 293.0
 offset_bottom = 456.0
 scale = Vector2(0.767, 0.767)
+
+[node name="RecipyUpgrade" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Graphic" type="Sprite2D" parent="RecipyUpgrade"]
+position = Vector2(141, 619)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_05gvk")
+
+[node name="Label" type="Label" parent="RecipyUpgrade/Graphic"]
+offset_left = -105.0
+offset_top = 70.0
+offset_right = 56.0
+offset_bottom = 118.0
+text = "- Recipy -"
+label_settings = SubResource("LabelSettings_rg8ee")
+
+[node name="Cost" type="Label" parent="RecipyUpgrade"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 722.0
+offset_right = 133.0
+offset_bottom = 754.0
+text = "50"
+label_settings = SubResource("LabelSettings_b2kaf")
+horizontal_alignment = 2
+
+[node name="Icon" type="Sprite2D" parent="RecipyUpgrade/Cost"]
+position = Vector2(90, 12)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_22jp2")
+
+[node name="Button" type="Button" parent="RecipyUpgrade"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 78.0
+offset_top = 544.0
+offset_right = 209.0
+offset_bottom = 689.0
+
+[node name="SystemUpgrade" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Graphic" type="Sprite2D" parent="SystemUpgrade"]
+position = Vector2(401, 620)
+rotation = 3.14159
+scale = Vector2(0.4, -0.4)
+texture = ExtResource("12_mvl1t")
+
+[node name="Label" type="Label" parent="SystemUpgrade/Graphic"]
+offset_left = 62.5
+offset_top = 77.5
+offset_right = 233.5
+offset_bottom = 125.5
+scale = Vector2(-1, 1)
+text = "- System -"
+label_settings = SubResource("LabelSettings_rg8ee")
+
+[node name="Label2" type="Label" parent="SystemUpgrade/Graphic"]
+offset_left = -17.5
+offset_top = 122.5
+offset_right = 153.5
+offset_bottom = 170.5
+scale = Vector2(-1, 1)
+text = "Upgrade"
+label_settings = SubResource("LabelSettings_lwl46")
+
+[node name="Cost" type="Label" parent="SystemUpgrade"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 722.0
+offset_right = 414.0
+offset_bottom = 754.0
+text = "99"
+label_settings = SubResource("LabelSettings_b2kaf")
+horizontal_alignment = 2
+
+[node name="Icon" type="Sprite2D" parent="SystemUpgrade/Cost"]
+position = Vector2(90, 12)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_22jp2")
+
+[node name="Button" type="Button" parent="SystemUpgrade"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 334.0
+offset_top = 544.0
+offset_right = 465.0
+offset_bottom = 689.0
+
+[node name="Blueprint" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(270, 350)
+
+[node name="ColorRect" type="ColorRect" parent="Blueprint"]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -305.0
+offset_right = 832.0
+offset_bottom = 962.0
+pivot_offset = Vector2(1806, 1028)
+color = Color(0, 0, 0, 0.768627)
+
+[node name="Blueprint" type="Sprite2D" parent="Blueprint"]
+position = Vector2(280, 345)
+rotation = -0.0523599
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("13_sw0dk")
+
+[node name="PopupName" type="Label" parent="Blueprint"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 171.0
+offset_right = 463.0
+offset_bottom = 225.0
+text = "Unlocked new recipy!"
+label_settings = SubResource("LabelSettings_2srdx")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Blueprint"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 524.0
+offset_right = 473.0
+offset_bottom = 548.0
+text = "- Click to close -"
+label_settings = SubResource("LabelSettings_uw8mj")
+horizontal_alignment = 1
+
+[node name="Recipy" type="Control" parent="Blueprint"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RecipyListItem" type="Control" parent="Blueprint/Recipy"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 151.0
+offset_top = 267.0
+offset_right = 151.0
+offset_bottom = 267.0
+script = ExtResource("14_rhfbd")
+
+[node name="Name" type="Label" parent="Blueprint/Recipy/RecipyListItem"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -31.0
+offset_right = 278.0
+offset_bottom = 1.0
+text = "Sharpened Stone"
+label_settings = SubResource("LabelSettings_ecrur")
+horizontal_alignment = 1
+
+[node name="Id" type="Label" parent="Blueprint/Recipy/RecipyListItem"]
+visible = false
+layout_mode = 0
+offset_left = -101.0
+offset_top = 4.0
+offset_right = 32.0
+offset_bottom = 30.0
+text = "#1"
+label_settings = SubResource("LabelSettings_pnhbp")
+horizontal_alignment = 2
+
+[node name="Image" type="Sprite2D" parent="Blueprint/Recipy/RecipyListItem"]
+position = Vector2(124, 61)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("15_afr0s")
+
+[node name="CenterContainer" type="CenterContainer" parent="Blueprint/Recipy/RecipyListItem"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 100.0
+offset_right = 219.0
+offset_bottom = 147.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Blueprint/Recipy/RecipyListItem/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="SystemUpgrade" type="Control" parent="Blueprint"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="Label" parent="Blueprint/SystemUpgrade"]
+offset_left = 121.0
+offset_top = 233.0
+offset_right = 421.0
+offset_bottom = 278.0
+text = "Sharpened Stone"
+label_settings = SubResource("LabelSettings_1nkyn")
+horizontal_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="Blueprint/SystemUpgrade"]
+position = Vector2(275, 378)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_afr0s")
+
+[node name="ExitButton" type="Button" parent="Blueprint"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 23.0
+offset_top = 35.0
+offset_right = 536.0
+offset_bottom = 778.0

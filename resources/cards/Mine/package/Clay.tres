@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://ccc45lyqd8jfl"]
+
+[ext_resource type="Texture2D" uid="uid://di42e6qi6csye" path="res://graphics/cards/clay.png" id="1_wbn0i"]
+[ext_resource type="Script" path="res://scripts/card.gd" id="2_28enj"]
+
+[resource]
+script = ExtResource("2_28enj")
+cardName = "Clay"
+value = 3
+image = ExtResource("1_wbn0i")
+origin = 1
+handOrder = 4
+fuelPower = 0
+fuelNeededInProduction = 0
+processingPowerNeeded = 0

@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://bvn2teckjed1c"]
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://bvn2teckjed1c"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_d0gda"]
+[ext_resource type="Texture2D" uid="uid://6p5hb6ixy5j1" path="res://graphics/cards/blade.png" id="1_fkxhu"]
 
 [resource]
 script = ExtResource("1_d0gda")
 cardName = "Blade"
 value = 20
+image = ExtResource("1_fkxhu")
 origin = 1
 handOrder = 3
 fuelPower = 0
 fuelNeededInProduction = 0
-processingPowerNeeded = 10
+processingPowerNeeded = 30

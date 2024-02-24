@@ -3,14 +3,26 @@ extends Sprite2D
 var value : int
 @onready var system : controlSystem = get_node("/root/MainScene")
 @export var bronze1 : Texture
+@export var bronze5 : Texture
 @export var bronze10 : Texture
+@export var bronze50 : Texture
 
 func _ready():
 	if value == 1:
 		texture = bronze1
+		z_index += 1
 	else:
-		if value == 10:
-			texture = bronze10
+		if value == 5:
+			texture = bronze5
+			z_index += 2
+		else:
+			if value == 10:
+				texture = bronze10
+				z_index += 3
+			else:
+				if value == 50:
+					texture = bronze50
+					z_index += 4
 
 func addCoin():
 	var t = get_tree().create_tween()
@@ -32,5 +44,5 @@ func flyToPoint(pos : Vector2, add = false):
 		t.tween_callback(addCoin)
 
 func monetize():
-	system.moneySystem.addMoney(value)
+	system.moneySystemNode.addMoney(value)
 	queue_free()

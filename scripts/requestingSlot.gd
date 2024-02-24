@@ -73,9 +73,9 @@ func orderCards():
 		var index = 1
 		for c in get_children():
 			if c is interactiveCard:
-				c.flyToPoint(global_position + Vector2(10*(index),-10*(index)))
+				if !c.unordering:
+					c.flyToPoint(global_position + Vector2(10*(index),-10*(index)))
 				index += 1
-				print("ordering")
 	
 	if ordering == cardOrdering.exclusive:
 		if get_child_count() == 2:
@@ -96,7 +96,7 @@ func deleteAllCards():
 func cardArrivedAtGoal(c): #For furnace and magazine card piles. Fires when IC arrives at goal, e.g. furnace
 	if eatingCards: #furnace
 		parentArea.cardArrived(c)
-		c.queue_free()
+		#c.queue_free()
 	else:
 		if eatingFuel:
 			parentArea.addFuel(c.cardData.fuelPower)
@@ -120,7 +120,6 @@ func getHoldedCards():
 	return cards
 
 func collectAllCards():
-	print("collect")
 	if get_child_count() > 0:
 		for ch in get_children():
 			if ch is interactiveCard:

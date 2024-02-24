@@ -6,8 +6,8 @@ var direction : bool = false
 var progress : float = 0
 
 func _ready():
-	$Icon/Button.connect("button_up",endSpin)
-	$Icon/Button.connect("button_down",startSpin)
+	$WellWell/Button.connect("button_up",endSpin)
+	$WellWell/Button.connect("button_down",startSpin)
 
 func startSpin():
 	spinning = true
@@ -20,16 +20,21 @@ func _input(event):
 		centerMark.look_at(event.position)
 		var degrees : float = centerMark.rotation_degrees
 		if !direction:
-			if $Icon.rotation_degrees < degrees:
-				progress += degrees - $Icon.rotation_degrees
-				$Icon.rotation_degrees = degrees
+			if $WellWell.rotation_degrees < degrees:
+				progress += degrees - $WellWell.rotation_degrees
+				$WellWell.rotation_degrees = degrees
+				pullLine(0.7)
 				updateProgress()
 		else:
-			if $Icon.rotation_degrees > degrees:
-				progress += $Icon.rotation_degrees - degrees
-				$Icon.rotation_degrees = degrees
+			if $WellWell.rotation_degrees > degrees:
+				progress += $WellWell.rotation_degrees - degrees
+				$WellWell.rotation_degrees = degrees
+				pullLine(-1.4)
 				updateProgress()
 		print("progress ", progress)
+
+func pullLine(direction):
+	$"../Graphics/Bucket/BucketLine".global_position = Vector2($"../Graphics/Bucket/BucketLine".global_position.x,$"../Graphics/Bucket/BucketLine".global_position.y + direction)
 
 func updateProgress():
 	get_parent().updateProgress(progress)

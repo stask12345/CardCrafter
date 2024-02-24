@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://dqpymncvd4b7o"]
 
-[ext_resource type="Texture2D" uid="uid://bj7hu2xake43s" path="res://graphics/cards/tengrai_image_1704477496_5350497.webp" id="1_scc4f"]
+[ext_resource type="Texture2D" uid="uid://cmm3sew425egp" path="res://graphics/cards/ironBar.png" id="1_8qgdi"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="2_r80ej"]
 
 [resource]
 script = ExtResource("2_r80ej")
 cardName = "Iron Bar"
 value = 15
-image = ExtResource("1_scc4f")
+image = ExtResource("1_8qgdi")
 origin = 1
 handOrder = 0
 fuelPower = 0
 fuelNeededInProduction = 0
-processingPowerNeededInProduction = 0
+processingPowerNeeded = 0

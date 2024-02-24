@@ -1,15 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://chqd6bq61l80r"]
+[gd_scene load_steps=9 format=3 uid="uid://chqd6bq61l80r"]
 
 [ext_resource type="Script" path="res://scripts/ListBuildingShopItem.gd" id="1_n2ssi"]
 [ext_resource type="Texture2D" uid="uid://b7tir4b3nei2y" path="res://graphics/cards/tengrai_image_1703589773_349566.webp" id="2_70cju"]
-[ext_resource type="Texture2D" uid="uid://bg77pvxurl0k" path="res://graphics/cards/tengrai_image_1703589364_4173577.webp" id="3_74ko6"]
-[ext_resource type="Texture2D" uid="uid://c7lg4x5vu3oqw" path="res://graphics/cards/tengrai_image_1704402244_1364539.webp" id="4_w2bnn"]
-[ext_resource type="Texture2D" uid="uid://bbdvfyddr5c4k" path="res://graphics/cards/tengrai_image_1704478297_7218404.webp" id="5_0n8uc"]
-[ext_resource type="Texture2D" uid="uid://bj7hu2xake43s" path="res://graphics/cards/tengrai_image_1704477496_5350497.webp" id="6_ghm2d"]
+[ext_resource type="FontFile" uid="uid://bhe5mj7qr75a3" path="res://graphics/fonts/MangabeyRegular-rgqVO.otf" id="3_7b4kk"]
+[ext_resource type="Texture2D" uid="uid://d3ihiwnbc6jgf" path="res://graphics/cards/fire.png" id="4_kskmo"]
+[ext_resource type="Texture2D" uid="uid://cmm56dyfia0q4" path="res://graphics/coin1b.png" id="5_tf3jf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p4h7i"]
-font_size = 26
-outline_size = 1
+font = ExtResource("3_7b4kk")
+font_size = 40
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_72w31"]
+font = ExtResource("3_7b4kk")
+font_size = 30
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jmbbg"]
+font = ExtResource("3_7b4kk")
+font_size = 21
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="BuildingShopItem" type="Control"]
 layout_mode = 3
@@ -18,87 +31,156 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_n2ssi")
 
-[node name="Background" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 439.0
-offset_bottom = 134.0
-color = Color(0.0509804, 0.0509804, 0.384314, 1)
-
 [node name="Image" type="Sprite2D" parent="."]
-position = Vector2(66.375, 83)
-scale = Vector2(0.0754395, 0.0761719)
+position = Vector2(59, 84)
+scale = Vector2(0.103149, 0.104151)
 texture = ExtResource("2_70cju")
 
 [node name="NameOfBuilding" type="Label" parent="."]
 layout_mode = 0
-offset_left = 118.0
-offset_top = 14.0
-offset_right = 181.0
-offset_bottom = 50.0
+offset_left = 117.0
+offset_top = 25.0
+offset_right = 346.0
+offset_bottom = 61.0
 text = "Mine
 "
 label_settings = SubResource("LabelSettings_p4h7i")
 
 [node name="FirstResource" type="Label" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 138.0
-offset_top = 62.0
-offset_right = 178.0
-offset_bottom = 85.0
-text = "x 3"
+offset_left = 95.0
+offset_top = 80.0
+offset_right = 135.0
+offset_bottom = 107.0
+text = "3"
+label_settings = SubResource("LabelSettings_72w31")
+horizontal_alignment = 2
 
-[node name="TengraiImage17035893644173577" type="Sprite2D" parent="FirstResource"]
-position = Vector2(-14, 13)
-scale = Vector2(0.03125, 0.0322266)
-texture = ExtResource("3_74ko6")
+[node name="Image" type="Sprite2D" parent="FirstResource"]
+position = Vector2(58, 11)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_kskmo")
+
+[node name="Label" type="Label" parent="FirstResource"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 31.0
+offset_right = 96.0
+offset_bottom = 54.0
+text = "Torch"
+label_settings = SubResource("LabelSettings_jmbbg")
+horizontal_alignment = 1
 
 [node name="SecondResource" type="Label" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 218.0
-offset_top = 64.0
-offset_right = 258.0
-offset_bottom = 87.0
-text = "x 2"
+offset_left = 176.0
+offset_top = 80.0
+offset_right = 216.0
+offset_bottom = 107.0
+text = "3"
+label_settings = SubResource("LabelSettings_72w31")
+horizontal_alignment = 2
 
-[node name="TengraiImage17035893644173577" type="Sprite2D" parent="SecondResource"]
-position = Vector2(-15, 13)
-scale = Vector2(0.03125, 0.0322266)
-texture = ExtResource("4_w2bnn")
+[node name="Image" type="Sprite2D" parent="SecondResource"]
+position = Vector2(58, 11)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_kskmo")
+
+[node name="Label" type="Label" parent="SecondResource"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 96.0
+offset_bottom = 54.0
+text = "Torch"
+label_settings = SubResource("LabelSettings_jmbbg")
+horizontal_alignment = 1
 
 [node name="ThirdResource" type="Label" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 293.0
-offset_top = 65.0
-offset_right = 333.0
-offset_bottom = 88.0
-text = "x 5
-"
+offset_left = 254.0
+offset_top = 80.0
+offset_right = 294.0
+offset_bottom = 107.0
+text = "3"
+label_settings = SubResource("LabelSettings_72w31")
+horizontal_alignment = 2
 
-[node name="TengraiImage17035893644173577" type="Sprite2D" parent="ThirdResource"]
-position = Vector2(-15, 13)
-scale = Vector2(0.03125, 0.0322266)
-texture = ExtResource("5_0n8uc")
+[node name="Image" type="Sprite2D" parent="ThirdResource"]
+position = Vector2(58, 11)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_kskmo")
+
+[node name="Label" type="Label" parent="ThirdResource"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 31.0
+offset_right = 97.0
+offset_bottom = 54.0
+text = "Torch"
+label_settings = SubResource("LabelSettings_jmbbg")
+horizontal_alignment = 1
 
 [node name="FourthResource" type="Label" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 362.0
-offset_top = 65.0
-offset_right = 402.0
-offset_bottom = 88.0
-text = "x 1
-"
+offset_left = 341.0
+offset_top = 80.0
+offset_right = 381.0
+offset_bottom = 107.0
+text = "3"
+label_settings = SubResource("LabelSettings_72w31")
+horizontal_alignment = 2
 
-[node name="TengraiImage17035893644173577" type="Sprite2D" parent="FourthResource"]
-position = Vector2(-15, 13)
-scale = Vector2(0.03125, 0.0322266)
-texture = ExtResource("6_ghm2d")
+[node name="Image" type="Sprite2D" parent="FourthResource"]
+position = Vector2(58, 11)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_kskmo")
+
+[node name="Label" type="Label" parent="FourthResource"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 31.0
+offset_right = 97.0
+offset_bottom = 54.0
+text = "Torch"
+label_settings = SubResource("LabelSettings_jmbbg")
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
+offset_top = 17.0
 offset_right = 439.0
-offset_bottom = 133.0
+offset_bottom = 150.0
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(0, -128)
+points = PackedVector2Array(20, 139, 414, 139)
+width = 4.0
+default_color = Color(1, 1, 1, 0.807843)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="."]
+position = Vector2(0, 15)
+points = PackedVector2Array(20, 139, 414, 139)
+width = 4.0
+default_color = Color(1, 1, 1, 0.807843)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Cost" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 341.0
+offset_top = 24.0
+offset_right = 381.0
+offset_bottom = 51.0
+text = "30"
+label_settings = SubResource("LabelSettings_72w31")
+horizontal_alignment = 2
+
+[node name="Image" type="Sprite2D" parent="Cost"]
+position = Vector2(58, 11)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_tf3jf")

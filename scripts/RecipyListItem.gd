@@ -1,6 +1,6 @@
 extends Control
 
-func setUpRecipy(rec : recipy, id : int):
+func setUpRecipy(rec : recipy, id : int, newRecipy : bool = false):
 	$Name.text = rec.outputResource[0].cardName
 	$Id.text = "#" + str(id + 1)
 	if rec.outputResource[0].image != null:
@@ -12,6 +12,8 @@ func setUpRecipy(rec : recipy, id : int):
 			var ri = load("res://objects/Utility/ItemImage.tscn").instantiate()
 			ri.get_node("Sprite2D").texture = rec.resources[i].image
 			ri.get_node("Label").text = rec.resources[i].cardName
+			if newRecipy:
+				ri.get_node("Label").self_modulate = Color.WHITE
 			container.add_child(ri)
 			if n < rec.quantity[i] - 1 or i < rec.resources.size() - 1:
 				var imagePlus = TextureRect.new()

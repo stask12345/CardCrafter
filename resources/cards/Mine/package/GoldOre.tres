@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="card" load_steps=4 format=3 uid="uid://cc52cwba4ixc3"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_3wjkg"]
+[ext_resource type="Texture2D" uid="uid://btetk0ry0m0w" path="res://graphics/cards/goldOre.png" id="1_exbu3"]
+[ext_resource type="Resource" uid="uid://biuvnduid0lw6" path="res://resources/cards/Mine/GoldBar.tres" id="2_vgl3v"]
+
+[resource]
+script = ExtResource("1_3wjkg")
+cardName = "Gold Ore"
+value = 30
+image = ExtResource("1_exbu3")
+origin = 1
+handOrder = 2
+fuelPower = 0
+fuelNeededInProduction = 35
+processingPowerNeeded = 0
+outputCard = ExtResource("2_vgl3v")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c1r703j6c1k26"]
 
 [ext_resource type="Script" path="res://scripts/ForestOutpost.gd" id="1_ims7c"]
-[ext_resource type="Resource" uid="uid://ccc45lyqd8jfl" path="res://resources/cards/Forest/package/Clay.tres" id="2_pia13"]
+[ext_resource type="Resource" uid="uid://ccc45lyqd8jfl" path="res://resources/cards/Mine/package/Clay.tres" id="2_pia13"]
 [ext_resource type="Resource" uid="uid://die6qr4iuv072" path="res://resources/cards/Forest/package/Leaf.tres" id="3_0nqfs"]
 [ext_resource type="Resource" uid="uid://cgw7sfhxij3rj" path="res://resources/cards/Forest/package/Rock.tres" id="4_hvk6b"]
 [ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Forest/package/Stick.tres" id="5_7j4sy"]

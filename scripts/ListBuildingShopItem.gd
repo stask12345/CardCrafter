@@ -5,7 +5,7 @@ var requiredRecipy : recipy
 
 func _ready():
 	updateDataInList()
-	$Button.connect("pressed", func(): system.checkPlayerDecision(self, "Build [color=FF0000]" + requiredRecipy.recipyName + "[/color]?"))
+	$Button.connect("pressed", func(): system.checkPlayerDecision(self, "Build [color=44FF44]" + requiredRecipy.recipyName + "[/color]?"))
 
 func updateDataInList():
 	$NameOfBuilding.text = requiredRecipy.recipyName
@@ -13,23 +13,39 @@ func updateDataInList():
 	
 	if requiredRecipy.resources.size() > 0:
 		$FirstResource.visible = true
-		$FirstResource.text = "x " + str(requiredRecipy.quantity[0])
-		$FirstResource/TengraiImage17035893644173577.texture = requiredRecipy.resources[0].image
+		$FirstResource.text = str(requiredRecipy.quantity[0])
+		$FirstResource/Image.texture = requiredRecipy.resources[0].image
+		$FirstResource/Label.text = requiredRecipy.resources[0].cardName
 	
 	if requiredRecipy.resources.size() > 1:
 		$SecondResource.visible = true
-		$SecondResource.text = "x " + str(requiredRecipy.quantity[1])
-		$SecondResource/TengraiImage17035893644173577.texture = requiredRecipy.resources[1].image
+		$SecondResource.text = str(requiredRecipy.quantity[1])
+		$SecondResource/Image.texture = requiredRecipy.resources[1].image
+		$SecondResource/Label.text = requiredRecipy.resources[1].cardName
+	else:
+		$SecondResource.visible = false
 	
 	if requiredRecipy.resources.size() > 2:
 		$ThirdResource.visible = true
-		$ThirdResource.text = "x " + str(requiredRecipy.quantity[2])
-		$ThirdResource/TengraiImage17035893644173577.texture = requiredRecipy.resources[2].image
+		$ThirdResource.text = str(requiredRecipy.quantity[2])
+		$ThirdResource/Image.texture = requiredRecipy.resources[2].image
+		$ThirdResource/Label.text = requiredRecipy.resources[2].cardName
+	else:
+		$ThirdResource.visible = false
 	
 	if requiredRecipy.resources.size() > 3:
 		$FourthResource.visible = true
-		$FourthResource.text = "x " + str(requiredRecipy.quantity[3])
-		$FourthResource/TengraiImage17035893644173577.texture = requiredRecipy.resources[3].image
+		$FourthResource.text = str(requiredRecipy.quantity[3])
+		$FourthResource/Image.texture = requiredRecipy.resources[3].image
+		$FourthResource/Label.text = requiredRecipy.resources[3].cardName
+	else:
+		$FourthResource.visible = false
+	
+	if requiredRecipy.goldCost > 0:
+		$Cost.text = str(requiredRecipy.goldCost)
+		$Cost.visible = true
+	else:
+		$Cost.visible = false
 
 func playerDecision(decision): #after yes, no popup; Sends sygnal to empty location through few scripts...
 	if decision:

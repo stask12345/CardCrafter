@@ -6,7 +6,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_bjfv1"]
 font = ExtResource("2_3mddl")
 font_size = 20
-font_color = Color(0.32549, 0.32549, 0.32549, 1)
 
 [node name="itemImage" type="Control"]
 layout_mode = 3
@@ -20,6 +19,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_0uqd6")
 
 [node name="Label" type="Label" parent="."]
+self_modulate = Color(0.32549, 0.32549, 0.32549, 1)
 layout_mode = 0
 offset_left = -4.0
 offset_top = 49.0

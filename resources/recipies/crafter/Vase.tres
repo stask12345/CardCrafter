@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://ddbkctpm3c3mv" path="res://resources/cards/Forest/Vase.tres" id="1_mm50t"]
 [ext_resource type="Script" path="res://scripts/recipy.gd" id="1_oa0lm"]
-[ext_resource type="Resource" uid="uid://ccc45lyqd8jfl" path="res://resources/cards/Forest/package/Clay.tres" id="2_l8leb"]
+[ext_resource type="Resource" uid="uid://ccc45lyqd8jfl" path="res://resources/cards/Mine/package/Clay.tres" id="2_l8leb"]
 [ext_resource type="Resource" uid="uid://ceyva7lcopc5x" path="res://resources/cards/Forest/Fire.tres" id="3_guwb4"]
 
 [resource]

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://8nu3fi0k2514"]
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://8nu3fi0k2514"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_5lt84"]
+[ext_resource type="Texture2D" uid="uid://cqf1p01auf3vh" path="res://graphics/cards/fireplace.png" id="1_7q0a6"]
 
 [resource]
 script = ExtResource("1_5lt84")
 cardName = "Fire Place"
 value = 15
+image = ExtResource("1_7q0a6")
 origin = 0
 handOrder = 9
 fuelPower = 0

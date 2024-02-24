@@ -51,11 +51,15 @@ func packageClicked():
 		animationPlaying = false
 
 func openPackage():
-	print("open")
 	var cardInstance = preload("res://objects/Utility/InteractiveCard.tscn")
-	for i in packageSize:
+	var cards = []
+	if currentPackage.packageName == "Forest":
+		cards = currentPackage.getNonRandomArray(packageSize)
+	else:
+		cards = currentPackage.getRandomArray(packageSize)
+	for cardData in cards:
 		var c : interactiveCard = cardInstance.instantiate()
-		c.cardData = currentPackage.getRandomCard()
+		c.cardData = cardData
 		
 		get_node("/root/MainScene").add_child(c)
 		var cardPosition = global_position

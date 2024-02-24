@@ -5,13 +5,13 @@ var progressNeeded : float = 1000
 
 func cardArrived(c):
 	vessel = c.cardData
-	$WellHandle.visible = true
 	$requestingSlot.available = false
+	$Graphics/AnimationPlayer.play("plumb_down")
+	c.queue_free()
 
 
 @onready var wellHandle = get_node("WellHandle")
 func updateProgress(progress):
-	$Label.text = str(progress / progressNeeded)
 	if progress >= progressNeeded:
 		if !wellHandle.direction:
 			wellHandle.progress = 0
@@ -26,3 +26,4 @@ func updateProgress(progress):
 			wellHandle.progress = 0
 			$WellHandle.visible = false
 			$requestingSlot.available = true
+			$Graphics/AnimationPlayer.play("plumb_up")

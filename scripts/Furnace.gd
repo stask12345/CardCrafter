@@ -17,20 +17,23 @@ func addFuel(fuel):
 	if fuelPoints > fuelMaxPoints:
 		fuelPoints = fuelMaxPoints
 	$Furnace/FurnaceFireplace/AnimationPlayer.play("close")
-	updateFuelPowerLabel()
+	if $ProgressCircle.stopped:
+		$ProgressCircle.resumeBar()
+	updateFuelBar()
 	cardAdded()
 	melt()
 
-func updateFuelPowerLabel():
-	$FuelPower.text  = str((float) (fuelPoints / fuelMaxPoints))
-	print(fuelPoints)
+func updateFuelBar():
+	$ProgressBar.updateProgressBar((float) (fuelPoints / fuelMaxPoints))
 
 @onready var locationOfSmelting = $LocationIndicator1
 func cardAdded(c = null): #Added to pile #Add cards to furnace
 	#await get_tree().create_timer(0.5).timeout
-	if rSlot.get_child_count() > 1 and !melting: #and fuelPoints > 0
+	if rSlot.get_child_count() > 1 and meltingCard == null: #and fuelPoints > 0
 		var IC : interactiveCard = rSlot.get_child(1)
 		IC.goingToFinishGoal = true
+		meltingCard = IC.cardData
+		IC.unordering = true
 		IC.flyToPoint(locationOfSmelting.global_position)
 
 func cardArrived(c): #At furnace, begin smelting
@@ -41,17 +44,25 @@ func cardArrived(c): #At furnace, begin smelting
 var meltingCard : card = null
 func startMelting(c):
 	meltingCard = c.cardData
-	melting = true
-	print("melting")
 	melt()
 	await get_tree().create_timer(0.5).timeout
 	rSlot.orderCards()
+	
+	await get_tree().create_timer((meltingCard.fuelNeededInProduction/processingPower)*0.1).timeout
 
 var meltingProgess : float = 0
+var progressCircleStarted = false
 func melt():
-	if meltingCard != null and fuelPoints > 0:
+	if meltingCard != null and fuelPoints > 0 and melting == false:
+		if !progressCircleStarted:
+			$ProgressCircle.visible = true
+			$ProgressCircle.startBar((meltingCard.fuelNeededInProduction/processingPower)*0.1*1.17,true)
+			progressCircleStarted = true
+		
 		$Furnace/FurnaceFireplace/AnimationPlayerMelting.play("melting")
 		if meltingProgess >= meltingCard.fuelNeededInProduction: #melting ended successfully
+			$ProgressCircle.visible = false
+			progressCircleStarted = false
 			$Furnace/FurnaceFireplace/AnimationPlayerMelting.play("meltingOff")
 			if rSlotOutput.checkIfFull():
 				meltingProgess = 0
@@ -69,25 +80,29 @@ func melt():
 				print("OUTPUT FULL!") #TODO
 			return
 		
-		updateFuelPowerLabel()
-		$BurningIndicator.text = str((float) (meltingProgess) / (float)(meltingCard.fuelNeededInProduction))
+		updateFuelBar()
 		
 		if fuelPoints <= processingPower: #not enought fuel points
+			melting = false
+			$ProgressCircle.stopBar()
 			meltingProgess += fuelPoints
 			fuelPoints = 0
 			$Timer.stop()
 			$Furnace/FurnaceFireplace/AnimationPlayerMelting.play("meltingOff")
 		else:
+			melting = true
 			fuelPoints -= processingPower
 			meltingProgess += processingPower
 			$Timer.start()
 			await $Timer.timeout
+			melting = false
 			melt()
+
 
 func addingCard(req):
 	if req == rSlot:
 		if meltingCard == null:
-			cardAdded()
+			call_deferred("cardAdded")
 	if req == rSlot2:
 		$Furnace/FurnaceFireplace/AnimationPlayer.play("open")
 

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ef4te63r8uc"]
+
+[ext_resource type="Script" path="res://scripts/AutomaticCrafter.gd" id="1_3ts0r"]
+[ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/Utility/RequestingSlot.tscn" id="2_qmvah"]
+
+[node name="AutomaticCrafter" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3ts0r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.47451)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 57.0
+offset_right = 462.0
+offset_bottom = 704.0
+color = Color(0.243137, 1, 1, 1)
+
+[node name="FirstSlot" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 183.0
+offset_top = 430.0
+offset_right = 223.0
+offset_bottom = 470.0
+
+[node name="requestingSlot" parent="FirstSlot" node_paths=PackedStringArray("parentArea") instance=ExtResource("2_qmvah")]
+offset_left = 141.0
+offset_top = -5.0
+offset_right = 147.0
+offset_bottom = 1.0
+parentArea = NodePath("")
+cardLimit = 4
+ordering = 0
+singularType = true
+collectableOutputPile = true
+
+[node name="Timer" type="Timer" parent="FirstSlot"]
+wait_time = 3.0

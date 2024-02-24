@@ -5,6 +5,7 @@ class_name recipy
 @export var quantity : Array[int]
 @export var outputResource : Array[card]
 @export_category("special")
+@export var goldCost : int
 @export var recipyName : String
 @export var recipyCustomImage : Texture2D
 @export var customOutputObject : PackedScene
@@ -28,8 +29,6 @@ func checkValidity(listOfResources):
 		else:
 			currentQuantity[index] -= 1
 	
-	print("current", currentQuantity)
-	print("q",quantity)
 	return true
 
 func checkIfRecipiesEqual(rec : recipy):

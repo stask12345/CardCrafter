@@ -3,22 +3,26 @@ extends AreaLocation
 @onready var rSlot = $requestingSlot
 @onready var rSlotOutput = $requestingSlot2
 @export var availableRecipes : Array[recipy]
-#TODO In future add highlighting of craft button, based on functions in AreaLocation class
+
 func _ready():
 	$CraftButton.connect("pressed",craft)
 	$ButtonRecipyBook.connect("pressed",openBook)
 
 func cardAdded(c = null):
+	checkIfCanCraft()
+
+func cardDeleted():
+	checkIfCanCraft()
+
+@onready var craftButton = get_node("CraftButton")
+func checkIfCanCraft():
 	var currentResources = rSlot.getHoldedCards()
 	for r in availableRecipes:
 		if r.checkValidity(currentResources):
-			if !$CraftButton.visible:
+			if !craftButton.visible:
 				showCraftButton(true)
-			return true
-	return false
-
-func cardDeleted():
-	if !cardAdded():
+			return
+	if craftButton.visible:
 		showCraftButton(false)
 
 func craft():
@@ -26,6 +30,7 @@ func craft():
 	
 	for r in availableRecipes:
 		if r.checkValidity(currentResources) and rSlotOutput.checkIfFull():
+			rSlot.available = false
 			updateKnownRecipies(r)
 			
 			$Clouds/AnimationPlayer.play("idle")
@@ -41,26 +46,37 @@ func craft():
 			
 			rSlotOutput.addCard(intCard)
 			intCard.toPick = true
+			rSlot.available = true
 
 func updateKnownRecipies(r : recipy):
 	if !system.knownRecipies.has(r):
 		system.knownRecipies.append(r)
-		print(system.knownRecipies)
+		system.unknownRecipes.erase(r)
 
 func openBook():
 	$RecipyBook.openRecipyBook()
 	system.mainWindow.changeNavVisibility(false)
 
+var showCraftTween : Tween
 func showCraftButton(show):
-	var t = get_tree().create_tween()
+	if showCraftTween:
+		if showCraftTween.is_running():
+			print("kill!")
+			showCraftTween.kill()
+	
+	print("startuje",show)
+	
+	showCraftTween = get_tree().create_tween()
 	#t.set_trans(Tween.TRANS_CUBIC)
-	t.set_ease(Tween.EASE_OUT)
+	showCraftTween.set_ease(Tween.EASE_OUT)
 	
 	if show:
+		$CraftButton.disabled = false
 		$CraftButton.modulate = Color(1,1,1,0)
 		$CraftButton.visible = true
-		t.tween_property($CraftButton,"modulate",Color(1,1,1,1),0.2)
+		showCraftTween.tween_property($CraftButton,"modulate",Color(1,1,1,1),0.2)
 	else:
+		$CraftButton.disabled = true
 		$CraftButton.modulate = Color(1,1,1,1)
-		t.tween_property($CraftButton,"modulate",Color(1,1,1,0),0.2)
-		t.tween_callback(func(): $CraftButton.visible = false)
+		showCraftTween.tween_property($CraftButton,"modulate",Color(1,1,1,0),0.2)
+		showCraftTween.tween_callback(func(): $CraftButton.visible = false)

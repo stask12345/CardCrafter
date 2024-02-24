@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://b7i6wa55shalj"]
+[gd_resource type="Resource" script_class="card" load_steps=4 format=3 uid="uid://b7i6wa55shalj"]
 
 [ext_resource type="Resource" uid="uid://dqpymncvd4b7o" path="res://resources/cards/Mine/IronBar.tres" id="1_016s0"]
+[ext_resource type="Texture2D" uid="uid://ccklfhbv6hvxm" path="res://graphics/cards/ironOre.png" id="1_jurqm"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="2_p8r36"]
 
 [resource]
 script = ExtResource("2_p8r36")
 cardName = "Iron Ore"
 value = 10
+image = ExtResource("1_jurqm")
 origin = 1
 handOrder = 0
 fuelPower = 0

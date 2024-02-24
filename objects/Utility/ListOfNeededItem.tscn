@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://dism0eoobnt5h"]
+
+[ext_resource type="Script" path="res://scripts/ListOfNeededItem.gd" id="1_ujsam"]
+[ext_resource type="Texture2D" uid="uid://j8fohkf3bf7r" path="res://graphics/cards/rope.png" id="2_bg5a6"]
+
+[node name="ListOfNeededItem" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 263.0
+offset_top = 378.0
+offset_right = 303.0
+offset_bottom = 418.0
+script = ExtResource("1_ujsam")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = -115.0
+offset_top = 9.0
+offset_right = 166.0
+offset_bottom = 49.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="FirstResource" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "x 3"
+
+[node name="Name" type="Label" parent="CenterContainer/HBoxContainer/FirstResource"]
+layout_mode = 2
+offset_left = -45.0
+offset_top = -19.0
+offset_right = 63.0
+offset_bottom = 4.0
+text = "Line"
+horizontal_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="CenterContainer/HBoxContainer/FirstResource"]
+position = Vector2(12, -40)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_bg5a6")
+
+[node name="SecondResource" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "x 3"
+
+[node name="Name" type="Label" parent="CenterContainer/HBoxContainer/SecondResource"]
+layout_mode = 2
+offset_left = -24.0
+offset_top = -19.0
+offset_right = 46.0
+offset_bottom = 4.0
+text = "Line"
+horizontal_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="CenterContainer/HBoxContainer/SecondResource"]
+position = Vector2(12, -40)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_bg5a6")
+
+[node name="ThirdResource" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "x 3"
+
+[node name="Name" type="Label" parent="CenterContainer/HBoxContainer/ThirdResource"]
+layout_mode = 2
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 46.0
+offset_bottom = 4.0
+text = "Line"
+horizontal_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="CenterContainer/HBoxContainer/ThirdResource"]
+position = Vector2(12, -40)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_bg5a6")
+
+[node name="FourthResource" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "x 3"
+
+[node name="Name" type="Label" parent="CenterContainer/HBoxContainer/FourthResource"]
+layout_mode = 2
+offset_left = -27.0
+offset_top = -19.0
+offset_right = 54.0
+offset_bottom = 4.0
+text = "Line"
+horizontal_alignment = 1
+
+[node name="Image" type="Sprite2D" parent="CenterContainer/HBoxContainer/FourthResource"]
+position = Vector2(12, -40)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_bg5a6")

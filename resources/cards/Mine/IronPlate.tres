@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://l8j6c4eyj8hs"]
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://l8j6c4eyj8hs"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_4n462"]
+[ext_resource type="Texture2D" uid="uid://bl0sfhda14jpa" path="res://graphics/cards/ironPlate.png" id="1_26gqc"]
 
 [resource]
 script = ExtResource("1_4n462")
 cardName = "Iron plate"
 value = 15
+image = ExtResource("1_26gqc")
 origin = 1
 handOrder = 1
 fuelPower = 0
 fuelNeededInProduction = 0
-processingPowerNeeded = 10
+processingPowerNeeded = 30

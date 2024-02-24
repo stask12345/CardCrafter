@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bparjdqo5jr2p"]
+
+[ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/Utility/RequestingSlot.tscn" id="1_j3eqp"]
+[ext_resource type="Texture2D" uid="uid://d1p85d5f0kwqo" path="res://graphics/areaElements/cardSlot.png" id="2_x5ut8"]
+
+[node name="CardSlotList" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="requestingSlot" parent="." node_paths=PackedStringArray("parentArea") instance=ExtResource("1_j3eqp")]
+offset_left = 282.0
+offset_top = 527.0
+offset_right = 282.0
+offset_bottom = 527.0
+parentArea = NodePath("")
+cardLimit = 1
+ordering = 0
+onlyWhiteListItems = true
+eatingCards = true
+
+[node name="CardSlot" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.901961)
+z_index = -11
+position = Vector2(281, 528.5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_x5ut8")

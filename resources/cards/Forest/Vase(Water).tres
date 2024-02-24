@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://do1gaynys27gl"]
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://do1gaynys27gl"]
 
+[ext_resource type="Texture2D" uid="uid://byr6n0obu2ttt" path="res://graphics/cards/vase(water).png" id="1_8dbib"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_171e7"]
 
 [resource]
 script = ExtResource("1_171e7")
 cardName = "Vase (Water)"
 value = 30
+image = ExtResource("1_8dbib")
 origin = 0
 handOrder = 8
 fuelPower = 0

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd15cabwrfgxr"]
+
+[ext_resource type="Script" path="res://scripts/ProgressCircle.gd" id="1_tmfek"]
+[ext_resource type="Texture2D" uid="uid://bodn5kxaeu3f8" path="res://graphics/UI/barCircle.png" id="2_l3pda"]
+[ext_resource type="Texture2D" uid="uid://bmug8d11g2t2r" path="res://graphics/UI/barCircleFilling.png" id="3_j6hhv"]
+[ext_resource type="Texture2D" uid="uid://bfe1lrr62fjxq" path="res://graphics/UI/barCircleProgress.png" id="4_7jhbk"]
+
+[node name="ProgressCircle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tmfek")
+barColor = Color(0.258824, 0.976471, 0.372549, 1)
+
+[node name="BarCircle" type="Sprite2D" parent="."]
+self_modulate = Color(0.141176, 0.141176, 0.141176, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_l3pda")
+
+[node name="Background" type="Sprite2D" parent="."]
+self_modulate = Color(0.247059, 0.247059, 0.247059, 1)
+z_index = -1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_j6hhv")
+
+[node name="Progress" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -45.0
+offset_top = -51.0
+offset_bottom = 54.0
+
+[node name="BarCircleFilling" type="Sprite2D" parent="Progress"]
+z_index = -1
+position = Vector2(45, 51)
+rotation = 3.14159
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_7jhbk")
+
+[node name="BarCircleFilling2" type="Sprite2D" parent="Progress"]
+z_index = -1
+position = Vector2(45, 51)
+rotation = 3.14159
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_7jhbk")

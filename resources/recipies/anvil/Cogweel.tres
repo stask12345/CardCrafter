@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://co3a6tq277wts" path="res://resources/cards/Mine/Cogwell.tres" id="1_apcqe"]
 [ext_resource type="Script" path="res://scripts/recipy.gd" id="1_wqpkp"]
-[ext_resource type="Texture2D" uid="uid://bg77pvxurl0k" path="res://graphics/cards/tengrai_image_1703589364_4173577.webp" id="2_v2rau"]
+[ext_resource type="Texture2D" uid="uid://hgw4js5ehevu" path="res://graphics/cards/cogwell.png" id="2_01i4j"]
 [ext_resource type="Resource" uid="uid://dqpymncvd4b7o" path="res://resources/cards/Mine/IronBar.tres" id="3_d1os1"]
 
 [resource]
@@ -10,5 +10,6 @@ script = ExtResource("1_wqpkp")
 resources = Array[Resource("res://scripts/card.gd")]([ExtResource("3_d1os1")])
 quantity = Array[int]([2])
 outputResource = Array[Resource("res://scripts/card.gd")]([ExtResource("1_apcqe")])
+goldCost = 0
 recipyName = "Cogwell"
-recipyCustomImage = ExtResource("2_v2rau")
+recipyCustomImage = ExtResource("2_01i4j")

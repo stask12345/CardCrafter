@@ -5,18 +5,23 @@ var cardList = [] #list of all cards slots #if you want to check cardData use ch
 var ForestCardList = []
 var MineCardList = []
 var knownRecipies : Array[recipy] = []
+var unknownRecipes : Array[recipy] = [] #created using knownRecipies -  craft crafter recipes #In _ready
 @export var rank = 0
+@export var systemUpgradeRank = 0
 @onready var cardHolder = get_node("CardHolder")
-@onready var mainWindow = get_node("MainWindow")
+@onready var craftingTable = get_node("MainWindow/CraftingTable")
+@onready var mainWindow : mainWindowSystem = get_node("MainWindow")
+@onready var moneySystemNode : moneySystem = get_node("TopRight")
 @onready var popupUpgrade = get_node("PopupUpgrade")
 @onready var cardHolderTabs = get_node("BottomMenu/Tabs")
-@onready var moneySystem = get_node("TopRight")
 
 func _ready():
 	for ch in $MainWindow.get_children(): #TODELETE
 		if ch is AreaLocation:
 			ch.visible = false
 	$MainWindow.get_child(1).visible = true
+	
+	unknownRecipes.append_array($MainWindow.get_child(2).availableRecipes)
 
 func checkIfHaveCard(cardData):
 	for c in cardList:

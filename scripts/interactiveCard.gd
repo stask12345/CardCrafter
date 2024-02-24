@@ -6,6 +6,7 @@ class_name interactiveCard
 var toPick = false #if true, card after clicking will return to hand
 var goingToFinishGoal = false #if true, card after flyToPoint, will raise burnCard function in parent(requesting field)
 var flying = false
+var unordering = false
 
 func _ready():
 	if cardData.image:
@@ -25,7 +26,10 @@ func openPackageAnimation(centerPoint):
 	t.tween_callback(flyToHand)
 
 func flyToHand(fast = false):
-	print("hand")
+	if flyTween:
+		if flyTween.is_running():
+			flyTween.kill()
+	
 	flying = true
 	#var t = get_tree().create_tween()
 	#t.set_trans(Tween.TRANS_QUINT)
@@ -51,12 +55,16 @@ func flyToHand(fast = false):
 var addingToLocation = false
 var flyTween : Tween = null
 func flyToPoint(goalPoint):
-	print("fly")
+	if flyTween:
+		if flyTween.is_running():
+			flyTween.kill()
 	flyTween = get_tree().create_tween()
 	flyTween.set_trans(Tween.TRANS_CUBIC)
 	flyTween.set_ease(Tween.EASE_OUT)
 	
-	flyTween.tween_property(self,"global_position",goalPoint, 0.7)
+	goalPoint = goalPoint - global_position + position
+	
+	flyTween.tween_property(self,"position",goalPoint, 0.7)
 	flyTween.tween_callback(func(): flying = false)
 	if goingToFinishGoal:
 		flyTween.tween_callback(func(): get_parent().cardArrivedAtGoal(self))
@@ -109,6 +117,9 @@ func cardDestroyerAnimationRotation(direction):
 func endCardDestroyerAnimaction():
 	get_parent().parentArea.endAnimation(cardData)
 	queue_free()
+
+func playDestroyAnim():
+	$AnimationPlayer.play("destro")
 
 #func newCardAnimation():
 	#modulate.a = 0.3

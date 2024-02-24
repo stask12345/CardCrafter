@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=7 format=3 uid="uid://c7txkii4bi6dr"]
+
+[ext_resource type="PackedScene" uid="uid://bq5qwedteu6g1" path="res://objects/AreaLocations/Shop.tscn" id="1_qdojk"]
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_w51hy"]
+[ext_resource type="Texture2D" uid="uid://bswmky6ppyyf3" path="res://graphics/areaElements/shop.png" id="2_7hrgp"]
+[ext_resource type="Resource" uid="uid://dy5k16puojpf2" path="res://resources/cards/Forest/Line.tres" id="3_m0sr5"]
+[ext_resource type="Resource" uid="uid://bybrq4ywr5k2j" path="res://resources/cards/Forest/RockTool.tres" id="4_ugs3q"]
+[ext_resource type="Resource" uid="uid://cwk188iu2qhb6" path="res://resources/cards/Forest/package/Wood.tres" id="5_0bqfs"]
+
+[resource]
+script = ExtResource("1_w51hy")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("3_m0sr5"), ExtResource("4_ugs3q"), ExtResource("5_0bqfs")])
+quantity = Array[int]([2, 1, 1])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+goldCost = 10
+recipyName = "Shop"
+recipyCustomImage = ExtResource("2_7hrgp")
+customOutputObject = ExtResource("1_qdojk")

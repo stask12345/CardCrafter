@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://d2sdmkh7vmxcc"]
+
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_38mdc"]
+[ext_resource type="Texture2D" uid="uid://cknrojetyehtv" path="res://graphics/cards/copperBar.png" id="1_cmmte"]
+
+[resource]
+script = ExtResource("1_38mdc")
+cardName = "Copper Bar"
+value = 15
+image = ExtResource("1_cmmte")
+origin = 1
+handOrder = 10
+fuelPower = 0
+fuelNeededInProduction = 0
+processingPowerNeeded = 0

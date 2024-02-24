@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://bybrq4ywr5k2j"]
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://bybrq4ywr5k2j"]
 
+[ext_resource type="Texture2D" uid="uid://c1so5d7osblp5" path="res://graphics/cards/stoneTool.png" id="1_01xdk"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_2gcd5"]
 
 [resource]
 script = ExtResource("1_2gcd5")
 cardName = "Rock Tool"
 value = 0
+image = ExtResource("1_01xdk")
 origin = 0
 handOrder = 12
 fuelPower = 0
 fuelNeededInProduction = 0
+processingPowerNeeded = 0

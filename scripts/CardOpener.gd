@@ -1,4 +1,4 @@
-extends Control
+extends AreaLocation
 
 func _ready():
 	$AddButton.connect("pressed",showShopMenu)

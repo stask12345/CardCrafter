@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="card" load_steps=4 format=3 uid="uid://b21sgucchdnrs"]
+
+[ext_resource type="Texture2D" uid="uid://dbvg8c5tsbu48" path="res://graphics/cards/copperOre.png" id="1_meanm"]
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_umht2"]
+[ext_resource type="Resource" uid="uid://d2sdmkh7vmxcc" path="res://resources/cards/Mine/CopperBar.tres" id="2_lhyso"]
+
+[resource]
+script = ExtResource("1_umht2")
+cardName = "Copper Ore"
+value = 10
+image = ExtResource("1_meanm")
+origin = 1
+handOrder = 1
+fuelPower = 0
+fuelNeededInProduction = 5
+processingPowerNeeded = 0
+outputCard = ExtResource("2_lhyso")

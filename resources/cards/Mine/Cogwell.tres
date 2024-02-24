@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="card" load_steps=2 format=3 uid="uid://co3a6tq277wts"]
+[gd_resource type="Resource" script_class="card" load_steps=3 format=3 uid="uid://co3a6tq277wts"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_b72gp"]
+[ext_resource type="Texture2D" uid="uid://hgw4js5ehevu" path="res://graphics/cards/cogwell.png" id="1_drjr1"]
 
 [resource]
 script = ExtResource("1_b72gp")
 cardName = "Cogwell"
 value = 20
+image = ExtResource("1_drjr1")
 origin = 1
 handOrder = 2
 fuelPower = 0
 fuelNeededInProduction = 0
-processingPowerNeeded = 15
+processingPowerNeeded = 40

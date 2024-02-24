@@ -1,0 +1,352 @@
+[gd_scene load_steps=10 format=3 uid="uid://b45nkl8bqy03s"]
+
+[ext_resource type="Script" path="res://scripts/LevelUpPopup.gd" id="1_atscs"]
+[ext_resource type="Texture2D" uid="uid://4lp3mtmvvat3" path="res://graphics/animations/whiteLine.png" id="2_7rlu8"]
+[ext_resource type="FontFile" uid="uid://bhe5mj7qr75a3" path="res://graphics/fonts/MangabeyRegular-rgqVO.otf" id="3_mawmy"]
+
+[sub_resource type="Animation" id="Animation_542pf"]
+resource_name = "close"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_pg71g"]
+resource_name = "rankUp"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.156863), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lines:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 500), Vector2(0, 500), Vector2(0, -2000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("previousRank:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6, 2.1, 2.6, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.494118, 0.494118, 0.494118, 0.8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("previousRank:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.1, 2.6, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(65, 221), Vector2(65, 221), Vector2(65, 221), Vector2(65, 150)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("previousRank:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.6, 2.8, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.05, 1.05), Vector2(0.6, 0.6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("nextRank:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Label:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LabelExit:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 7.1, 7.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(7.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enableExit"
+}]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Rewards:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 5.3, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_05xo0"]
+_data = {
+"close": SubResource("Animation_542pf"),
+"rankUp": SubResource("Animation_pg71g")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ko0fy"]
+font = ExtResource("3_mawmy")
+font_size = 75
+outline_size = 8
+outline_color = Color(1, 1, 1, 0.266667)
+
+[sub_resource type="Gradient" id="Gradient_83aw5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cjr2x"]
+font = ExtResource("3_mawmy")
+font_size = 50
+outline_size = 4
+outline_color = Color(1, 1, 1, 0.266667)
+
+[node name="LevelUpPopup" type="Control"]
+visible = false
+z_index = 51
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_atscs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.156863)
+layout_mode = 0
+offset_right = 543.0
+offset_bottom = 964.0
+color = Color(0, 0, 0, 0.996078)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_05xo0")
+}
+
+[node name="Lines" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 500.0
+offset_right = 40.0
+offset_bottom = 540.0
+
+[node name="WhiteLine" type="Sprite2D" parent="Lines"]
+position = Vector2(49, 1121)
+scale = Vector2(1, 3)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine6" type="Sprite2D" parent="Lines"]
+position = Vector2(111, 1048)
+scale = Vector2(0.333, 1)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine7" type="Sprite2D" parent="Lines"]
+position = Vector2(239, 1118)
+scale = Vector2(0.333, 1)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine8" type="Sprite2D" parent="Lines"]
+position = Vector2(339, 1048)
+scale = Vector2(0.333, 1)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine9" type="Sprite2D" parent="Lines"]
+position = Vector2(430, 1124)
+scale = Vector2(0.333, 1)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine10" type="Sprite2D" parent="Lines"]
+position = Vector2(515, 1063)
+scale = Vector2(0.333, 1)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine11" type="Sprite2D" parent="Lines"]
+position = Vector2(20, 1116)
+scale = Vector2(0.333, 1)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine2" type="Sprite2D" parent="Lines"]
+position = Vector2(192, 1078)
+scale = Vector2(1, 3)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine3" type="Sprite2D" parent="Lines"]
+position = Vector2(289, 1161)
+scale = Vector2(1, 3)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine4" type="Sprite2D" parent="Lines"]
+position = Vector2(382, 1077)
+scale = Vector2(1, 3)
+texture = ExtResource("2_7rlu8")
+
+[node name="WhiteLine5" type="Sprite2D" parent="Lines"]
+position = Vector2(482, 1165)
+scale = Vector2(1, 3)
+texture = ExtResource("2_7rlu8")
+
+[node name="previousRank" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 221.0
+offset_right = 476.0
+offset_bottom = 289.0
+pivot_offset = Vector2(208, 32)
+text = "Humble Begginings"
+label_settings = SubResource("LabelSettings_ko0fy")
+horizontal_alignment = 1
+
+[node name="nextRank" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 221.0
+offset_right = 476.0
+offset_bottom = 289.0
+pivot_offset = Vector2(208, 32)
+text = "Stone Age"
+label_settings = SubResource("LabelSettings_ko0fy")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 38.0
+offset_right = 476.0
+offset_bottom = 106.0
+pivot_offset = Vector2(208, 32)
+text = "Rank up!"
+label_settings = SubResource("LabelSettings_ko0fy")
+horizontal_alignment = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Label"]
+position = Vector2(201, -35)
+rotation = 1.5708
+emitting = false
+amount = 12
+lifetime = 5.0
+emission_shape = 3
+emission_rect_extents = Vector2(5, 100)
+spread = 70.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_83aw5")
+
+[node name="LabelExit" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 59.0
+offset_top = 883.0
+offset_right = 470.0
+offset_bottom = 951.0
+pivot_offset = Vector2(208, 32)
+text = "- Tap to exit -"
+label_settings = SubResource("LabelSettings_cjr2x")
+horizontal_alignment = 1
+
+[node name="ExitButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 537.0
+offset_bottom = 957.0
+
+[node name="Rewards" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -10,4 +10,5 @@ script = ExtResource("1_ooths")
 resources = Array[Resource("res://scripts/card.gd")]([ExtResource("1_tbbxk"), ExtResource("2_8rf1g"), ExtResource("3_exqwl")])
 quantity = Array[int]([1, 1, 1])
 outputResource = Array[Resource("res://scripts/card.gd")]([])
+goldCost = 0
 recipyName = ""

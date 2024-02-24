@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdsx4imjldtww"]
+
+[ext_resource type="FontFile" uid="uid://bhe5mj7qr75a3" path="res://graphics/fonts/MangabeyRegular-rgqVO.otf" id="1_2hn25"]
+[ext_resource type="Texture2D" uid="uid://crceiv4a7vfj6" path="res://graphics/UI/backArrow.png" id="2_50tax"]
+
+[node name="ExitButton" type="Button"]
+offset_top = -1.0
+offset_right = 72.0
+offset_bottom = 42.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_2hn25")
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Exit"
+flat = true
+alignment = 0
+
+[node name="BackArrow" type="Sprite2D" parent="."]
+position = Vector2(59, 19)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_50tax")

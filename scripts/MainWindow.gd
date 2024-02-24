@@ -1,7 +1,9 @@
 extends Control
+class_name mainWindowSystem
 
 var areaIndex = 1
 @export var howMuchEmptyLocations : Array[int]
+@export var rankBuildingsArray : Array[Array]
 @onready var system = get_node("/root/MainScene")
 
 func _ready():
@@ -9,6 +11,7 @@ func _ready():
 	$NavArrows/ArrowLeft/Button.connect("pressed",func(): moveWindow(-1))
 	updateNumberOfNavCircles()
 
+var moveTween : Tween
 func moveWindow(direction):
 	areaIndex += direction
 	if areaIndex < 0:
@@ -17,6 +20,11 @@ func moveWindow(direction):
 	if areaIndex >= get_children().size()-1:
 		areaIndex = get_children().size()-2
 		return
+	
+	for i in get_child_count():
+		if get_child(i) is AreaLocation:
+			if areaIndex != i and (areaIndex - direction) != i:
+				get_child(i).visible = false 
 	
 	if areaIndex == 0:
 		$NavArrows/ArrowLeft.visible = false
@@ -38,16 +46,24 @@ func moveWindow(direction):
 		nextArea.global_position = Vector2(-750,0)
 		previousAreaGoal = Vector2(750,0)
 	
-	var t = create_tween()
-	t.set_trans(Tween.TRANS_CUBIC)
-	t.set_ease(Tween.EASE_OUT)
+	if moveTween:
+		if moveTween.is_running():
+			updateNavigationCircles()
+			moveTween.kill()
+	moveTween = create_tween()
+	moveTween.set_trans(Tween.TRANS_CUBIC)
+	moveTween.set_ease(Tween.EASE_OUT)
 	
 	nextArea.visible = true
-	t.tween_property(nextArea,"global_position:x",0,0.3)
-	t.parallel().tween_property(previousArea,"global_position",previousAreaGoal,0.3)
-	t.tween_callback(func(): afterAreaChanged(previousArea))
+	moveTween.tween_property(nextArea,"global_position:x",0,0.3)
+	moveTween.parallel().tween_property(previousArea,"global_position",previousAreaGoal,0.3)
+	moveTween.tween_callback(func(): afterAreaChanged(previousArea))
 
 func afterAreaChanged(previousArea):
+	for i in get_child_count():
+		if get_child(i) is AreaLocation:
+			if areaIndex != i:
+				get_child(i).visible = false 
 	previousArea.visible = false
 	updateNavigationCircles()
 
@@ -78,7 +94,7 @@ func addNewLocation(locationInstance : PackedScene, vis = false):
 const numberOfStartingLocations = 4
 func addNewEmptyLocation():
 	if get_child_count() - numberOfStartingLocations < howMuchEmptyLocations[system.rank]:
-		var emptyLocationInstance : PackedScene = load("res://objects/EmptyLocation.tscn")
+		var emptyLocationInstance : PackedScene = load("res://objects/AreaLocations/EmptyLocation.tscn")
 		var emptyLocation = emptyLocationInstance.instantiate()
 		add_child(emptyLocation)
 		move_child(emptyLocation,get_child_count()-2)

@@ -1,18 +1,256 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6j1cti5hr12w"]
+[gd_scene load_steps=27 format=3 uid="uid://c6j1cti5hr12w"]
 
 [ext_resource type="Script" path="res://scripts/EmptyLocation.gd" id="1_iwmiw"]
 [ext_resource type="Script" path="res://scripts/BuildingShopMenu.gd" id="2_jkp72"]
-[ext_resource type="Resource" uid="uid://0wqnb7a5xfrp" path="res://resources/recipies/buildingRecipies/Furnace.tres" id="3_vx64q"]
-[ext_resource type="PackedScene" uid="uid://b1rc0qkfr8gbi" path="res://objects/AreaLocations/Furnace.tscn" id="4_j5l7v"]
+[ext_resource type="Texture2D" uid="uid://crceiv4a7vfj6" path="res://graphics/UI/backArrow.png" id="4_5wruu"]
 [ext_resource type="Script" path="res://scripts/BuildingSite.gd" id="5_am8ek"]
-[ext_resource type="Texture2D" uid="uid://bg77pvxurl0k" path="res://graphics/cards/tengrai_image_1703589364_4173577.webp" id="6_m6x1v"]
-[ext_resource type="Script" path="res://scripts/ListOfNeededItem.gd" id="7_fpq1b"]
-[ext_resource type="Texture2D" uid="uid://c7lg4x5vu3oqw" path="res://graphics/cards/tengrai_image_1704402244_1364539.webp" id="7_ullkv"]
-[ext_resource type="Texture2D" uid="uid://bbdvfyddr5c4k" path="res://graphics/cards/tengrai_image_1704478297_7218404.webp" id="8_orf76"]
-[ext_resource type="Texture2D" uid="uid://bj7hu2xake43s" path="res://graphics/cards/tengrai_image_1704477496_5350497.webp" id="9_os2ld"]
+[ext_resource type="PackedScene" uid="uid://d2lrbxc5vlyv3" path="res://objects/Utility/ProgressBar.tscn" id="7_gnvj7"]
+[ext_resource type="PackedScene" uid="uid://dism0eoobnt5h" path="res://objects/Utility/ListOfNeededItem.tscn" id="8_oqt8b"]
+[ext_resource type="Texture2D" uid="uid://dejowmg872u2c" path="res://graphics/areaElements/emptyLocation.png" id="10_4fkc1"]
 [ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/Utility/RequestingSlot.tscn" id="10_yipii"]
+[ext_resource type="FontFile" uid="uid://bhe5mj7qr75a3" path="res://graphics/fonts/MangabeyRegular-rgqVO.otf" id="11_h3cua"]
+[ext_resource type="Texture2D" uid="uid://b12b0iadapj14" path="res://graphics/animations/cloud1.png" id="12_pre4s"]
+[ext_resource type="Texture2D" uid="uid://c5r8faqn1dhjh" path="res://graphics/animations/cloud2.png" id="13_pa7cf"]
+[ext_resource type="Texture2D" uid="uid://d1p85d5f0kwqo" path="res://graphics/areaElements/cardSlot.png" id="14_b1jgm"]
+[ext_resource type="Texture2D" uid="uid://do043ws147ygx" path="res://graphics/animations/cloud3.png" id="16_e86yv"]
+[ext_resource type="Texture2D" uid="uid://bwx6jfvwysari" path="res://graphics/animations/cloud4.png" id="17_47src"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0kod"]
+font = ExtResource("11_h3cua")
+font_size = 40
+outline_size = 5
+outline_color = Color(1, 1, 1, 0.352941)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s52y6"]
+font = ExtResource("11_h3cua")
+font_size = 75
+outline_size = 8
+outline_color = Color(1, 1, 1, 0.352941)
+
+[sub_resource type="Animation" id="Animation_k1ab7"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_01p2i"]
+_data = {
+"idle": SubResource("Animation_k1ab7")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_lvxk5"]
+font = ExtResource("11_h3cua")
+font_size = 60
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6j87n"]
+font = ExtResource("11_h3cua")
+font_size = 50
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uxqhb"]
+font = ExtResource("11_h3cua")
+font_size = 30
+font_color = Color(0.466667, 0.466667, 0.466667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_au0qk"]
+font = ExtResource("11_h3cua")
+font_size = 30
+font_color = Color(0.945098, 0.74902, 0.0941176, 1)
+
+[sub_resource type="Animation" id="Animation_r0hyk"]
+resource_name = "build"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cloud1:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0872665]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cloud2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.0872665]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cloud3:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cij3n"]
+_data = {
+"build": SubResource("Animation_r0hyk")
+}
+
+[sub_resource type="Animation" id="Animation_88jik"]
+resource_name = "built"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 2.6, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 2.6, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("control3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("control3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.5, 2.6, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"buildingCompleted"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3vdv"]
+_data = {
+"built": SubResource("Animation_88jik")
+}
 
 [node name="EmptyLocation" type="Control"]
+z_index = -3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -20,40 +258,102 @@ offset_bottom = 40.0
 script = ExtResource("1_iwmiw")
 
 [node name="BuildButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 200.0
-offset_top = 357.0
-offset_right = 345.0
-offset_bottom = 506.0
+offset_left = 141.0
+offset_top = 193.0
+offset_right = 399.0
+offset_bottom = 341.0
+pivot_offset = Vector2(124, 62)
 text = "+
 "
 
+[node name="Label" type="Label" parent="BuildButton"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 35.0
+offset_right = 252.0
+offset_bottom = 71.0
+text = "Choose new building"
+label_settings = SubResource("LabelSettings_d0kod")
+
+[node name="Label2" type="Label" parent="BuildButton/Label"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 31.0
+offset_right = 239.0
+offset_bottom = 99.0
+text = "+"
+label_settings = SubResource("LabelSettings_s52y6")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BuildButton"]
+libraries = {
+"": SubResource("AnimationLibrary_01p2i")
+}
+autoplay = "idle"
+
 [node name="BuildingShopMenu" type="ColorRect" parent="."]
 visible = false
+z_index = -5
 layout_mode = 0
-offset_left = 48.0
-offset_top = 49.0
-offset_right = 488.0
-offset_bottom = 763.0
+offset_top = -15.0
+offset_right = 554.0
+offset_bottom = 790.0
 color = Color(0, 0, 0, 0.827451)
 script = ExtResource("2_jkp72")
-buildingRecipies = Array[Resource("res://scripts/recipy.gd")]([ExtResource("3_vx64q")])
-buildingsArray = Array[PackedScene]([ExtResource("4_j5l7v")])
+
+[node name="Label" type="Label" parent="BuildingShopMenu"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 122.0
+offset_right = 436.0
+offset_bottom = 176.0
+text = "Choose Building"
+label_settings = SubResource("LabelSettings_lvxk5")
 
 [node name="List" type="VBoxContainer" parent="BuildingShopMenu"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = 150
+offset_left = 55.0
+offset_top = 187.0
+offset_right = 95.0
+offset_bottom = 227.0
+theme_override_constants/separation = 144
 
 [node name="ExitButton" type="Button" parent="BuildingShopMenu"]
 layout_mode = 0
-offset_left = 403.0
-offset_top = -4.0
-offset_right = 440.0
-offset_bottom = 27.0
-text = "Exit
-"
+offset_left = 437.0
+offset_top = 81.0
+offset_right = 509.0
+offset_bottom = 124.0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.325441, 0.325441, 0.325441, 1)
+theme_override_colors/font_hover_color = Color(0.325441, 0.325441, 0.325441, 1)
+theme_override_colors/font_focus_color = Color(0.325441, 0.325441, 0.325441, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.325441, 0.325441, 0.325441, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("11_h3cua")
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Exit"
+flat = true
+alignment = 0
+
+[node name="BackArrow" type="Sprite2D" parent="BuildingShopMenu/ExitButton"]
+position = Vector2(59, 19)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_5wruu")
+
+[node name="EmptyLocation" type="Sprite2D" parent="."]
+z_index = -11
+position = Vector2(271, 392.86)
+scale = Vector2(0.556, 0.556)
+texture = ExtResource("10_4fkc1")
 
 [node name="BuildingSite" type="Control" parent="."]
 visible = false
@@ -62,117 +362,278 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_am8ek")
 
-[node name="Progress" type="Label" parent="BuildingSite"]
-layout_mode = 0
-offset_left = 237.0
-offset_top = 630.0
-offset_right = 277.0
-offset_bottom = 653.0
-text = "0
-"
-horizontal_alignment = 1
-
-[node name="requestingSlot" parent="BuildingSite" node_paths=PackedStringArray("parentArea") instance=ExtResource("10_yipii")]
-offset_left = 254.0
-offset_top = 518.0
-offset_right = 260.0
-offset_bottom = 524.0
-parentArea = NodePath("..")
-cardLimit = 1
-ordering = 0
-eatingCards = true
-
 [node name="NameOfBuilding" type="Label" parent="BuildingSite"]
 layout_mode = 0
-offset_left = 239.0
-offset_top = 326.0
-offset_right = 279.0
-offset_bottom = 349.0
+offset_left = 160.0
+offset_top = 180.0
+offset_right = 397.0
+offset_bottom = 225.0
 text = "Mine"
+label_settings = SubResource("LabelSettings_6j87n")
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="BuildingSite"]
 layout_mode = 0
-offset_left = 207.0
-offset_top = 341.0
-offset_right = 324.0
-offset_bottom = 364.0
-text = "In construction
+offset_left = 199.0
+offset_top = 228.0
+offset_right = 365.0
+offset_bottom = 255.0
+text = "- In construction -
 "
+label_settings = SubResource("LabelSettings_uxqhb")
 
 [node name="CancelButton" type="Button" parent="BuildingSite"]
 layout_mode = 0
 offset_left = 445.0
-offset_top = 82.0
+offset_top = 43.0
 offset_right = 508.0
-offset_bottom = 147.0
+offset_bottom = 108.0
 text = "Cancel"
 
-[node name="ListOfNeededItem" type="Control" parent="BuildingSite"]
-layout_mode = 3
+[node name="ProgressBar" type="Control" parent="BuildingSite"]
+z_index = -1
 anchors_preset = 0
-offset_left = 258.0
-offset_top = 675.0
-offset_right = 298.0
-offset_bottom = 715.0
-script = ExtResource("7_fpq1b")
+offset_left = 90.0
+offset_top = 245.0
+offset_right = 130.0
+offset_bottom = 285.0
 
-[node name="CenterContainer" type="CenterContainer" parent="BuildingSite/ListOfNeededItem"]
+[node name="Label" type="Label" parent="BuildingSite/ProgressBar"]
+z_index = 1
 layout_mode = 0
-offset_left = 117.0
-offset_top = 591.0
-offset_right = 398.0
-offset_bottom = 631.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BuildingSite/ListOfNeededItem/CenterContainer"]
-layout_mode = 2
-theme_override_constants/separation = 45
-
-[node name="FirstResource" type="Label" parent="BuildingSite/ListOfNeededItem/CenterContainer/HBoxContainer"]
-layout_mode = 2
-text = "x 3"
-
-[node name="Image" type="Sprite2D" parent="BuildingSite/ListOfNeededItem/CenterContainer/HBoxContainer/FirstResource"]
-position = Vector2(-14, 13)
-scale = Vector2(0.03125, 0.0322266)
-texture = ExtResource("6_m6x1v")
-
-[node name="SecondResource" type="Label" parent="BuildingSite/ListOfNeededItem/CenterContainer/HBoxContainer"]
-layout_mode = 2
-text = "x 2"
-
-[node name="Image" type="Sprite2D" parent="BuildingSite/ListOfNeededItem/CenterContainer/HBoxContainer/SecondResource"]
-position = Vector2(-15, 13)
-scale = Vector2(0.03125, 0.0322266)
-texture = ExtResource("7_ullkv")
-
-[node name="ThirdResource" type="Label" parent="BuildingSite/ListOfNeededItem/CenterContainer/HBoxContainer"]
-layout_mode = 2
-text = "x 5
+offset_left = 113.0
+offset_top = 15.0
+offset_right = 279.0
+offset_bottom = 42.0
+pivot_offset = Vector2(81, 14)
+text = "Progress
 "
+label_settings = SubResource("LabelSettings_au0qk")
+horizontal_alignment = 1
 
-[node name="Image" type="Sprite2D" parent="BuildingSite/ListOfNeededItem/CenterContainer/HBoxContainer/ThirdResource"]
-position = Vector2(-15, 13)
-scale = Vector2(0.03125, 0.0322266)
-texture = ExtResource("8_orf76")
+[node name="ProgressBar" parent="BuildingSite/ProgressBar" instance=ExtResource("7_gnvj7")]
 
-[node name="FourthResource" type="Label" parent="BuildingSite/ListOfNeededItem/CenterContainer/HBoxContainer"]
+[node name="ListOfNeededItem" parent="BuildingSite" instance=ExtResource("8_oqt8b")]
+
+[node name="CardAddedBuild" type="Control" parent="BuildingSite"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 21
+anchors_preset = 0
+offset_left = 279.0
+offset_top = 496.0
+offset_right = 319.0
+offset_bottom = 536.0
+
+[node name="Cloud1" type="Sprite2D" parent="BuildingSite/CardAddedBuild"]
+position = Vector2(-27, -13)
+texture = ExtResource("12_pre4s")
+
+[node name="Cloud2" type="Sprite2D" parent="BuildingSite/CardAddedBuild"]
+position = Vector2(63, 53)
+texture = ExtResource("13_pa7cf")
+
+[node name="Cloud3" type="Sprite2D" parent="BuildingSite/CardAddedBuild"]
+position = Vector2(-14, 90)
+scale = Vector2(-1, 1)
+texture = ExtResource("12_pre4s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BuildingSite/CardAddedBuild"]
+libraries = {
+"": SubResource("AnimationLibrary_cij3n")
+}
+
+[node name="requestingSlot" parent="BuildingSite" node_paths=PackedStringArray("parentArea") instance=ExtResource("10_yipii")]
 layout_mode = 2
-text = "x 1
-"
-
-[node name="Image" type="Sprite2D" parent="BuildingSite/ListOfNeededItem/CenterContainer/HBoxContainer/FourthResource"]
-position = Vector2(-15, 13)
-scale = Vector2(0.03125, 0.0322266)
-texture = ExtResource("9_os2ld")
-
-[node name="requestingSlot" parent="BuildingSite/ListOfNeededItem" node_paths=PackedStringArray("parentArea") instance=ExtResource("10_yipii")]
-layout_mode = 2
-offset_left = 257.0
-offset_top = 611.0
-offset_right = 257.0
-offset_bottom = 611.0
-parentArea = NodePath("../../..")
+offset_left = 282.0
+offset_top = 527.0
+offset_right = 282.0
+offset_bottom = 527.0
+parentArea = NodePath("..")
 cardLimit = 1
 ordering = 0
 onlyWhiteListItems = true
 eatingCards = true
+
+[node name="Clouds" type="Control" parent="BuildingSite"]
+z_index = 40
+anchors_preset = 0
+offset_left = 42.0
+offset_top = -20.0
+offset_right = 82.0
+offset_bottom = 20.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Control1" type="Control" parent="BuildingSite/Clouds"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cloud3" type="Sprite2D" parent="BuildingSite/Clouds/Control1"]
+position = Vector2(92, 89)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud10" type="Sprite2D" parent="BuildingSite/Clouds/Control1"]
+position = Vector2(582.5, 251.25)
+rotation = 3.14159
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud18" type="Sprite2D" parent="BuildingSite/Clouds/Control1"]
+position = Vector2(180, 641.25)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud13" type="Sprite2D" parent="BuildingSite/Clouds/Control1"]
+position = Vector2(387.5, 843.75)
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud4" type="Sprite2D" parent="BuildingSite/Clouds/Control1"]
+position = Vector2(243.75, 505)
+texture = ExtResource("17_47src")
+
+[node name="Cloud21" type="Sprite2D" parent="BuildingSite/Clouds/Control1"]
+position = Vector2(266.25, 32.5001)
+texture = ExtResource("17_47src")
+
+[node name="Cloud15" type="Sprite2D" parent="BuildingSite/Clouds/Control1"]
+position = Vector2(43.75, 346.25)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("17_47src")
+
+[node name="Cloud17" type="Sprite2D" parent="BuildingSite/Clouds/Control1"]
+position = Vector2(401.25, 978.75)
+texture = ExtResource("17_47src")
+
+[node name="Control2" type="Control" parent="BuildingSite/Clouds"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cloud5" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(587.5, 588.75)
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud11" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(380, 140)
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud12" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(33.75, 942.5)
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud13" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(393.75, 1002.5)
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud19" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(57.5, 498.75)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud20" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(602.5, 400)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud24" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(290, 750)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud21" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(96.25, 1072.5)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud22" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(580, 1072.5)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud23" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(13.75, 696.25)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud9" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(625, 20)
+scale = Vector2(1, -1)
+texture = ExtResource("17_47src")
+
+[node name="Cloud7" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(446.25, 345)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("17_47src")
+
+[node name="Cloud8" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(263.75, 1146.25)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("17_47src")
+
+[node name="Cloud10" type="Sprite2D" parent="BuildingSite/Clouds/Control2"]
+position = Vector2(398.75, 1092.5)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("17_47src")
+
+[node name="control3" type="Control" parent="BuildingSite/Clouds"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cloud6" type="Sprite2D" parent="BuildingSite/Clouds/control3"]
+position = Vector2(93.75, 870)
+rotation = 3.14159
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud12" type="Sprite2D" parent="BuildingSite/Clouds/control3"]
+position = Vector2(387.5, 556.25)
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud14" type="Sprite2D" parent="BuildingSite/Clouds/control3"]
+position = Vector2(232.5, 311.25)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("16_e86yv")
+
+[node name="Cloud8" type="Sprite2D" parent="BuildingSite/Clouds/control3"]
+position = Vector2(613.75, 920)
+texture = ExtResource("17_47src")
+
+[node name="Cloud16" type="Sprite2D" parent="BuildingSite/Clouds/control3"]
+position = Vector2(593.75, 758.75)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("17_47src")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BuildingSite/Clouds"]
+libraries = {
+"": SubResource("AnimationLibrary_k3vdv")
+}
+
+[node name="CardSlot" type="Sprite2D" parent="BuildingSite"]
+self_modulate = Color(1, 1, 1, 0.901961)
+z_index = -11
+position = Vector2(281, 528.5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_b1jgm")
