@@ -13,6 +13,6 @@ resources = Array[Resource("res://scripts/card.gd")]([ExtResource("1_5ywna"), Ex
 quantity = Array[int]([2, 3, 3])
 outputResource = Array[Resource("res://scripts/card.gd")]([])
 goldCost = 0
-recipyName = "Funace"
+recipyName = "Furnace"
 recipyCustomImage = ExtResource("2_oxb3e")
 customOutputObject = ExtResource("1_p8pko")

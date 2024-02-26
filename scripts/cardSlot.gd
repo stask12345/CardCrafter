@@ -38,21 +38,37 @@ func select():
 	else:
 		if cardHolder.selectedCard != null:
 			cardHolder.selectedCard.unselect()
+	
+	var t = get_tree().create_tween()
+	t.tween_property(self,"position:y",-20,0.3)
+	var anim : AnimationPlayer = $AnimationPlayer
+	if anim.current_animation != "idle" and anim.current_animation != "start":
+		$AnimationPlayer.play("start")
+	
 	cardHolder.selectedCard = self
-	$Center.modulate = Color.RED
 
 func unselect():
 	doubleClicked = false
 	$Center.modulate = Color.WHITE
+	$AnimationPlayer.stop()
+	
+	var t = get_tree().create_tween()
+	t.tween_property(self,"position:y",0,0.3)
+	t.parallel().tween_property($HighLight,"scale",Vector2(0.27,0.27),0.5)
 
+var _clickDelay = false
 func doubleClick():
-	var requestingFields = get_tree().get_nodes_in_group("requesting")
-	for r in requestingFields:
-		if r.checkIfAvailable(cardData):
-			var c = createInteractiveCard()
-			r.addCard(c)
-			use()
-			return 
+	if !_clickDelay:
+		var requestingFields = get_tree().get_nodes_in_group("requesting")
+		for r in requestingFields:
+			if r.checkIfAvailable(cardData):
+				var c = createInteractiveCard()
+				r.addCard(c)
+				use()
+				_clickDelay = true
+				await get_tree().create_timer(0.2).timeout
+				_clickDelay = false
+				return 
 
 func use(number : int = 1):
 	quantity -= number

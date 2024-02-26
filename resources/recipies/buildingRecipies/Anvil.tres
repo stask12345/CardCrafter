@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=7 format=3 uid="uid://dg3fibheo6577"]
+
+[ext_resource type="PackedScene" uid="uid://efofnn262gdu" path="res://objects/AreaLocations/Anvil.tscn" id="1_i4m0s"]
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_kufpm"]
+[ext_resource type="Texture2D" uid="uid://dd1tw4rh5rhax" path="res://graphics/areaElements/anvil.png" id="2_d37ob"]
+[ext_resource type="Resource" uid="uid://d0o63qnx7uiay" path="res://resources/cards/Mine/package/Coal.tres" id="3_dbuoj"]
+[ext_resource type="Resource" uid="uid://d2sdmkh7vmxcc" path="res://resources/cards/Mine/CopperBar.tres" id="4_v6ffo"]
+[ext_resource type="Resource" uid="uid://cgw7sfhxij3rj" path="res://resources/cards/Forest/package/Rock.tres" id="5_uxo6c"]
+
+[resource]
+script = ExtResource("1_kufpm")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("3_dbuoj"), ExtResource("4_v6ffo"), ExtResource("5_uxo6c")])
+quantity = Array[int]([1, 1, 4])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+goldCost = 30
+recipyName = "Anvil"
+recipyCustomImage = ExtResource("2_d37ob")
+customOutputObject = ExtResource("1_i4m0s")

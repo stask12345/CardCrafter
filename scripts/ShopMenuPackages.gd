@@ -48,6 +48,18 @@ func updateShopMenu():
 		$ArrowRight.visible = true
 	else:
 		$ArrowRight.visible = false
+	
+	if packageIndex == 0:
+		$FreeLabel.visible = true
+		$Buy.visible = true
+		$NotEnoughtLabel.visible = false
+	else:
+		if !checkIfCanBuy():
+			$Buy.visible = false
+			$NotEnoughtLabel.visible = true
+		else:
+			$Buy.visible = true
+			$NotEnoughtLabel.visible = false
 
 func showCost():
 	if packageIndex == 0:
@@ -56,37 +68,55 @@ func showCost():
 	else:
 		$FreeLabel.visible = false
 		
+		$CostContainer/item5Money/Cost.text = str(system.moneySystemNode.returnCoinNumber(packageList[packageIndex].costMoney))
+		$CostContainer/item5Money/Image.texture = system.moneySystemNode.returnCoinGraphics(packageList[packageIndex].costMoney)
+		
 		for i in 4:
-			if i < costList[packageIndex].resources.size():
-				$CostContainer.get_child(i).get_node("Cost").text = str(costList[packageIndex].quantity[i]) + " x " + costList[packageIndex].resources[i].cardName
-				$CostContainer.get_child(i).get_node("Image").texture = costList[packageIndex].resources[i].image
-				$CostContainer.get_child(i).visible = true
+			if i < packageList[packageIndex].costResources.size():
+				$CostContainer.get_child(i+1).get_node("Cost").text = str(packageList[packageIndex].costResourcesQuantity[i]) + " x " + packageList[packageIndex].costResources[i].cardName
+				$CostContainer.get_child(i+1).get_node("Image").texture = packageList[packageIndex].costResources[i].image
+				$CostContainer.get_child(i+1).visible = true
 			else:
-				$CostContainer.get_child(i).visible = false
+				$CostContainer.get_child(i+1).visible = false
 		
 		$CostContainer.visible = true
 
 func showShopMenu():
 	visible = true
+	updateShopMenu()
 
 func tryToBuyPackages():
-	var cardsToUse = [] #for better optimalization
-	var quantityToUse = []
-	for i in costList[packageIndex].resources.size():
-		var playerCard = system.checkIfHaveCard(costList[packageIndex].resources[i])
-		if !playerCard:
-			return
-		else:
-			if playerCard.quantity < costList[packageIndex].quantity[i]:
-				return
-			cardsToUse.append(playerCard)
-			quantityToUse.append(costList[packageIndex].quantity[i])
+	if checkIfCanBuy():
+		for i in cardsToUse.size():
+			cardsToUse[i].use(quantityToUse[i])
+		
+		
+		buyPackages()
+
+var cardsToUse = [] #for better optimalization
+var quantityToUse = []
+func checkIfCanBuy():
+	cardsToUse.clear()
+	quantityToUse.clear()
 	
-	for i in cardsToUse.size():
-		cardsToUse[i].use(quantityToUse[i])
-	buyPackages()
+	if system.moneySystemNode.money < packageList[packageIndex].costMoney:
+		return false
+	
+	for i in packageList[packageIndex].costResources.size():
+		var playerCard = system.checkIfHaveCard(packageList[packageIndex].costResources[i])
+		if !playerCard:
+			return false
+		else:
+			if playerCard.quantity < packageList[packageIndex].costResourcesQuantity[i]:
+				return false
+			cardsToUse.append(playerCard)
+			quantityToUse.append(packageList[packageIndex].costResourcesQuantity[i])
+	return true
 
 func buyPackages():
+	if packageList[packageIndex].costMoney != 0:
+		system.moneySystemNode.modifyMoneyWithAnim(-packageList[packageIndex].costMoney)
+	
 	var boughtPackage = $"../Package"
 	boughtPackage.updatePackage($PackageList.get_child(packageIndex).get_child(0).texture,packageList[packageIndex])
 	boughtPackage.visible = true

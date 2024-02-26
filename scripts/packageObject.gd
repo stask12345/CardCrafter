@@ -53,10 +53,11 @@ func packageClicked():
 func openPackage():
 	var cardInstance = preload("res://objects/Utility/InteractiveCard.tscn")
 	var cards = []
-	if currentPackage.packageName == "Forest":
-		cards = currentPackage.getNonRandomArray(packageSize)
-	else:
-		cards = currentPackage.getRandomArray(packageSize)
+	cards = currentPackage.getNonRandomArray(packageSize)
+	#if currentPackage.packageName == "Forest" or currentPackage.packageName == "Mine":
+		#cards = currentPackage.getNonRandomArray(packageSize)
+	#else:
+		#cards = currentPackage.getRandomArray(packageSize)
 	for cardData in cards:
 		var c : interactiveCard = cardInstance.instantiate()
 		c.cardData = cardData

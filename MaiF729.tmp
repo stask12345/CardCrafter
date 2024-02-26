@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://dfk0ti8omq8tb"]
+[gd_scene load_steps=91 format=3 uid="uid://dfk0ti8omq8tb"]
 
 [ext_resource type="Script" path="res://scripts/system.gd" id="1_touu2"]
 [ext_resource type="Script" path="res://scripts/cardHolder.gd" id="2_muers"]
@@ -21,15 +21,11 @@
 [ext_resource type="Resource" uid="uid://0wqnb7a5xfrp" path="res://resources/recipies/buildingRecipies/Furnace.tres" id="9_brqs0"]
 [ext_resource type="Texture2D" uid="uid://f3l2ovjgt1gv" path="res://graphics/UI/arrowUI.png" id="10_siam1"]
 [ext_resource type="Resource" uid="uid://c7txkii4bi6dr" path="res://resources/recipies/buildingRecipies/Shop.tres" id="10_w40oq"]
-[ext_resource type="Resource" uid="uid://dg3fibheo6577" path="res://resources/recipies/buildingRecipies/Anvil.tres" id="11_1bscr"]
-[ext_resource type="Resource" uid="uid://c26143wi1mqad" path="res://resources/recipies/buildingRecipies/Well.tres" id="12_bsqoi"]
 [ext_resource type="Script" path="res://scripts/CraftingTable.gd" id="13_b0emq"]
 [ext_resource type="Texture2D" uid="uid://7mmnrrv4eolw" path="res://graphics/areaElements/ribbon.png" id="13_mbxjh"]
 [ext_resource type="Texture2D" uid="uid://cjx2yxgvtkobc" path="res://graphics/forestPackage.png" id="13_w0evf"]
 [ext_resource type="Resource" uid="uid://b1m7t5trt1nbn" path="res://resources/recipies/crafter/Rope.tres" id="14_4isum"]
-[ext_resource type="Resource" uid="uid://b080h0qyt7b16" path="res://resources/recipies/ranksRecipies/Metalworking.tres" id="14_uf5le"]
 [ext_resource type="Texture2D" uid="uid://bcwbwkva2xds0" path="res://graphics/packageMine.png" id="15_kod6w"]
-[ext_resource type="Resource" uid="uid://daxnu5wqyf6ns" path="res://resources/recipies/ranksRecipies/Manufacturing.tres" id="15_o3qs3"]
 [ext_resource type="Script" path="res://scripts/recipy.gd" id="15_ylj78"]
 [ext_resource type="PackedScene" uid="uid://bkctt6itl54wc" path="res://objects/Utility/RequestingSlot.tscn" id="15_yr37l"]
 [ext_resource type="FontFile" uid="uid://bhe5mj7qr75a3" path="res://graphics/fonts/MangabeyRegular-rgqVO.otf" id="16_3npbd"]
@@ -57,10 +53,14 @@
 [ext_resource type="Texture2D" uid="uid://c5r8faqn1dhjh" path="res://graphics/animations/cloud2.png" id="44_hnndv"]
 [ext_resource type="Script" path="res://scripts/PopupUpgrade.gd" id="49_7iwcp"]
 [ext_resource type="Script" path="res://scripts/ListOfCostItems.gd" id="50_r4shp"]
+[ext_resource type="PackedScene" uid="uid://d3q5y2vr6ap4g" path="res://objects/AreaLocations/Well.tscn" id="51_brmet"]
 [ext_resource type="Script" path="res://scripts/MoneySystem.gd" id="51_j80oh"]
 [ext_resource type="Texture2D" uid="uid://bg77pvxurl0k" path="res://graphics/cards/tengrai_image_1703589364_4173577.webp" id="51_jigtx"]
+[ext_resource type="PackedScene" uid="uid://efofnn262gdu" path="res://objects/AreaLocations/Anvil.tscn" id="51_oqt8b"]
+[ext_resource type="PackedScene" uid="uid://b1rc0qkfr8gbi" path="res://objects/AreaLocations/Furnace.tscn" id="51_tyucf"]
 [ext_resource type="Texture2D" uid="uid://cmm56dyfia0q4" path="res://graphics/coin1b.png" id="52_8s0qc"]
 [ext_resource type="Texture2D" uid="uid://c7lg4x5vu3oqw" path="res://graphics/cards/tengrai_image_1704402244_1364539.webp" id="52_syv5o"]
+[ext_resource type="PackedScene" uid="uid://c6j1cti5hr12w" path="res://objects/AreaLocations/EmptyLocation.tscn" id="52_y4jp0"]
 [ext_resource type="Texture2D" uid="uid://bbdvfyddr5c4k" path="res://graphics/cards/tengrai_image_1704478297_7218404.webp" id="53_03v1h"]
 [ext_resource type="Texture2D" uid="uid://bj7hu2xake43s" path="res://graphics/cards/tengrai_image_1704477496_5350497.webp" id="54_7d87j"]
 [ext_resource type="Texture2D" uid="uid://scnxnq1qqt3f" path="res://graphics/coin100.png" id="55_4kg01"]
@@ -133,13 +133,6 @@ quantity = Array[int]([2, 1])
 outputResource = Array[Resource("res://scripts/card.gd")]([])
 goldCost = 0
 recipyName = ""
-
-[sub_resource type="LabelSettings" id="LabelSettings_o4jil"]
-font = ExtResource("16_3npbd")
-font_size = 35
-font_color = Color(0.552941, 0.552941, 0.552941, 1)
-outline_size = 6
-outline_color = Color(0.162066, 0.162066, 0.162066, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mtgfc"]
 font = ExtResource("16_3npbd")
@@ -569,8 +562,8 @@ anchors_preset = 0
 offset_right = 538.0
 offset_bottom = 750.0
 script = ExtResource("3_gfo1b")
-howMuchEmptyLocations = Array[int]([0, 2, 4, 6])
-rankBuildingsArray = Array[Array]([[], [ExtResource("9_brqs0"), ExtResource("10_w40oq")], [ExtResource("11_1bscr"), ExtResource("12_bsqoi")], []])
+howMuchEmptyLocations = Array[int]([0, 2])
+rankBuildingsArray = Array[Array]([[], [ExtResource("9_brqs0"), ExtResource("10_w40oq")], []])
 
 [node name="QuestRoom" type="Control" parent="MainWindow"]
 visible = false
@@ -578,9 +571,9 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_darfe")
-rankRecipies = Array[ExtResource("15_ylj78")]([ExtResource("5_jbdmh"), ExtResource("6_6lwy7"), ExtResource("14_uf5le"), ExtResource("15_o3qs3")])
-rankNames = Array[String](["Humble Beginnings", "Stone Age", "Metal processing", "Production Automation"])
-rankGoldRewards = Array[int]([30, 50, 80, 100])
+rankRecipies = Array[ExtResource("15_ylj78")]([ExtResource("5_jbdmh"), ExtResource("6_6lwy7")])
+rankNames = Array[String](["Humble Beginnings", "Stone Age"])
+rankGoldRewards = Array[int]([30, 50])
 
 [node name="Rank" type="Label" parent="MainWindow/QuestRoom"]
 layout_mode = 0
@@ -817,17 +810,6 @@ action_mode = 0
 text = "- BUY -"
 flat = true
 
-[node name="NotEnoughtLabel" type="Label" parent="MainWindow/CardOpener/ShopMenu"]
-visible = false
-layout_mode = 0
-offset_left = 146.0
-offset_top = 507.0
-offset_right = 405.0
-offset_bottom = 539.0
-text = "- Not enough resources -"
-label_settings = SubResource("LabelSettings_o4jil")
-horizontal_alignment = 1
-
 [node name="Title" type="Label" parent="MainWindow/CardOpener/ShopMenu"]
 layout_mode = 0
 offset_left = 202.0
@@ -872,31 +854,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CostContainer" type="VBoxContainer" parent="MainWindow/CardOpener/ShopMenu"]
-visible = false
 layout_mode = 0
-offset_left = 9.0
+offset_left = 24.0
 offset_top = -1.0
-offset_right = 49.0
-offset_bottom = 119.0
-theme_override_constants/separation = 40
-
-[node name="item5Money" type="Control" parent="MainWindow/CardOpener/ShopMenu/CostContainer"]
-layout_mode = 2
-
-[node name="Cost" type="Label" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item5Money"]
-layout_mode = 2
-offset_left = 230.0
-offset_top = 563.0
-offset_right = 308.0
-offset_bottom = 595.0
-text = "20 "
-label_settings = SubResource("LabelSettings_5xwfb")
-vertical_alignment = 1
-
-[node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item5Money"]
-position = Vector2(206.6, 577)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("7_tljix")
+offset_right = 64.0
+offset_bottom = 104.0
+theme_override_constants/separation = 35
 
 [node name="item1" type="Control" parent="MainWindow/CardOpener/ShopMenu/CostContainer"]
 layout_mode = 2
@@ -913,7 +876,7 @@ vertical_alignment = 1
 
 [node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item1"]
 position = Vector2(206.6, 577)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("7_tljix")
 
 [node name="item2" type="Control" parent="MainWindow/CardOpener/ShopMenu/CostContainer"]
@@ -931,7 +894,7 @@ vertical_alignment = 1
 
 [node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item2"]
 position = Vector2(206.6, 577)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("7_tljix")
 
 [node name="item3" type="Control" parent="MainWindow/CardOpener/ShopMenu/CostContainer"]
@@ -949,7 +912,7 @@ vertical_alignment = 1
 
 [node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item3"]
 position = Vector2(206.6, 577)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("7_tljix")
 
 [node name="item4" type="Control" parent="MainWindow/CardOpener/ShopMenu/CostContainer"]
@@ -967,7 +930,7 @@ vertical_alignment = 1
 
 [node name="Image" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu/CostContainer/item4"]
 position = Vector2(206.6, 577)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("7_tljix")
 
 [node name="ArrowRight" type="Sprite2D" parent="MainWindow/CardOpener/ShopMenu"]
@@ -1041,7 +1004,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("13_b0emq")
-availableRecipes = Array[ExtResource("15_ylj78")]([ExtResource("14_4isum"), ExtResource("21_ejji6"), ExtResource("20_pqs0i"), ExtResource("17_kllyk"), ExtResource("18_32hiw"), ExtResource("19_fvusr"), ExtResource("22_15glv")])
+availableRecipes = Array[ExtResource("15_ylj78")]([ExtResource("21_ejji6"), ExtResource("20_pqs0i"), ExtResource("14_4isum"), ExtResource("17_kllyk"), ExtResource("18_32hiw"), ExtResource("19_fvusr"), ExtResource("22_15glv")])
 
 [node name="requestingSlot" parent="MainWindow/CraftingTable" node_paths=PackedStringArray("parentArea") instance=ExtResource("15_yr37l")]
 offset_left = 271.0
@@ -1120,7 +1083,6 @@ texture = ExtResource("42_g3gcg")
 
 [node name="RecipyBook" type="Control" parent="MainWindow/CraftingTable"]
 visible = false
-z_index = 101
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1247,6 +1209,31 @@ texture = ExtResource("44_hnndv")
 libraries = {
 "": SubResource("AnimationLibrary_3bofu")
 }
+
+[node name="Furnace" parent="MainWindow" instance=ExtResource("51_tyucf")]
+visible = false
+offset_top = -2.0
+offset_bottom = 38.0
+
+[node name="Anvil" parent="MainWindow" instance=ExtResource("51_oqt8b")]
+visible = false
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 38.0
+offset_bottom = 39.0
+
+[node name="Well" parent="MainWindow" instance=ExtResource("51_brmet")]
+visible = false
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 39.0
+offset_bottom = 38.0
+
+[node name="EmptyLocation" parent="MainWindow" instance=ExtResource("52_y4jp0")]
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 42.0
+offset_bottom = 37.0
 
 [node name="NavArrows" type="Control" parent="MainWindow"]
 layout_mode = 1
@@ -1433,8 +1420,7 @@ text_direction = 1
 [node name="MoneyCost" type="Control" parent="Popup"]
 visible = false
 anchors_preset = 0
-offset_left = -17.0
-offset_right = 23.0
+offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Popup/MoneyCost"]
@@ -1448,10 +1434,10 @@ label_settings = SubResource("LabelSettings_io7x5")
 
 [node name="Cost" type="Label" parent="Popup/MoneyCost"]
 layout_mode = 0
-offset_left = 199.0
-offset_top = 424.0
-offset_right = 277.0
-offset_bottom = 469.0
+offset_left = 197.0
+offset_top = 427.0
+offset_right = 275.0
+offset_bottom = 472.0
 text = "0
 "
 label_settings = SubResource("LabelSettings_io7x5")

@@ -4,6 +4,7 @@ class_name interactiveCard
 @export var cardData : card
 @onready var system = get_node("/root/MainScene")
 var toPick = false #if true, card after clicking will return to hand
+var cantPick = false #because variable above lost it's meaning...
 var goingToFinishGoal = false #if true, card after flyToPoint, will raise burnCard function in parent(requesting field)
 var flying = false
 var unordering = false
@@ -41,13 +42,15 @@ func flyToHand(fast = false):
 	
 	var goalPoint = Vector2(global_position.x,810)
 	
+	goalPoint = goalPoint - global_position + position
+	
 	var time
 	if !fast:
 		time = 0.7
 	else:
 		flyTween.set_trans(Tween.TRANS_CUBIC)
 		time = 0.4
-	flyTween.tween_property(self,"global_position",goalPoint, time)
+	flyTween.tween_property(self,"position",goalPoint, time)
 	flyTween.parallel().tween_property(self,"scale",Vector2(0.6,0.5),time)
 	flyTween.parallel().tween_property(self,"modulate",Color(1,1,1,0.3), time)
 	flyTween.tween_callback(addCardToHand)
@@ -79,12 +82,14 @@ func addCardToHand():
 	queue_free()
 
 func cardClicked():
-	if !flying:
-		if toPick:
-			flyToHand()
-			toPick = false
-		else:
-			returnFromRequesting()
+	if !cantPick:
+		if !flying:
+			if toPick:
+				flyToHand()
+				toPick = false
+				cantPick = true
+			else:
+				returnFromRequesting()
 
 func returnFromRequesting():
 	if get_parent().is_in_group("requesting") and !goingToFinishGoal:

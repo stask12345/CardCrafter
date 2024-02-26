@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chy41dah4ocx6"
-path="res://.godot/imported/coin1a.png-0517e6256be7b91cb430d198eecac9da.ctex"
+uid="uid://b5tj8ji46xilx"
+path="res://.godot/imported/wellSymbol.png-d0839ee1b73ddd685ec3caf3a116f7bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/coin1a.png"
-dest_files=["res://.godot/imported/coin1a.png-0517e6256be7b91cb430d198eecac9da.ctex"]
+source_file="res://graphics/areaElements/wellSymbol.png"
+dest_files=["res://.godot/imported/wellSymbol.png-d0839ee1b73ddd685ec3caf3a116f7bb.ctex"]
 
 [params]
 

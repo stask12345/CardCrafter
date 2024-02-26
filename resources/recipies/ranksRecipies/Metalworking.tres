@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=5 format=3 uid="uid://b080h0qyt7b16"]
+
+[ext_resource type="Resource" uid="uid://co3a6tq277wts" path="res://resources/cards/Mine/Cogwell.tres" id="1_flgro"]
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_wcnfl"]
+[ext_resource type="Resource" uid="uid://do1gaynys27gl" path="res://resources/cards/Forest/Vase(Water).tres" id="2_uig3g"]
+[ext_resource type="Resource" uid="uid://d2sdmkh7vmxcc" path="res://resources/cards/Mine/CopperBar.tres" id="3_27b1x"]
+
+[resource]
+script = ExtResource("1_wcnfl")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("1_flgro"), ExtResource("2_uig3g"), ExtResource("3_27b1x")])
+quantity = Array[int]([1, 1, 1])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+goldCost = 0
+recipyName = "Metalworking"

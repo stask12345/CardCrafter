@@ -5,7 +5,8 @@ var requiredRecipy : recipy
 
 func _ready():
 	updateDataInList()
-	$Button.connect("pressed", func(): system.checkPlayerDecision(self, "Build [color=44FF44]" + requiredRecipy.recipyName + "[/color]?"))
+	print(requiredRecipy.goldCost,"gc")
+	$Button.connect("pressed", func(): system.checkPlayerDecision(self, "Build [color=44FF44]" + requiredRecipy.recipyName + "[/color]?", requiredRecipy.goldCost))
 
 func updateDataInList():
 	$NameOfBuilding.text = requiredRecipy.recipyName

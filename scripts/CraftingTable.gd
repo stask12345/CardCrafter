@@ -36,6 +36,7 @@ func craft():
 			$Clouds/AnimationPlayer.play("idle")
 			for c in rSlot.get_children():
 				if c is interactiveCard:
+					c.cantPick = true
 					c.flyToPoint(rSlot.global_position)
 			showCraftButton(false)
 			await get_tree().create_timer(1).timeout

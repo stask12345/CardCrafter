@@ -132,7 +132,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_lio1j")
-recipyCost = Array[float]([50.0, 100.0, 150.0])
+recipyCost = Array[float]([50.0, 100.0, 150.0, 200.0, 300.0, 9900.0])
 systemUpgradeCost = Array[float]([9900.0, 300.0, 500.0])
 systemUpgradeNames = Array[String](["asdf", "zxcv"])
 
@@ -436,6 +436,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Name" type="Label" parent="Blueprint/SystemUpgrade"]
+layout_mode = 0
 offset_left = 121.0
 offset_top = 233.0
 offset_right = 421.0

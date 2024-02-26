@@ -1,0 +1,294 @@
+[gd_scene load_steps=6 format=3 uid="uid://bow4rtjf5tyyc"]
+
+[ext_resource type="Texture2D" uid="uid://do043ws147ygx" path="res://graphics/animations/cloud3.png" id="1_fcb2c"]
+[ext_resource type="Script" path="res://scripts/Clouds.gd" id="1_geuqc"]
+[ext_resource type="Texture2D" uid="uid://bwx6jfvwysari" path="res://graphics/animations/cloud4.png" id="2_aiu4i"]
+
+[sub_resource type="Animation" id="Animation_88jik"]
+resource_name = "built"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 2.6, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 2.6, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("control3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("control3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.5, 2.6, 3.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"animateClouds"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3vdv"]
+_data = {
+"built": SubResource("Animation_88jik")
+}
+
+[node name="Clouds" type="Control"]
+visible = false
+z_index = 101
+layout_mode = 3
+anchors_preset = 0
+offset_left = 42.0
+offset_top = -20.0
+offset_right = 82.0
+offset_bottom = 20.0
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_geuqc")
+
+[node name="Control1" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cloud3" type="Sprite2D" parent="Control1"]
+position = Vector2(92, 89)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud10" type="Sprite2D" parent="Control1"]
+position = Vector2(582.5, 251.25)
+rotation = 3.14159
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud18" type="Sprite2D" parent="Control1"]
+position = Vector2(180, 641.25)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud13" type="Sprite2D" parent="Control1"]
+position = Vector2(387.5, 843.75)
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud4" type="Sprite2D" parent="Control1"]
+position = Vector2(243.75, 505)
+texture = ExtResource("2_aiu4i")
+
+[node name="Cloud21" type="Sprite2D" parent="Control1"]
+position = Vector2(266.25, 32.5001)
+texture = ExtResource("2_aiu4i")
+
+[node name="Cloud15" type="Sprite2D" parent="Control1"]
+position = Vector2(43.75, 346.25)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_aiu4i")
+
+[node name="Cloud17" type="Sprite2D" parent="Control1"]
+position = Vector2(401.25, 978.75)
+texture = ExtResource("2_aiu4i")
+
+[node name="Control2" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cloud5" type="Sprite2D" parent="Control2"]
+position = Vector2(587.5, 588.75)
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud11" type="Sprite2D" parent="Control2"]
+position = Vector2(380, 140)
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud12" type="Sprite2D" parent="Control2"]
+position = Vector2(33.75, 942.5)
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud13" type="Sprite2D" parent="Control2"]
+position = Vector2(393.75, 1002.5)
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud19" type="Sprite2D" parent="Control2"]
+position = Vector2(57.5, 498.75)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud20" type="Sprite2D" parent="Control2"]
+position = Vector2(602.5, 400)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud24" type="Sprite2D" parent="Control2"]
+position = Vector2(290, 750)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud21" type="Sprite2D" parent="Control2"]
+position = Vector2(96.25, 1072.5)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud22" type="Sprite2D" parent="Control2"]
+position = Vector2(580, 1072.5)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud23" type="Sprite2D" parent="Control2"]
+position = Vector2(13.75, 696.25)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud9" type="Sprite2D" parent="Control2"]
+position = Vector2(625, 20)
+scale = Vector2(1, -1)
+texture = ExtResource("2_aiu4i")
+
+[node name="Cloud7" type="Sprite2D" parent="Control2"]
+position = Vector2(446.25, 345)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_aiu4i")
+
+[node name="Cloud8" type="Sprite2D" parent="Control2"]
+position = Vector2(263.75, 1146.25)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_aiu4i")
+
+[node name="Cloud10" type="Sprite2D" parent="Control2"]
+position = Vector2(398.75, 1092.5)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_aiu4i")
+
+[node name="control3" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cloud6" type="Sprite2D" parent="control3"]
+position = Vector2(93.75, 870)
+rotation = 3.14159
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud12" type="Sprite2D" parent="control3"]
+position = Vector2(387.5, 556.25)
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud14" type="Sprite2D" parent="control3"]
+position = Vector2(232.5, 311.25)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_fcb2c")
+
+[node name="Cloud8" type="Sprite2D" parent="control3"]
+position = Vector2(613.75, 920)
+texture = ExtResource("2_aiu4i")
+
+[node name="Cloud16" type="Sprite2D" parent="control3"]
+position = Vector2(593.75, 758.75)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_aiu4i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k3vdv")
+}

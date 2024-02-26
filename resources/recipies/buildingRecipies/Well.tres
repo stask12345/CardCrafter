@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=7 format=3 uid="uid://c26143wi1mqad"]
+
+[ext_resource type="PackedScene" uid="uid://d3q5y2vr6ap4g" path="res://objects/AreaLocations/Well.tscn" id="1_63xo4"]
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_xsueh"]
+[ext_resource type="Texture2D" uid="uid://b5tj8ji46xilx" path="res://graphics/areaElements/wellSymbol.png" id="2_nenr7"]
+[ext_resource type="Resource" uid="uid://bybrq4ywr5k2j" path="res://resources/cards/Forest/RockTool.tres" id="3_tckwg"]
+[ext_resource type="Resource" uid="uid://dqpymncvd4b7o" path="res://resources/cards/Mine/IronBar.tres" id="4_b1lec"]
+[ext_resource type="Resource" uid="uid://ddbkctpm3c3mv" path="res://resources/cards/Forest/Vase.tres" id="5_6rl46"]
+
+[resource]
+script = ExtResource("1_xsueh")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("3_tckwg"), ExtResource("4_b1lec"), ExtResource("5_6rl46")])
+quantity = Array[int]([1, 1, 1])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+goldCost = 50
+recipyName = "Well"
+recipyCustomImage = ExtResource("2_nenr7")
+customOutputObject = ExtResource("1_63xo4")

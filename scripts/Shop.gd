@@ -82,25 +82,26 @@ func buySystemUpgrade():
 
 var _canExitBlueprint = false
 func buyRecipy():
-	if system.moneySystemNode.money >= recipyCost[currentRecipyIndex]:
-		system.moneySystemNode.spendMoney(recipyCost[currentRecipyIndex])
-		var newRecipy = system.unknownRecipes[0]
-		system.craftingTable.updateKnownRecipies(newRecipy)
-		currentRecipyIndex += 1
-		updateCostLabels()
-		
-		system.mainWindow.changeNavVisibility(false)
-		$Blueprint/PopupName.text = "Unlocked new recipy!"
-		for ch in $Blueprint/Recipy/RecipyListItem/CenterContainer/HBoxContainer.get_children():
-			ch.queue_free()
-		$Blueprint/Recipy/RecipyListItem.setUpRecipy(newRecipy,0,true)
-		$Blueprint/Recipy.visible = true
-		$Blueprint.visible = true
-		openBlueprintAnimation(true)
-		await get_tree().create_timer(1).timeout
-		_canExitBlueprint = true
-	else:
-		print("Not enought money!") #TODO
+	if system.unknownRecipes.size() > 0:
+		if system.moneySystemNode.money >= recipyCost[currentRecipyIndex]:
+			system.moneySystemNode.spendMoney(recipyCost[currentRecipyIndex])
+			var newRecipy = system.unknownRecipes[0]
+			system.craftingTable.updateKnownRecipies(newRecipy)
+			currentRecipyIndex += 1
+			updateCostLabels()
+			
+			system.mainWindow.changeNavVisibility(false)
+			$Blueprint/PopupName.text = "Unlocked new recipy!"
+			for ch in $Blueprint/Recipy/RecipyListItem/CenterContainer/HBoxContainer.get_children():
+				ch.queue_free()
+			$Blueprint/Recipy/RecipyListItem.setUpRecipy(newRecipy,0,true)
+			$Blueprint/Recipy.visible = true
+			$Blueprint.visible = true
+			openBlueprintAnimation(true)
+			await get_tree().create_timer(1).timeout
+			_canExitBlueprint = true
+		else:
+			print("Not enought money!") #TODO
 
 func openBlueprintAnimation(vis):
 	var t = get_tree().create_tween()

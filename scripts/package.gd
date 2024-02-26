@@ -7,6 +7,7 @@ class_name package
 @export var costMoney : int
 @export var costResources : Array[card]
 @export var costResourcesQuantity : Array[int]
+const rareCardProbability = 20
 
 func getRandomArray(packageSize):
 	var arr = []
@@ -23,13 +24,16 @@ func getNonRandomArray(packageSize): #without duplicates
 	return arr
 
 func getRandomCard():
-	if randi()%20 == 0:
+	if randi()%rareCardProbability == 0:
 		if cardCollectionRare.size() != 0:
 			return cardCollectionRare.pick_random()
 	return cardCollection.pick_random()
 
 var TemporaryCardArray = []
 func getNonRandomCard():
+	if randi()%rareCardProbability == 0:
+		if cardCollectionRare.size() != 0:
+			return cardCollectionRare.pick_random()
 	var choosenCard = TemporaryCardArray.pick_random()
 	TemporaryCardArray.erase(choosenCard)
 	return choosenCard

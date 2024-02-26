@@ -26,14 +26,7 @@ func moveWindow(direction):
 			if areaIndex != i and (areaIndex - direction) != i:
 				get_child(i).visible = false 
 	
-	if areaIndex == 0:
-		$NavArrows/ArrowLeft.visible = false
-	else:
-		$NavArrows/ArrowLeft.visible = true
-	if areaIndex == get_children().size()-2:
-		$NavArrows/ArrowRight.visible = false
-	else:
-		$NavArrows/ArrowRight.visible = true
+	checkArrowVis()
 	
 	var previousArea = get_child(areaIndex - direction)
 	var nextArea = get_child(areaIndex)
@@ -67,6 +60,16 @@ func afterAreaChanged(previousArea):
 	previousArea.visible = false
 	updateNavigationCircles()
 
+func checkArrowVis():
+	if areaIndex == 0:
+		$NavArrows/ArrowLeft.visible = false
+	else:
+		$NavArrows/ArrowLeft.visible = true
+	if areaIndex == get_children().size()-2:
+		$NavArrows/ArrowRight.visible = false
+	else:
+		$NavArrows/ArrowRight.visible = true
+
 @onready var navigation = get_node("NavArrows/Navigation/HBoxContainer")
 func updateNumberOfNavCircles():
 	while navigation.get_child_count() < get_child_count()-1:
@@ -91,12 +94,17 @@ func addNewLocation(locationInstance : PackedScene, vis = false):
 	move_child(location,get_child_count()-2)
 	location.visible = vis
 
-const numberOfStartingLocations = 4
+const numberOfStartingLocations = 5
 func addNewEmptyLocation():
-	if get_child_count() - numberOfStartingLocations < howMuchEmptyLocations[system.rank]:
-		var emptyLocationInstance : PackedScene = load("res://objects/AreaLocations/EmptyLocation.tscn")
-		var emptyLocation = emptyLocationInstance.instantiate()
-		add_child(emptyLocation)
-		move_child(emptyLocation,get_child_count()-2)
-		emptyLocation.visible = false
-		updateNumberOfNavCircles()
+	print(howMuchEmptyLocations)
+	print(get_child_count())
+	if get_child(get_child_count()-2).name != "EmptyLocation":
+		if get_child_count() - numberOfStartingLocations < howMuchEmptyLocations[system.rank]:
+			var emptyLocationInstance : PackedScene = load("res://objects/AreaLocations/EmptyLocation.tscn")
+			var emptyLocation = emptyLocationInstance.instantiate()
+			add_child(emptyLocation)
+			move_child(emptyLocation,get_child_count()-2)
+			emptyLocation.visible = false
+			checkArrowVis()
+			await get_tree().create_timer(1).timeout
+			updateNumberOfNavCircles()

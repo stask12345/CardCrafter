@@ -241,6 +241,7 @@ text = "Hit
 "
 
 [node name="Label" type="Label" parent="Ironing/ButtonAnvil"]
+layout_mode = 0
 offset_left = 122.0
 offset_top = 220.0
 offset_right = 288.0

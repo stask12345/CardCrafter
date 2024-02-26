@@ -18,6 +18,8 @@ var available = true
 func _ready():
 	if collectableOutputPile:
 		$Button.connect("pressed",collectAllCards)
+	else:
+		$Button.connect("pressed",clicked)
 	
 	if parentArea == null:
 		parentArea = get_parent()
@@ -44,9 +46,10 @@ func checkIfAvailable(c):
 		return false
 
 func addCard(c : interactiveCard):
+	print("add0")
 	if !checkIfFull():
 		return false
-	
+	print("add0.5")
 	var pos = c.global_position
 	if c.get_parent() != null:
 		c.get_parent().remove_child(c)
@@ -60,7 +63,9 @@ func addCard(c : interactiveCard):
 		c.goingToFinishGoal = true
 		c.flyToPoint(global_position)
 	
+	print("add0.9")
 	if parentArea.actionOnAddingCard:
+		print("add1")
 		parentArea.addingCard(self)
 
 
@@ -133,7 +138,12 @@ func collectAllCards():
 				ch.call_deferred("cardClicked")
 		parentArea.cardCollectedFromOutput()
 
+func clicked():
+	print("clicked req!")
+
 func checkIfFull():
+	if eatingCards:
+		return true
 	if get_child_count() < cardLimit + 1:
 		return true
 	else:

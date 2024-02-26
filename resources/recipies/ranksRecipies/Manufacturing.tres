@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="recipy" load_steps=3 format=3 uid="uid://daxnu5wqyf6ns"]
+
+[ext_resource type="Script" path="res://scripts/recipy.gd" id="1_gww7f"]
+[ext_resource type="Resource" uid="uid://biuvnduid0lw6" path="res://resources/cards/Mine/GoldBar.tres" id="1_odwoc"]
+
+[resource]
+script = ExtResource("1_gww7f")
+resources = Array[Resource("res://scripts/card.gd")]([ExtResource("1_odwoc"), ExtResource("1_odwoc"), ExtResource("1_odwoc")])
+quantity = Array[int]([1, 1, 1])
+outputResource = Array[Resource("res://scripts/card.gd")]([])
+goldCost = 0
+recipyName = ""

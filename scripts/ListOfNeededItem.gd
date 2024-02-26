@@ -37,15 +37,26 @@ func updateNeededCards():
 			container.get_child(i).visible = false
 
 func cardArrived(c):
-	if addedResources.resources.has(c.cardData):
-		var resourceIndex = addedResources.resources.find(c.cardData)
-		addedResources.quantity[resourceIndex] += 1
-	else:
-		addedResources.resources.append(c.cardData)
-		addedResources.quantity.append(1)
-	
 	c.playDestroyAnim()
 	await get_tree().create_timer(0.6).timeout
+
+func collectedResources():
+	print("collected!!!!!!!!!!!!!!!!")
+	get_parent().resourcesCollected()
+
+func addingCard(slot):
+	var c = slot.get_child(slot.get_child_count()-1).cardData
+	if addedResources.resources.find(c) != -1:
+		var index = addedResources.resources.find(c)
+		if addedResources.quantity[index] + 1 >= choosenRecipy.quantity[choosenRecipy.resources.find(c)]:
+			$"../requestingSlot".whiteList.erase(c)
+	
+	if addedResources.resources.has(c):
+		var resourceIndex = addedResources.resources.find(c)
+		addedResources.quantity[resourceIndex] += 1
+	else:
+		addedResources.resources.append(c)
+		addedResources.quantity.append(1)
 	
 	var countNeeded : float = 0
 	var countAlreadyAdded : float = 0
@@ -57,9 +68,7 @@ func cardArrived(c):
 	if get_parent().has_node("ProgressBar/ProgressBar"):
 		$"../ProgressBar/ProgressBar".updateProgressBar((float) (countAlreadyAdded/countNeeded))
 	
-	if choosenRecipy.checkIfRecipiesEqual(addedResources):
-		collectedResources()
 	updateNeededCards()
-
-func collectedResources():
-	get_parent().resourcesCollected()
+	if choosenRecipy.checkIfRecipiesEqual(addedResources):
+		await get_tree().create_timer(1).timeout
+		collectedResources()

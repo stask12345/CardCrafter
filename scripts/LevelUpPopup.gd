@@ -10,4 +10,6 @@ func enableExit():
 
 func exitRankUpAnimation():
 	if enabledExit:
+		get_node("/root/MainScene").mainWindow.changeNavVisibility(true)
 		$AnimationPlayer.play("close")
+		get_node("/root/MainScene").moneySystemNode.modifyMoneyWithAnim(get_node("/root/MainScene/MainWindow/QuestRoom").rankGoldRewards[get_node("/root/MainScene").rank-1],true)

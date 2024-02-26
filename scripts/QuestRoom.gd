@@ -11,7 +11,7 @@ func _ready():
 	call_deferred("showRewards")
 	$RankUpButton.connect("pressed",rankUp)
 	
-	call_deferred("debug")
+	#call_deferred("debug")
 
 func debug(): #TODELETE
 	system.addCard(load("res://resources/cards/Forest/FirePlace.tres"))
@@ -55,6 +55,7 @@ func checkCardsForRankingUp():
 
 func rankUp():
 	$RankUpButton.visible = false
+	system.mainWindow.changeNavVisibility(false)
 	var rankUpPopup = load("res://objects/AreaLocations/LevelUpPopup.tscn")
 	var popup = rankUpPopup.instantiate()
 	
@@ -70,7 +71,9 @@ func rankUp():
 	system.rankUp()
 	showCardsNeededForRankUp()
 	showRankLabel()
-	#showRewards() #TODO
+	
+	showRewards() 
+	system.moneySystemNode.addMoney(rankGoldRewards[system.rank-1])
 
 func showRewards():
 	$Rewards/GoldLabel.text = str(rankGoldRewards[system.rank])
@@ -116,4 +119,4 @@ func _input(event): #TODELETE
 			system.addCard(load("res://resources/cards/Forest/package/Vine.tres"))
 			system.addCard(load("res://resources/cards/Forest/package/Stick.tres"))
 		if event.key_label == 68 and !event.pressed: #d
-			system.moneySystemNode.addMoney(50)
+			system.moneySystemNode.modifyMoneyWithAnim(30)

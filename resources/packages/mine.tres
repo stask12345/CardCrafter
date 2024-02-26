@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="package" load_steps=9 format=3 uid="uid://ktealwm205ni"]
 
 [ext_resource type="Resource" uid="uid://b7i6wa55shalj" path="res://resources/cards/Mine/package/IronOre.tres" id="1_86m81"]
-[ext_resource type="Resource" uid="uid://c43v11wbcn3yo" path="res://resources/cards/Forest/package/Stick.tres" id="1_tji2d"]
 [ext_resource type="Resource" uid="uid://d0o63qnx7uiay" path="res://resources/cards/Mine/package/Coal.tres" id="2_405wc"]
 [ext_resource type="Resource" uid="uid://ccc45lyqd8jfl" path="res://resources/cards/Mine/package/Clay.tres" id="3_2lslb"]
-[ext_resource type="Resource" uid="uid://dvvu3iess8gql" path="res://resources/cards/Forest/package/Vine.tres" id="3_bi5bj"]
 [ext_resource type="Resource" uid="uid://b21sgucchdnrs" path="res://resources/cards/Mine/package/CopperOre.tres" id="4_4n7yg"]
 [ext_resource type="Resource" uid="uid://cc52cwba4ixc3" path="res://resources/cards/Mine/package/GoldOre.tres" id="5_g8rns"]
 [ext_resource type="Script" path="res://scripts/package.gd" id="5_o30h5"]
+[ext_resource type="Resource" uid="uid://bybrq4ywr5k2j" path="res://resources/cards/Forest/RockTool.tres" id="6_ujaan"]
+[ext_resource type="Resource" uid="uid://8nu3fi0k2514" path="res://resources/cards/Forest/FirePlace.tres" id="7_fgb6m"]
 
 [resource]
 script = ExtResource("5_o30h5")
 packageName = "Mine"
 cardCollection = Array[Resource("res://scripts/card.gd")]([ExtResource("1_86m81"), ExtResource("1_86m81"), ExtResource("2_405wc"), ExtResource("3_2lslb"), ExtResource("4_4n7yg")])
 cardCollectionRare = Array[Resource("res://scripts/card.gd")]([ExtResource("5_g8rns")])
-costMoney = 50
-costResources = Array[Resource("res://scripts/card.gd")]([ExtResource("1_tji2d"), ExtResource("3_bi5bj")])
-costResourcesQuantity = Array[int]([2, 1])
+costMoney = 20
+costResources = Array[Resource("res://scripts/card.gd")]([ExtResource("6_ujaan"), ExtResource("7_fgb6m")])
+costResourcesQuantity = Array[int]([1, 1])

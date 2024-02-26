@@ -6,6 +6,7 @@ var ForestCardList = []
 var MineCardList = []
 var knownRecipies : Array[recipy] = []
 var unknownRecipes : Array[recipy] = [] #created using knownRecipies -  craft crafter recipes #In _ready
+var builded : Array[recipy]
 @export var rank = 0
 @export var systemUpgradeRank = 0
 @onready var cardHolder = get_node("CardHolder")
@@ -16,6 +17,7 @@ var unknownRecipes : Array[recipy] = [] #created using knownRecipies -  craft cr
 @onready var cardHolderTabs = get_node("BottomMenu/Tabs")
 
 func _ready():
+	randomize()
 	for ch in $MainWindow.get_children(): #TODELETE
 		if ch is AreaLocation:
 			ch.visible = false
@@ -40,8 +42,9 @@ func createInteractiveCard(parentObject, cardData):
 	ic.global_position = parentObject.global_position
 	return ic
 
-func checkPlayerDecision(script,text):
-	$Popup.checkPlayerDecision(script,text)
+func checkPlayerDecision(script,text,goldCost = 0):
+	print(goldCost, "gg")
+	$Popup.checkPlayerDecision(script,text, goldCost)
 
 func rankUp():
 	rank += 1

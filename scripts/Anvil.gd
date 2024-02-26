@@ -3,6 +3,7 @@ extends AreaLocation
 var duringIroning : bool = false
 
 func _ready():
+	actionOnAddingCard = true
 	$Button.connect("pressed",openMenu)
 	$Ironing/ButtonAnvil.connect("pressed",hit)
 
@@ -64,3 +65,6 @@ func ironingCompleted():
 	$Button.visible = true
 	$Ironing.visible = false
 	duringIroning = false
+
+func addingCard(c):
+	$ListOfNeededItems.addingCard(c)
